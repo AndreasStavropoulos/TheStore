@@ -29,11 +29,11 @@ namespace TheStore.ViewModels
             RefreshJackets();
         }
 
-        private void RefreshJackets()
+        private async void RefreshJackets()
         {
             try
             {
-                List<Jacket> jackets = jacketRepo.GetJackets();
+                List<Jacket> jackets = await jacketRepo.GetAllJacketsAsync();
                 Jackets = new ObservableCollection<Jacket>(jackets);
             }
             catch (Exception e)
