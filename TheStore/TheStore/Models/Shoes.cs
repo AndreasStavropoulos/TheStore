@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TheStore.Models
 {
-    public class Shoes : Product, IShoes
+    public class Shoes : Product
     {
         public enum Style
         {
@@ -16,11 +16,9 @@ namespace TheStore.Models
             FauxFur, Wool, Nylon, Cashmere, Leather
         }
 
-
         public List<int> Size { get; set; }
 
         public Style ShoeStyle { get; set; }
         public Material ShoeMaterial { get; set; }
-
     }
 }

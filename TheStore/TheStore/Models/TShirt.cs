@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TheStore.Models
+﻿namespace TheStore.Models
 {
-
-    public class TShirt : Product, ITShirt
+    public class TShirt : Product
     {
         public enum Size
+
         {
             Small, Medium, Large, XLarge
         }
@@ -19,6 +15,5 @@ namespace TheStore.Models
 
         public Size TShirtSize { get; set; }
         public Style TShirtStyle { get; set; }
-
     }
 }

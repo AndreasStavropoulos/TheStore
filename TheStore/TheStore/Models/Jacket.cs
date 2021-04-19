@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TheStore.Models
 {
-    public class Jacket : Product, IJacket
+    public class Jacket : Product
     {
         public enum Style
         {
