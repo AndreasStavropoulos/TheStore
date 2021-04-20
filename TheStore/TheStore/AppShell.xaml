@@ -79,16 +79,22 @@
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
 
-    <FlyoutItem Title="JacketPage" Icon="icon_feed.png">
+    <FlyoutItem Title="Home" Icon="home.png">
+        <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Jackets" Icon="varsity-jacket.png">
         <ShellContent Route="JacketPage" ContentTemplate="{DataTemplate local:JacketPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="ShoesPage" Icon="icon_feed.png">
+    <FlyoutItem Title="Shoes" Icon="leather-derby-shoe.png">
         <ShellContent Route="ShoesPage" ContentTemplate="{DataTemplate local:ShoesPage}" />
     </FlyoutItem>
-
-    <FlyoutItem Title="TShirtPage" Icon="icon_feed.png">
+    <FlyoutItem Title="TShirts" Icon="shirt.png">
         <ShellContent Route="TShirtPage" ContentTemplate="{DataTemplate local:TShirtPage}" />
     </FlyoutItem>
+    <FlyoutItem Title="Jeans" Icon="jeans.png">
+        <ShellContent Route="JeansPage" ContentTemplate="{DataTemplate local:JeansPage}" />
+    </FlyoutItem>
+    
 
 
     
