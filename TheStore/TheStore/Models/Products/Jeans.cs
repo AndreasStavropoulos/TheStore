@@ -11,7 +11,7 @@ namespace TheStore.Models
             Skinny, Baggy, BootCut, Straight
         }
 
-        public List<int> Size { get; set; }
+        //public List<int> Size { get; set; }
 
         public Style JeansStyle { get; set; }
     }
