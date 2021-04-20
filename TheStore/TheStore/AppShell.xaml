@@ -82,18 +82,13 @@
     <FlyoutItem Title="Home" Icon="home.png">
         <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Jackets" Icon="varsity-jacket.png">
-        <ShellContent Route="JacketPage" ContentTemplate="{DataTemplate local:JacketPage}" />
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Jackets" Icon="jacket_icon.png" Route="JacketPage" ContentTemplate="{DataTemplate local:JacketPage}" />
+            <ShellContent Title="Shoes" Icon="shoes_icon.png" Route="ShoesPage" ContentTemplate="{DataTemplate local:ShoesPage}" />
+            <ShellContent Title="TShirts" Icon="tshirt_icon.png" Route="TShirtPage" ContentTemplate="{DataTemplate local:TShirtPage}" />
+        <ShellContent Title="Jeans" Icon="jeans_icon.png" Route="JeansPage" ContentTemplate="{DataTemplate local:JeansPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Shoes" Icon="leather-derby-shoe.png">
-        <ShellContent Route="ShoesPage" ContentTemplate="{DataTemplate local:ShoesPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="TShirts" Icon="shirt.png">
-        <ShellContent Route="TShirtPage" ContentTemplate="{DataTemplate local:TShirtPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Jeans" Icon="jeans.png">
-        <ShellContent Route="JeansPage" ContentTemplate="{DataTemplate local:JeansPage}" />
-    </FlyoutItem>
+   
     
 
 
