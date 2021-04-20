@@ -2,6 +2,7 @@
 using TheStore.Models;
 using TheStore.Models.Products;
 using TheStore.Services;
+using TheStore.Views;
 using Xamarin.Forms;
 
 namespace TheStore.ViewModels
@@ -45,25 +46,25 @@ namespace TheStore.ViewModels
             CurrentUser = new CurrentUser();
         }
 
-        public void Login()
+        public async void Login()
         {
             //check user is in db
             //if he is add to current user as active user
 
-            var user = userRepo.FindUserByEMail(EMail).Result as Customer;
+            var user = userRepo.FindUserByEMail(EMail).Result;
 
 
             if (user== null)
             {
-                Shell.Current.GoToAsync("..");
+                await Shell.Current.GoToAsync("..");
             }
             else
             {
                 CurrentUser.ActiveUser = user;
-                Shell.Current.GoToAsync("..");
+                await Shell.Current.GoToAsync("..");
             }
 
-            
+            await Shell.Current.GoToAsync(nameof(HomePage));
 
         }
     }
