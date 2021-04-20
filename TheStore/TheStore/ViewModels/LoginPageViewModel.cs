@@ -12,7 +12,7 @@ namespace TheStore.ViewModels
         public CurrentUser CurrentUser { get; set; }
 
         private IUserRepo userRepo;
-        
+
         private string eMail;
 
         public string EMail
@@ -46,26 +46,28 @@ namespace TheStore.ViewModels
             CurrentUser = new CurrentUser();
         }
 
-        public async void Login()
+        public void Login()
         {
-            //check user is in db
-            //if he is add to current user as active user
-
             var user = userRepo.FindUserByEMail(EMail).Result;
 
-
-            if (user== null)
+            if (user == null)
             {
-                await Shell.Current.GoToAsync("..");
+                Password = "";
+                Shell.Current.GoToAsync("//" + nameof(LoginPage));
             }
             else
             {
-                CurrentUser.ActiveUser = user;
-                await Shell.Current.GoToAsync("..");
+                if (user.Password == Password)
+                {
+                    CurrentUser.ActiveUser = user;
+                    Shell.Current.GoToAsync("//" + nameof(HomePage));
+                }
+                else
+                {
+                    Password = "";
+                    Shell.Current.GoToAsync("//" + nameof(LoginPage));
+                }
             }
-
-            await Shell.Current.GoToAsync(nameof(HomePage));
-
         }
     }
 }

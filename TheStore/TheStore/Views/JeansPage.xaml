@@ -1,12 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TheStore.ViewModels.ProductViewModels"
              x:Class="TheStore.Views.JeansPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <ContentPage.BindingContext>
+        <local:JeansPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="3" />
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout Margin="20">
+        <CollectionView x:Name="CoffeesListView"
+                                ItemsSource="{Binding Jeans}"
+                                SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                                HeightRequest="100"
+                                Margin="25"
+                                BackgroundColor="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image HeightRequest="125"
+                               VerticalOptions="Start"
+                               Source="{Binding ImgUrl}" />
+                        <Label Grid.Column="1"
+                               VerticalOptions="Center"
+                               Text="{Binding Name}"
+                               FontSize="Large" />
+                        <Label Grid.Column="2"
+                               Text="{Binding Price}"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               TextColor="DeepSkyBlue"
+                               FontSize="Subtitle" />
+                        <Button Text="Add to cart" Grid.Column="3" Margin="20" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
 </ContentPage>

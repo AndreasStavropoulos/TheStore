@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using TheStore.ViewModels;
-using TheStore.Views;
+﻿using TheStore.Views;
 using Xamarin.Forms;
 
 namespace TheStore

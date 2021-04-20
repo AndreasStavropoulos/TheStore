@@ -5,12 +5,10 @@ namespace TheStore.Services
 {
     internal class DummyData
     {
-        
-
-
         private IGenericRepo<Jacket> genericRepoJackets;
         private IGenericRepo<Shoes> genericRepoShoes;
         private IGenericRepo<TShirt> genericRepoTshirt;
+        private IGenericRepo<Jeans> genericRepoJeans;
         private IUserRepo userRepo;
 
         public DummyData()
@@ -18,22 +16,8 @@ namespace TheStore.Services
             genericRepoShoes = new GenericRepo<Shoes>();
             genericRepoJackets = new GenericRepo<Jacket>();
             genericRepoTshirt = new GenericRepo<TShirt>();
+            genericRepoJeans = new GenericRepo<Jeans>();
             userRepo = new UserRepo();
-        }
-
-        private void AddUser()
-        {
-            User user = new User
-            {
-                Id = 0,
-                Email = "andreas@store.be",
-                Name = "Andreas",
-                Password = "1234",
-                IsAdmin = false
-            };
-
-            userRepo.SaveUserAsync(user);
-            
         }
 
         public async void FillDb()
@@ -56,7 +40,27 @@ namespace TheStore.Services
                 await genericRepoTshirt.SaveProductAsync(tshirt);
             }
 
+            List<Jeans> jeansList = GetJeans();
+            foreach (var jeans in jeansList)
+            {
+                await genericRepoJeans.SaveProductAsync(jeans);
+            }
+
             AddUser();
+        }
+
+        private void AddUser()
+        {
+            User user = new User
+            {
+                Id = 0,
+                Email = "andreas@store.be",
+                Name = "Andreas",
+                Password = "1234",
+                IsAdmin = false
+            };
+
+            userRepo.SaveUserAsync(user);
         }
 
         private List<Shoes> GetShoes()
