@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using TheStore.Models;
-using TheStore.Services;
-using Xamarin.Forms;
 
 namespace TheStore.ViewModels
 {

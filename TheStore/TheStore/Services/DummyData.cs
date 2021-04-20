@@ -35,7 +35,6 @@ namespace TheStore.Services
             {
                 await genericRepoTshirt.SaveProductAsync(tshirt);
             }
-
         }
 
         private List<Shoes> GetShoes()
@@ -110,7 +109,6 @@ namespace TheStore.Services
                     ImgUrl = "tshirt1.jpg",
                     TShirtSize = TShirt.Size.Large,
                     TShirtStyle = TShirt.Style.DressShirt
-                    
                 },
                 new TShirt
                 {
@@ -120,10 +118,9 @@ namespace TheStore.Services
                     Price = 5.55,
                     IsInStock = true,
                     Color = Color.Blue,
-                    ImgUrl = "tshirt2.jpg", 
+                    ImgUrl = "tshirt2.jpg",
                     TShirtSize = TShirt.Size.Small,
                     TShirtStyle = TShirt.Style.LongSleeve
-
                 }
             };
             return tshirts;

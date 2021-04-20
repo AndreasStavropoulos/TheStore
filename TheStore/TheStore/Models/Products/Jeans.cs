@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace TheStore.Models
 {
@@ -11,7 +9,7 @@ namespace TheStore.Models
             Skinny, Baggy, BootCut, Straight
         }
 
-        public List<int> Size { get; set; }
+        //public List<int> Size { get; set; }
 
         public Style JeansStyle { get; set; }
     }

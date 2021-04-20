@@ -82,18 +82,17 @@
     <FlyoutItem Title="Home" Icon="home.png">
         <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
     </FlyoutItem>
-    
+
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Jackets" Icon="jacket_icon.png" Route="JacketPage" ContentTemplate="{DataTemplate local:JacketPage}" />
-            <ShellContent Title="Shoes" Icon="shoes_icon.png" Route="ShoesPage" ContentTemplate="{DataTemplate local:ShoesPage}" />
-            <ShellContent Title="TShirts" Icon="tshirt_icon.png" Route="TShirtPage" ContentTemplate="{DataTemplate local:TShirtPage}" />
+        <ShellContent Title="Shoes" Icon="shoes_icon.png" Route="ShoesPage" ContentTemplate="{DataTemplate local:ShoesPage}" />
+        <ShellContent Title="TShirts" Icon="tshirt_icon.png" Route="TShirtPage" ContentTemplate="{DataTemplate local:TShirtPage}" />
         <ShellContent Title="Jeans" Icon="jeans_icon.png" Route="JeansPage" ContentTemplate="{DataTemplate local:JeansPage}" />
     </FlyoutItem>
-   
-    
 
-
-    
+    <FlyoutItem Title="Login" Icon="user.png">
+        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+    </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
 
