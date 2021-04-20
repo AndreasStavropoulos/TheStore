@@ -8,12 +8,13 @@ namespace TheStore
 {
     public partial class App : Application
     {
-
         public App()
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DummyData dummyData = new DummyData();
+            dummyData.FillDb();
+
             MainPage = new AppShell();
         }
 

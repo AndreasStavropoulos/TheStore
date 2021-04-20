@@ -16,7 +16,7 @@ namespace TheStore.Models
             FauxFur, Wool, Nylon, Cashmere, Leather
         }
 
-        public List<int> Size { get; set; }
+        //public List<int> Size { get; set; }
 
         public Style ShoeStyle { get; set; }
         public Material ShoeMaterial { get; set; }

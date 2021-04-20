@@ -2,30 +2,29 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Text;
 using TheStore.Models;
 using TheStore.Services;
 
 namespace TheStore.ViewModels
 {
-    public class HomePageViewModel : BaseViewModel
+    internal class JacketPageViewModel : BaseViewModel
     {
-        private ObservableCollection<Jacket> jackets;
-        private JacketRepo jacketRepo;
+        private ObservableCollection<Jacket> jacket;
+        private IGenericRepo<Jacket> genericRepoJackets;
 
         public ObservableCollection<Jacket> Jackets
         {
-            get { return jackets; }
+            get { return jacket; }
             set
             {
-                jackets = value;
-                OnPropertyChanged(nameof(Jackets));
+                jacket = value;
+                OnPropertyChanged(nameof(Jacket));
             }
         }
 
-        public HomePageViewModel()
+        public JacketPageViewModel()
         {
-            jacketRepo = new JacketRepo();
+            genericRepoJackets = new GenericRepo<Jacket>();
             RefreshJackets();
         }
 
@@ -33,7 +32,7 @@ namespace TheStore.ViewModels
         {
             try
             {
-                List<Jacket> jackets = await jacketRepo.GetAllJacketsAsync();
+                List<Jacket> jackets = await genericRepoJackets.GetAllProductsAsync();
                 Jackets = new ObservableCollection<Jacket>(jackets);
             }
             catch (Exception e)

@@ -8,9 +8,10 @@ using Xamarin.Essentials;
 
 namespace TheStore
 {
-    public class TheStoreContext: DbContext
+    public class TheStoreContext : DbContext
     {
-        public DbSet<Jacket> jackets { get; set; }
+        public DbSet<Jacket> Jackets { get; set; }
+        public DbSet<Shoes> Shoes { get; set; }
 
         public TheStoreContext()
         {
@@ -19,7 +20,7 @@ namespace TheStore
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "TheShop.sqlite");
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "TheShop3.sqlite");
             optionsBuilder.UseSqlite($"FileName = {dbPath}");
         }
     }
