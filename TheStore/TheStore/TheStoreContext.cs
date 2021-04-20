@@ -13,6 +13,8 @@ namespace TheStore
         public DbSet<Jacket> Jackets { get; set; }
         public DbSet<Shoes> Shoes { get; set; }
         public DbSet<TShirt> TShirts { get; set; }
+        public DbSet<Jeans> Jeans { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public TheStoreContext()
         {
@@ -21,7 +23,7 @@ namespace TheStore
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "TheShop9.sqlite");
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "TheShop10.sqlite");
             optionsBuilder.UseSqlite($"FileName = {dbPath}");
         }
     }

@@ -13603,6 +13603,30 @@ namespace TheStore.Droid
 			// aapt resource value: 0x7F0E0059
 			public const int status_bar_notification_info_overflow = 2131624025;
 			
+			// aapt resource value: 0x7F0E0052
+			public const int overflow_tab_title = 2131624018;
+			
+			// aapt resource value: 0x7F0E0053
+			public const int password_toggle_content_description = 2131624019;
+			
+			// aapt resource value: 0x7F0E0054
+			public const int path_password_eye = 2131624020;
+			
+			// aapt resource value: 0x7F0E0055
+			public const int path_password_eye_mask_strike_through = 2131624021;
+			
+			// aapt resource value: 0x7F0E0056
+			public const int path_password_eye_mask_visible = 2131624022;
+			
+			// aapt resource value: 0x7F0E0057
+			public const int path_password_strike_through = 2131624023;
+			
+			// aapt resource value: 0x7F0E0058
+			public const int search_menu_title = 2131624024;
+			
+			// aapt resource value: 0x7F0E0059
+			public const int status_bar_notification_info_overflow = 2131624025;
+			
 			static String()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -17392,6 +17416,13 @@ namespace TheStore.Droid
 			// aapt resource value: 1
 			public const int ExtendedFloatingActionButton_Behavior_Layout_behavior_autoShrink = 1;
 			
+			// aapt resource value: 7
+			public const int DrawerArrowToggle_thickness = 7;
+			
+			// aapt resource value: { 0x7F0300F2 }
+			public static int[] DrawerLayout = new int[] {
+					2130903282};
+			
 			// aapt resource value: 0
 			public const int ExtendedFloatingActionButton_elevation = 0;
 			
@@ -17426,6 +17457,9 @@ namespace TheStore.Droid
 					2130903526,
 					2130903530,
 					2130903679};
+			
+			// aapt resource value: 0
+			public const int FloatingActionButton_android_enabled = 0;
 			
 			// aapt resource value: 0
 			public const int FloatingActionButton_android_enabled = 0;
@@ -17524,6 +17558,9 @@ namespace TheStore.Droid
 			// aapt resource value: 2
 			public const int FontFamilyFont_android_fontStyle = 2;
 			
+			// aapt resource value: 3
+			public const int FloatingActionButton_borderWidth = 3;
+			
 			// aapt resource value: 4
 			public const int FontFamilyFont_android_fontVariationSettings = 4;
 			
@@ -17539,11 +17576,20 @@ namespace TheStore.Droid
 			// aapt resource value: 6
 			public const int FontFamilyFont_fontStyle = 6;
 			
+			// aapt resource value: 5
+			public const int FontFamilyFont_font = 5;
+			
+			// aapt resource value: 6
+			public const int FontFamilyFont_fontStyle = 6;
+			
 			// aapt resource value: 7
 			public const int FontFamilyFont_fontVariationSettings = 7;
 			
 			// aapt resource value: 8
 			public const int FontFamilyFont_fontWeight = 8;
+			
+			// aapt resource value: 9
+			public const int FontFamilyFont_ttcIndex = 9;
 			
 			// aapt resource value: 9
 			public const int FontFamilyFont_ttcIndex = 9;
@@ -17969,6 +18015,17 @@ namespace TheStore.Droid
 			// aapt resource value: 0
 			public const int MaterialCalendar_android_windowFullscreen = 0;
 			
+			// aapt resource value: { 0x7F03018D,0x7F03018E,0x7F03018F,0x7F030190,0x7F030191 }
+			public static int[] MaterialAlertDialogTheme = new int[] {
+					2130903437,
+					2130903438,
+					2130903439,
+					2130903440,
+					2130903441};
+			
+			// aapt resource value: 0
+			public const int MaterialAlertDialogTheme_materialAlertDialogBodyTextStyle = 0;
+			
 			// aapt resource value: 1
 			public const int MaterialCalendar_dayInvalidStyle = 1;
 			
@@ -18006,6 +18063,15 @@ namespace TheStore.Droid
 					2130903562,
 					2130903563};
 			
+			// aapt resource value: 2
+			public const int MaterialAlertDialogTheme_materialAlertDialogTitleIconStyle = 2;
+			
+			// aapt resource value: 3
+			public const int MaterialAlertDialogTheme_materialAlertDialogTitlePanelStyle = 3;
+			
+			// aapt resource value: 4
+			public const int MaterialAlertDialogTheme_materialAlertDialogTitleTextStyle = 4;
+			
 			// aapt resource value: 0
 			public const int MaterialCardView_android_checkable = 0;
 			
@@ -18014,6 +18080,12 @@ namespace TheStore.Droid
 			
 			// aapt resource value: 2
 			public const int MaterialCardView_checkedIcon = 2;
+			
+			// aapt resource value: 1
+			public const int MaterialAlertDialog_backgroundInsetEnd = 1;
+			
+			// aapt resource value: 2
+			public const int MaterialAlertDialog_backgroundInsetStart = 2;
 			
 			// aapt resource value: 3
 			public const int MaterialCardView_checkedIconTint = 3;
