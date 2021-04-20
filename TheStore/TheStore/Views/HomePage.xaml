@@ -16,6 +16,9 @@
 
     <ContentPage.Content>
         <ScrollView>
+            <StackLayout>
+                
+            
             <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -35,19 +38,26 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-
-                        <Button Text="Jeans" Command="{Binding GoToJeansCommand}" Grid.Row="1" Grid.Column="1"/>
-                        <Button Text="T-Shirts" Command="{Binding GoToTshirtsCommand}" Grid.Row="1" Grid.Column="2"/>
-                        <Button Text="Jackets" Command="{Binding GoToJacketsCommand}" Grid.Row="2" Grid.Column="1"/>
-                        <Button Text="Shoes" Command="{Binding GoToShoesCommand}" Grid.Row="2" Grid.Column="2"/>
-
-                    </Grid>
+                    <StackLayout Orientation="Horizontal" Grid.Row="2">
+                        <StackLayout Orientation="Vertical">
+                            <Button Text="Jeans" Command="{Binding GoToJeansCommand}"/>
+                            <Button Text="T-Shirts" Command="{Binding GoToTshirtsCommand}"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical">
+                            <Button Text="Jackets" Command="{Binding GoToJacketsCommand}"/>
+                            <Button Text="Shoes" Command="{Binding GoToShoesCommand}"/>
+                        </StackLayout>
+                    </StackLayout>
+                        
+                </Grid>
 
                     <Image Source="" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
                     <Image Source="" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
                     <Label Text="TheStore - 2021" FontSize="Small" Grid.Row="3" HorizontalOptions="Center"/>
 
                 </Grid>
+                
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

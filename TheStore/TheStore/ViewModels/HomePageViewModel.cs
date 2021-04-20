@@ -4,14 +4,14 @@ using Xamarin.Forms;
 
 namespace TheStore.ViewModels
 {
-    internal class HomePageViewModel : BaseViewModel
+    public class HomePageViewModel : BaseViewModel
     {
-        public ICommand GoToJeansCommand;
-        public ICommand GoToTshirtsCommand;
-        public ICommand GoToJacketsCommand;
-        public ICommand GoToShoesCommand;
-        // public ICommand GoToUserCommand;
-        //public ICommand GoToCartCommand;
+        public ICommand GoToJeansCommand { get; }
+        public ICommand GoToTshirtsCommand { get; }
+        public ICommand GoToJacketsCommand { get; }
+        public ICommand GoToShoesCommand { get; }
+        // public ICommand GoToUserCommand { get; }
+        //public ICommand GoToCartCommand { get; }
 
         public HomePageViewModel()
         {

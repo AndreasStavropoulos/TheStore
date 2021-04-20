@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TheStore.Models
+﻿namespace TheStore.Models
 {
-    class User
+    internal class User
     {
     }
 }
