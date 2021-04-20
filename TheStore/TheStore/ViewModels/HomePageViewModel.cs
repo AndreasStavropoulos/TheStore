@@ -6,5 +6,6 @@ namespace TheStore.ViewModels
 {
     class HomePageViewModel
     {
+
     }
 }
