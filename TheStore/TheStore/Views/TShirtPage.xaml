@@ -121,6 +121,7 @@
                                            VerticalOptions="Center"
                                            TextColor="DeepSkyBlue"
                                            FontSize="Subtitle" />
+                                    <Button Text="Add to cart" Grid.Column="3" Margin="20" />
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
