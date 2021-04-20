@@ -16,38 +16,38 @@
 
     <ContentPage.Content>
         <ScrollView>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-            <Image x:Name="Header" Source="TheStore.png" Grid.Row="0" />
-
-                <Grid>
+            <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
 
-                    <Button Command="{Binding GoToJeansCommand}" Grid.Row="1" Grid.Column="1"/>
-                    <Button Command="{Binding GoToJeansCommand}" Grid.Row="1" Grid.Column="2"/>
-                    <Button Command="{Binding GoToJeansCommand}" Grid.Row="2" Grid.Column="1"/>
-                    <Button Command="{Binding GoToJeansCommand}" Grid.Row="2" Grid.Column="2"/>
+                    <Image x:Name="Header" Source="TheStore.png" Grid.Row="0" />
+
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Text="Jeans" Command="{Binding GoToJeansCommand}" Grid.Row="1" Grid.Column="1"/>
+                        <Button Text="T-Shirts" Command="{Binding GoToTshirtsCommand}" Grid.Row="1" Grid.Column="2"/>
+                        <Button Text="Jackets" Command="{Binding GoToJacketsCommand}" Grid.Row="2" Grid.Column="1"/>
+                        <Button Text="Shoes" Command="{Binding GoToShoesCommand}" Grid.Row="2" Grid.Column="2"/>
+
+                    </Grid>
+
+                    <Image Source="" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                    <Image Source="" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                    <Label Text="TheStore - 2021" FontSize="Small" Grid.Row="3" HorizontalOptions="Center"/>
 
                 </Grid>
-            
-            <Image Source="" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-            <Image Source="" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-            <Label Text="TheStore - 2021" FontSize="Small" Grid.Row="3" HorizontalOptions="Center"/>
-
-        </Grid>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
