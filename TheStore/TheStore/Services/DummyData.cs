@@ -7,11 +7,13 @@ namespace TheStore.Services
     {
         private IGenericRepo<Jacket> genericRepoJackets;
         private IGenericRepo<Shoes> genericRepoShoes;
+        private IGenericRepo<TShirt> genericRepoTshirt;
 
         public DummyData()
         {
             genericRepoShoes = new GenericRepo<Shoes>();
             genericRepoJackets = new GenericRepo<Jacket>();
+            genericRepoTshirt = new GenericRepo<TShirt>();
         }
 
         public async void FillDb()
@@ -27,6 +29,13 @@ namespace TheStore.Services
             {
                 await genericRepoJackets.SaveProductAsync(jacket);
             }
+
+            List<TShirt> tshirts = GetTShirts();
+            foreach (var tshirt in tshirts)
+            {
+                await genericRepoTshirt.SaveProductAsync(tshirt);
+            }
+
         }
 
         private List<Shoes> GetShoes()
@@ -84,6 +93,40 @@ namespace TheStore.Services
                 }
             };
             return jackets;
+        }
+
+        private List<TShirt> GetTShirts()
+        {
+            List<TShirt> tshirts = new List<TShirt>
+            {
+                new TShirt
+                {
+                    Id = 0,
+                    Name = "simple",
+                    Description = "this is a tshirt",
+                    Price = 2.55,
+                    IsInStock = true,
+                    Color = Color.Pink,
+                    ImgUrl = "tshirt1.jpg",
+                    TShirtSize = TShirt.Size.Large,
+                    TShirtStyle = TShirt.Style.DressShirt
+                    
+                },
+                new TShirt
+                {
+                    Id = 0,
+                    Name = "v tshirt",
+                    Description = "this is also a t-shirt",
+                    Price = 5.55,
+                    IsInStock = true,
+                    Color = Color.Blue,
+                    ImgUrl = "tshirt2.jpg", 
+                    TShirtSize = TShirt.Size.Small,
+                    TShirtStyle = TShirt.Style.LongSleeve
+
+                }
+            };
+            return tshirts;
         }
     }
 }
