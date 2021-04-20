@@ -22,8 +22,8 @@
 
             <Image x:Name="Header" Source="TheStore.png" Grid.Row="0" />
 
-            <Image Source="UpArrow.png" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-            <Image Source="DownArrow.png" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            <Image Source="" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            <Image Source="" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
             <Label Text="TheStore - 2021" FontSize="Small" Grid.Row="3" HorizontalOptions="Center"/>
 
         </Grid>
