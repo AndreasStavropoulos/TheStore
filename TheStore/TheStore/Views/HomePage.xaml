@@ -17,8 +17,7 @@
     <ContentPage.Content>
         <ScrollView>
             <Grid>
-                
-                <Grid.RowDefinitions>
+                    <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
