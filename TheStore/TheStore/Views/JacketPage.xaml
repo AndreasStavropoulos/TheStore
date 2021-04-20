@@ -13,7 +13,7 @@
         </Style>
     </ContentPage.Resources>
 
-    <StackLayout>
+    <StackLayout Margin="20">
         <CollectionView x:Name="CoffeesListView"
                                 ItemsSource="{Binding Jackets}"
                                 SelectionMode="Single">
@@ -34,19 +34,18 @@
                         </Grid.ColumnDefinitions>
 
                         <Image HeightRequest="125"
-                                       VerticalOptions="Start"
-                                       Source="{Binding ImgUrl}" />
+                               VerticalOptions="Start"
+                               Source="{Binding ImgUrl}" />
                         <Label Grid.Column="1"
-                                       VerticalOptions="Center"
-                                       Text="{Binding Name}"
-
-                                       FontSize="Large" />
+                               VerticalOptions="Center"
+                               Text="{Binding Name}"
+                               FontSize="Large" />
                         <Label Grid.Column="2"
-                                       Text="{Binding Price}"
-                                       FontAttributes="Bold"
-                                       VerticalOptions="Center"
-                                       TextColor="DeepSkyBlue"
-                                       FontSize="Subtitle" />
+                               Text="{Binding Price}"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               TextColor="DeepSkyBlue"
+                               FontSize="Subtitle" />
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
