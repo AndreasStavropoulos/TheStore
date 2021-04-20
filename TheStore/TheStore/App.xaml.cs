@@ -13,7 +13,7 @@ namespace TheStore
             InitializeComponent();
 
             DummyData dummyData = new DummyData();
-            dummyData.FillDb();
+            //dummyData.FillDb();
 
             MainPage = new AppShell();
         }
