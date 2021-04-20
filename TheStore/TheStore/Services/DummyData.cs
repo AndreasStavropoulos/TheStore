@@ -8,12 +8,14 @@ namespace TheStore.Services
         private IGenericRepo<Jacket> genericRepoJackets;
         private IGenericRepo<Shoes> genericRepoShoes;
         private IGenericRepo<TShirt> genericRepoTshirt;
+        private IGenericRepo<Jeans> genericRepoJeans;
 
         public DummyData()
         {
             genericRepoShoes = new GenericRepo<Shoes>();
             genericRepoJackets = new GenericRepo<Jacket>();
             genericRepoTshirt = new GenericRepo<TShirt>();
+            genericRepoJeans = new GenericRepo<Jeans>();
         }
 
         public async void FillDb()
@@ -34,6 +36,12 @@ namespace TheStore.Services
             foreach (var tshirt in tshirts)
             {
                 await genericRepoTshirt.SaveProductAsync(tshirt);
+            }
+
+            List<Jeans> jeans = GetJeans();
+            foreach (var jean in jeans)
+            {
+                await genericRepoJeans.SaveProductAsync(jean);
             }
         }
 
@@ -124,6 +132,36 @@ namespace TheStore.Services
                 }
             };
             return tshirts;
+        }
+
+        private List<Jeans> GetJeans()
+        {
+            List<Jeans> jeans = new List<Jeans>
+            {
+                new Jeans
+                {
+                    Id = 0,
+                    Name = "Skinny",
+                    Description = "this is a jeans",
+                    Price = 32.55,
+                    IsInStock = true,
+                    Color = Color.Pink,
+                    ImgUrl = "jeans.jpg",
+                    JeansStyle = Jeans.Style.Skinny
+                },
+                new Jeans
+                {
+                    Id = 0,
+                    Name = "Straight",
+                    Description = "this is also a jeans",
+                    Price = 25.95,
+                    IsInStock = true,
+                    Color = Color.Blue,
+                    ImgUrl = "jeans.jpg",
+                    JeansStyle = Jeans.Style.Straight
+                }
+            };
+            return jeans;
         }
     }
 }

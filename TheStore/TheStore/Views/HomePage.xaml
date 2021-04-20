@@ -33,7 +33,240 @@
                         <Button Text="Shoes" ImageSource="shoes.jpg" ContentLayout="Top,0" Command="{Binding GoToShoesCommand}" WidthRequest="200" BackgroundColor="White" TextColor="Black"/>
                     </StackLayout>
                 </StackLayout>
-                <Label Text="TheStore - 2021" FontSize="Small" HorizontalOptions="Center" />
+                <StackLayout>
+                    <Label Text="Jeans" HorizontalOptions="Center" FontSize="Large"/>
+                    <CarouselView ItemsSource="{Binding Jeans}"
+                              PeekAreaInsets="100"
+                              Loop="True"
+                              HeightRequest="300">
+
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+
+                                <StackLayout>
+                                    <Frame HeightRequest="200"
+                                       WidthRequest="180"
+                                       BackgroundColor="white"
+                                       HasShadow="True"
+                                       CornerRadius="10"
+                                       Padding="0"
+                                       Margin="10"
+                                       HorizontalOptions="CenterAndExpand">
+                                        <Grid>
+                                            <StackLayout BackgroundColor="white">
+                                                <Image Source="{Binding ImgUrl}"
+                                                   Aspect="AspectFit"
+                                                   Opacity="0.8" />
+                                            </StackLayout>
+                                            <StackLayout>
+                                                <Image Source="icon_bookmark.png"
+                                                   HeightRequest="60"
+                                                   Aspect="AspectFit"
+                                                   HorizontalOptions="EndAndExpand"
+                                                   Margin="0,-10,0,0" />
+                                                <Label Text="{Binding Name}"
+                                                   TextColor="black"
+                                                   FontSize="24"
+                                                   FontAttributes="Bold"
+                                                   Margin="15, 0"
+                                                   VerticalOptions="EndAndExpand" />
+
+                                                <StackLayout Orientation="Horizontal"
+                                                         Margin="15, -10,0,0">
+                                                    <Image Source="icon_map1.png"
+                                                       HeightRequest="20"
+                                                       Aspect="AspectFit" />
+                                                    <Label Text="{Binding Price}"
+                                                       TextColor="red"
+                                                       FontSize="14"
+                                                       VerticalOptions="EndAndExpand" />
+                                                </StackLayout>
+                                            </StackLayout>
+
+                                        </Grid>
+                                    </Frame>
+
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="T-Shirts" HorizontalOptions="Center" FontSize="Large"/>
+                    <CarouselView ItemsSource="{Binding TShirts}"
+                              PeekAreaInsets="100"
+                              Loop="True"
+                              HeightRequest="300">
+
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+
+                                <StackLayout>
+                                    <Frame HeightRequest="200"
+                                       WidthRequest="180"
+                                       BackgroundColor="white"
+                                       HasShadow="True"
+                                       CornerRadius="10"
+                                       Padding="0"
+                                       Margin="10"
+                                       HorizontalOptions="CenterAndExpand">
+                                        <Grid>
+                                            <StackLayout BackgroundColor="white">
+                                                <Image Source="{Binding ImgUrl}"
+                                                   Aspect="AspectFit"
+                                                   Opacity="0.8" />
+                                            </StackLayout>
+                                            <StackLayout>
+                                                <Image Source="icon_bookmark.png"
+                                                   HeightRequest="60"
+                                                   Aspect="AspectFit"
+                                                   HorizontalOptions="EndAndExpand"
+                                                   Margin="0,-10,0,0" />
+                                                <Label Text="{Binding Name}"
+                                                   TextColor="black"
+                                                   FontSize="24"
+                                                   FontAttributes="Bold"
+                                                   Margin="15, 0"
+                                                   VerticalOptions="EndAndExpand" />
+
+                                                <StackLayout Orientation="Horizontal"
+                                                         Margin="15, -10,0,0">
+                                                    <Image Source="icon_map1.png"
+                                                       HeightRequest="20"
+                                                       Aspect="AspectFit" />
+                                                    <Label Text="{Binding Price}"
+                                                       TextColor="red"
+                                                       FontSize="14"
+                                                       VerticalOptions="EndAndExpand" />
+                                                </StackLayout>
+                                            </StackLayout>
+
+                                        </Grid>
+                                    </Frame>
+
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Jackets" HorizontalOptions="Center" FontSize="Large"/>
+                    <CarouselView ItemsSource="{Binding Jackets}"
+                              PeekAreaInsets="100"
+                              Loop="True"
+                              HeightRequest="300">
+
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+
+                                <StackLayout>
+                                    <Frame HeightRequest="200"
+                                       WidthRequest="180"
+                                       BackgroundColor="white"
+                                       HasShadow="True"
+                                       CornerRadius="10"
+                                       Padding="0"
+                                       Margin="10"
+                                       HorizontalOptions="CenterAndExpand">
+                                        <Grid>
+                                            <StackLayout BackgroundColor="white">
+                                                <Image Source="{Binding ImgUrl}"
+                                                   Aspect="AspectFit"
+                                                   Opacity="0.8" />
+                                            </StackLayout>
+                                            <StackLayout>
+                                                <Image Source="icon_bookmark.png"
+                                                   HeightRequest="60"
+                                                   Aspect="AspectFit"
+                                                   HorizontalOptions="EndAndExpand"
+                                                   Margin="0,-10,0,0" />
+                                                <Label Text="{Binding Name}"
+                                                   TextColor="black"
+                                                   FontSize="24"
+                                                   FontAttributes="Bold"
+                                                   Margin="15, 0"
+                                                   VerticalOptions="EndAndExpand" />
+
+                                                <StackLayout Orientation="Horizontal"
+                                                         Margin="15, -10,0,0">
+                                                    <Image Source="icon_map1.png"
+                                                       HeightRequest="20"
+                                                       Aspect="AspectFit" />
+                                                    <Label Text="{Binding Price}"
+                                                       TextColor="red"
+                                                       FontSize="14"
+                                                       VerticalOptions="EndAndExpand" />
+                                                </StackLayout>
+                                            </StackLayout>
+
+                                        </Grid>
+                                    </Frame>
+
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Shoes" HorizontalOptions="Center" FontSize="Large"/>
+                    <CarouselView ItemsSource="{Binding Shoes}"
+                              PeekAreaInsets="100"
+                              Loop="True"
+                              HeightRequest="300">
+
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+
+                                <StackLayout>
+                                    <Frame HeightRequest="200"
+                                       WidthRequest="180"
+                                       BackgroundColor="white"
+                                       HasShadow="True"
+                                       CornerRadius="10"
+                                       Padding="0"
+                                       Margin="10"
+                                       HorizontalOptions="CenterAndExpand">
+                                        <Grid>
+                                            <StackLayout BackgroundColor="white">
+                                                <Image Source="{Binding ImgUrl}"
+                                                   Aspect="AspectFit"
+                                                   Opacity="0.8" />
+                                            </StackLayout>
+                                            <StackLayout>
+                                                <Image Source="icon_bookmark.png"
+                                                   HeightRequest="60"
+                                                   Aspect="AspectFit"
+                                                   HorizontalOptions="EndAndExpand"
+                                                   Margin="0,-10,0,0" />
+                                                <Label Text="{Binding Name}"
+                                                   TextColor="black"
+                                                   FontSize="24"
+                                                   FontAttributes="Bold"
+                                                   Margin="15, 0"
+                                                   VerticalOptions="EndAndExpand" />
+
+                                                <StackLayout Orientation="Horizontal"
+                                                         Margin="15, -10,0,0">
+                                                    <Image Source="icon_map1.png"
+                                                       HeightRequest="20"
+                                                       Aspect="AspectFit" />
+                                                    <Label Text="{Binding Price}"
+                                                       TextColor="red"
+                                                       FontSize="14"
+                                                       VerticalOptions="EndAndExpand" />
+                                                </StackLayout>
+                                            </StackLayout>
+
+                                        </Grid>
+                                    </Frame>
+
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                </StackLayout>
+
+                        <Label Text="TheStore - 2021" FontSize="Small" HorizontalOptions="Center" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
