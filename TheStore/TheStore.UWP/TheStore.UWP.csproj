@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="blazer.jpg" />
+    <Content Include="cart.png" />
     <Content Include="category.png" />
     <Content Include="home.png" />
     <Content Include="jeans_icon.png" />
@@ -144,6 +145,7 @@
     <Content Include="jacket_icon.png" />
     <Content Include="tshirt1.jpg" />
     <Content Include="tshirt2.jpg" />
+    <Content Include="user.png" />
     <Content Include="xamarin_logo.png" />
     <Content Include="icon_about.png" />
     <Content Include="icon_feed.png" />
