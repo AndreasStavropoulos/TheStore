@@ -5,7 +5,7 @@
              x:Class="TheStore.Views.TShirtPage">
 
     <ContentPage.BindingContext>
-        <local:ShoesPageViewModel/>
+        <local:TShirtPageViewModel/>
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
@@ -18,7 +18,7 @@
                        FontAttributes="Bold"
                        Margin="15" />
 
-                <CarouselView ItemsSource="{Binding Shoes}"
+                <CarouselView ItemsSource="{Binding TShirts}"
                               PeekAreaInsets="100"
                               Loop="True"
                               HeightRequest="300">
@@ -74,8 +74,6 @@
                                     CommandParameter="{Binding .}"/>
                                         </Grid.GestureRecognizers>-->
 
-
-
                                     </Grid>
                                 </Frame>
 
@@ -91,7 +89,7 @@
                        Margin="15" />
                 <StackLayout Margin="20">
                     <CollectionView x:Name="CoffeesListView"
-                                    ItemsSource="{Binding Shoes}"
+                                    ItemsSource="{Binding TShirts}"
                                     SelectionMode="Single">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>

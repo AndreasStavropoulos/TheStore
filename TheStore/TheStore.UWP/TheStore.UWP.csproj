@@ -141,6 +141,8 @@
     <Content Include="tshirt_icon.png" />
     <Content Include="shoe2.png" />
     <Content Include="shoes1.png" />
+    <Content Include="tshirt1.jpg" />
+    <Content Include="tshirt2.jpg" />
     <Content Include="jacket_icon.png" />
     <Content Include="xamarin_logo.png" />
     <Content Include="icon_about.png" />
