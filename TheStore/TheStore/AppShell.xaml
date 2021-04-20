@@ -82,6 +82,7 @@
     <FlyoutItem Title="Home" Icon="home.png">
         <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
     </FlyoutItem>
+    
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Jackets" Icon="jacket_icon.png" Route="JacketPage" ContentTemplate="{DataTemplate local:JacketPage}" />
             <ShellContent Title="Shoes" Icon="shoes_icon.png" Route="ShoesPage" ContentTemplate="{DataTemplate local:ShoesPage}" />
