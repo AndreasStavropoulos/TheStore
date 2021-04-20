@@ -15,8 +15,8 @@ namespace TheStore.Services
 
         public JacketRepo()
         {
-            jackets = GetDummyJacket();
-            TempSaveDummyData();
+            //jackets = GetDummyJacket();
+            //TempSaveDummyData();
         }
 
 

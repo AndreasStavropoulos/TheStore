@@ -14,7 +14,7 @@
         </Style>
     </ContentPage.Resources>
 
-    <StackLayout>
+    <StackLayout Margin="20">
         <CollectionView x:Name="CoffeesListView"
                                 ItemsSource="{Binding Jackets}"
                                 SelectionMode="Single">
