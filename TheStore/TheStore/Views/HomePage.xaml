@@ -18,22 +18,22 @@
         <ScrollView>
             <StackLayout>
 
-                <Image x:Name="Header" Source="TheStore.png" Grid.Row="0" />
+                <Image x:Name="Header" Source="TheStore.png" />
 
-                <Image Source="" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-                <Image Source="" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                <Image Source="" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                <Image Source="" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
 
-                <StackLayout Orientation="Horizontal" Grid.Row="2">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <StackLayout Orientation="Vertical">
-                        <Button Text="Jeans" Command="{Binding GoToJeansCommand}" />
-                        <Button Text="T-Shirts" Command="{Binding GoToTshirtsCommand}" />
+                        <Button Text="Jeans" ImageSource="jeans.jpg" ContentLayout="Top,0" HorizontalOptions="Center" Command="{Binding GoToJeansCommand}" WidthRequest="200" BackgroundColor="White" TextColor="Black"/>
+                        <Button Text="T-Shirts" ImageSource="tshirts.png" ContentLayout="Top,0" HorizontalOptions="Center" Command="{Binding GoToTshirtsCommand}" WidthRequest="200" BackgroundColor="White" TextColor="Black"/>
                     </StackLayout>
                     <StackLayout Orientation="Vertical">
-                        <Button Text="Jackets" Command="{Binding GoToJacketsCommand}" />
-                        <Button Text="Shoes" Command="{Binding GoToShoesCommand}" />
+                        <Button Text="Jackets" ImageSource="jackets.jpg" ContentLayout="Top,0" Command="{Binding GoToJacketsCommand}" WidthRequest="200" BackgroundColor="White" TextColor="Black"/>
+                        <Button Text="Shoes" ImageSource="shoes.jpg" ContentLayout="Top,0" Command="{Binding GoToShoesCommand}" WidthRequest="200" BackgroundColor="White" TextColor="Black"/>
                     </StackLayout>
                 </StackLayout>
-                <Label Text="TheStore - 2021" FontSize="Small" Grid.Row="3" HorizontalOptions="Center" />
+                <Label Text="TheStore - 2021" FontSize="Small" HorizontalOptions="Center" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
