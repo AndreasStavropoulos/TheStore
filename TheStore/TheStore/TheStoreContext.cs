@@ -13,6 +13,8 @@ namespace TheStore
         public DbSet<Jacket> Jackets { get; set; }
         public DbSet<Shoes> Shoes { get; set; }
         public DbSet<TShirt> TShirts { get; set; }
+        public DbSet<Jeans> Jeans { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public TheStoreContext()
         {
