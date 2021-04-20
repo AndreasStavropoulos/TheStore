@@ -105,19 +105,22 @@
     <AndroidResource Include="Resources\drawable\shoe2.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\jeans.png" />
+    <AndroidResource Include="Resources\drawable\jeans_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\shirt.png" />
+    <AndroidResource Include="Resources\drawable\tshirt_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\leather-derby-shoe.png" />
+    <AndroidResource Include="Resources\drawable\shoes_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\varsity-jacket.png" />
+    <AndroidResource Include="Resources\drawable\jacket_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\category.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
