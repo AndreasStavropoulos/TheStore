@@ -11828,9 +11828,16 @@ namespace TheStore.Droid
 			public const int tooltip_frame_light = 2131165338;
 			
 			// aapt resource value: 0x7F07009B
-			public const int tshirt_icon = 2131165339;
+			public const int tshirt1 = 2131165339;
 			
 			// aapt resource value: 0x7F07009C
+			public const int tshirt2 = 2131165340;
+			
+			// aapt resource value: 0x7F07009D
+			public const int tshirt_icon = 2131165341;
+			
+			// aapt resource value: 0x7F07009E
+			public const int xamarin_logo = 2131165342;
 			public const int xamarin_logo = 2131165340;
 			
 			static Drawable()
