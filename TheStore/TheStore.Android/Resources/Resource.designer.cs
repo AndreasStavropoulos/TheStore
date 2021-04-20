@@ -11794,43 +11794,6 @@ namespace TheStore.Droid
 			public const int tooltip_frame_light = 2131165329;
 			
 			// aapt resource value: 0x7F070092
-			public const int notification_tile_bg = 2131165330;
-			
-			// aapt resource value: 0x7F070093
-			public const int notify_panel_notification_icon_bg = 2131165331;
-			
-			// aapt resource value: 0x7F070094
-			public const int shoe2 = 2131165332;
-			
-			// aapt resource value: 0x7F070095
-			public const int shoes1 = 2131165333;
-			
-			// aapt resource value: 0x7F070096
-			public const int shoes_icon = 2131165334;
-			
-			// aapt resource value: 0x7F070097
-			public const int test_custom_background = 2131165335;
-			
-			// aapt resource value: 0x7F070098
-			public const int TheStore = 2131165336;
-			
-			// aapt resource value: 0x7F070099
-			public const int tooltip_frame_dark = 2131165337;
-			
-			// aapt resource value: 0x7F07009A
-			public const int tooltip_frame_light = 2131165338;
-			
-			// aapt resource value: 0x7F07009B
-			public const int tshirt1 = 2131165339;
-			
-			// aapt resource value: 0x7F07009C
-			public const int tshirt2 = 2131165340;
-			
-			// aapt resource value: 0x7F07009D
-			public const int tshirt_icon = 2131165341;
-			
-			// aapt resource value: 0x7F07009E
-			public const int xamarin_logo = 2131165342;
 			public const int xamarin_logo = 2131165330;
 			
 			static Drawable()
@@ -13573,6 +13536,30 @@ namespace TheStore.Droid
 			
 			// aapt resource value: 0x7F0E0051
 			public const int mtrl_picker_toggle_to_year_selection = 2131624017;
+			
+			// aapt resource value: 0x7F0E0052
+			public const int overflow_tab_title = 2131624018;
+			
+			// aapt resource value: 0x7F0E0053
+			public const int password_toggle_content_description = 2131624019;
+			
+			// aapt resource value: 0x7F0E0054
+			public const int path_password_eye = 2131624020;
+			
+			// aapt resource value: 0x7F0E0055
+			public const int path_password_eye_mask_strike_through = 2131624021;
+			
+			// aapt resource value: 0x7F0E0056
+			public const int path_password_eye_mask_visible = 2131624022;
+			
+			// aapt resource value: 0x7F0E0057
+			public const int path_password_strike_through = 2131624023;
+			
+			// aapt resource value: 0x7F0E0058
+			public const int search_menu_title = 2131624024;
+			
+			// aapt resource value: 0x7F0E0059
+			public const int status_bar_notification_info_overflow = 2131624025;
 			
 			// aapt resource value: 0x7F0E0052
 			public const int overflow_tab_title = 2131624018;
@@ -17387,6 +17374,13 @@ namespace TheStore.Droid
 			// aapt resource value: 1
 			public const int ExtendedFloatingActionButton_Behavior_Layout_behavior_autoShrink = 1;
 			
+			// aapt resource value: 7
+			public const int DrawerArrowToggle_thickness = 7;
+			
+			// aapt resource value: { 0x7F0300F2 }
+			public static int[] DrawerLayout = new int[] {
+					2130903282};
+			
 			// aapt resource value: 0
 			public const int ExtendedFloatingActionButton_elevation = 0;
 			
@@ -17421,6 +17415,9 @@ namespace TheStore.Droid
 					2130903526,
 					2130903530,
 					2130903679};
+			
+			// aapt resource value: 0
+			public const int FloatingActionButton_android_enabled = 0;
 			
 			// aapt resource value: 0
 			public const int FloatingActionButton_android_enabled = 0;
@@ -17519,6 +17516,9 @@ namespace TheStore.Droid
 			// aapt resource value: 2
 			public const int FontFamilyFont_android_fontStyle = 2;
 			
+			// aapt resource value: 3
+			public const int FloatingActionButton_borderWidth = 3;
+			
 			// aapt resource value: 4
 			public const int FontFamilyFont_android_fontVariationSettings = 4;
 			
@@ -17534,11 +17534,20 @@ namespace TheStore.Droid
 			// aapt resource value: 6
 			public const int FontFamilyFont_fontStyle = 6;
 			
+			// aapt resource value: 5
+			public const int FontFamilyFont_font = 5;
+			
+			// aapt resource value: 6
+			public const int FontFamilyFont_fontStyle = 6;
+			
 			// aapt resource value: 7
 			public const int FontFamilyFont_fontVariationSettings = 7;
 			
 			// aapt resource value: 8
 			public const int FontFamilyFont_fontWeight = 8;
+			
+			// aapt resource value: 9
+			public const int FontFamilyFont_ttcIndex = 9;
 			
 			// aapt resource value: 9
 			public const int FontFamilyFont_ttcIndex = 9;
@@ -17964,6 +17973,17 @@ namespace TheStore.Droid
 			// aapt resource value: 0
 			public const int MaterialCalendar_android_windowFullscreen = 0;
 			
+			// aapt resource value: { 0x7F03018D,0x7F03018E,0x7F03018F,0x7F030190,0x7F030191 }
+			public static int[] MaterialAlertDialogTheme = new int[] {
+					2130903437,
+					2130903438,
+					2130903439,
+					2130903440,
+					2130903441};
+			
+			// aapt resource value: 0
+			public const int MaterialAlertDialogTheme_materialAlertDialogBodyTextStyle = 0;
+			
 			// aapt resource value: 1
 			public const int MaterialCalendar_dayInvalidStyle = 1;
 			
@@ -18001,6 +18021,15 @@ namespace TheStore.Droid
 					2130903562,
 					2130903563};
 			
+			// aapt resource value: 2
+			public const int MaterialAlertDialogTheme_materialAlertDialogTitleIconStyle = 2;
+			
+			// aapt resource value: 3
+			public const int MaterialAlertDialogTheme_materialAlertDialogTitlePanelStyle = 3;
+			
+			// aapt resource value: 4
+			public const int MaterialAlertDialogTheme_materialAlertDialogTitleTextStyle = 4;
+			
 			// aapt resource value: 0
 			public const int MaterialCardView_android_checkable = 0;
 			
@@ -18009,6 +18038,12 @@ namespace TheStore.Droid
 			
 			// aapt resource value: 2
 			public const int MaterialCardView_checkedIcon = 2;
+			
+			// aapt resource value: 1
+			public const int MaterialAlertDialog_backgroundInsetEnd = 1;
+			
+			// aapt resource value: 2
+			public const int MaterialAlertDialog_backgroundInsetStart = 2;
 			
 			// aapt resource value: 3
 			public const int MaterialCardView_checkedIconTint = 3;
