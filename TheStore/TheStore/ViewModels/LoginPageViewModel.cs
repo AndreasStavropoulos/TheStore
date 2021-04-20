@@ -1,5 +1,6 @@
 ﻿using System.Windows.Input;
 using TheStore.Models;
+using TheStore.Models.Products;
 using TheStore.Services;
 using Xamarin.Forms;
 
@@ -9,6 +10,8 @@ namespace TheStore.ViewModels
     {
         public CurrentUser CurrentUser { get; set; }
 
+        private IUserRepo userRepo;
+        
         private string eMail;
 
         public string EMail
@@ -37,6 +40,7 @@ namespace TheStore.ViewModels
 
         public LoginPageViewModel()
         {
+            userRepo = new UserRepo();
             LoginCommand = new Command(Login);
             CurrentUser = new CurrentUser();
         }
@@ -46,11 +50,21 @@ namespace TheStore.ViewModels
             //check user is in db
             //if he is add to current user as active user
 
-            User user = new User();
-            user.Email = EMail;
-            user.Password = Password;
+            var user = userRepo.FindUserByEMail(EMail).Result as Customer;
 
-            CurrentUser.ActiveUser = user;
+
+            if (user== null)
+            {
+                Shell.Current.GoToAsync("..");
+            }
+            else
+            {
+                CurrentUser.ActiveUser = user;
+                Shell.Current.GoToAsync("..");
+            }
+
+            
+
         }
     }
 }
