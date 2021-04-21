@@ -4,7 +4,7 @@ namespace TheStore.Models
 {
     public enum Color
     {
-        Pink, White, Black, Red, Green, Blue, Yellow
+        Pink, White, Black, Red, Green, Blue, Yellow, Gray, Brown, Cognac
     }
 
     public abstract class Product

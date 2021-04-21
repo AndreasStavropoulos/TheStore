@@ -11,6 +11,7 @@ namespace TheStore.Services
         private IGenericRepo<Jacket> genericRepoJackets;
         private IGenericRepo<Shoes> genericRepoShoes;
         private IGenericRepo<TShirt> genericRepoTshirt;
+        private IGenericRepo<Jeans> genericRepoJeans;
         private IUserRepo userRepo;
 
         public DummyData()
@@ -18,6 +19,7 @@ namespace TheStore.Services
             genericRepoShoes = new GenericRepo<Shoes>();
             genericRepoJackets = new GenericRepo<Jacket>();
             genericRepoTshirt = new GenericRepo<TShirt>();
+            genericRepoJeans = new GenericRepo<Jeans>();
             userRepo = new UserRepo();
         }
 
@@ -66,6 +68,11 @@ namespace TheStore.Services
             {
                 await genericRepoTshirt.SaveProductAsync(tshirt);
             }
+            List<Jeans> jeans = GetJeans();
+            foreach (var jean in jeans)
+            {
+                await genericRepoJeans.SaveProductAsync(jean);
+            }
 
             List<User> users = GetUsers();
             foreach (var user in users)
@@ -82,17 +89,27 @@ namespace TheStore.Services
                 new Shoes
                 {
                     Id = 0,
-                    Name = "adidas",
-                    Price = 12.5,
-                    ImgUrl = "shoes1.png"
+                    Name = "Sneaker",
+                    Price = 16.84,
+                    ImgUrl = "sneaker.png",
+                    IsInStock = true,
+                    Color = Color.Gray,
+                    Description = "Mannen Casual Schoenen 2021 Mode Sneakers Mannen Schoenen Nieuwe Tennis Schoenen Mannen Sneakers Volwassen Schoenen Trainers Mannen Vulcaniseer Schoenen",
+                    ShoeMaterial = Shoes.Material.Leather,
+                    ShoeStyle = Shoes.Style.Sneakers
                 },
 
                 new Shoes
                 {
                     Id = 0,
-                    Name = "nike",
-                    Price = 15.5,
-                    ImgUrl = "shoe2.png"
+                    Name = "Boots",
+                    Price = 79.99,
+                    ImgUrl = "boots.jpg",
+                    IsInStock = true,
+                    Color = Color.Cognac,
+                    Description = "Boots jfwrussel JACK & JONES cognac",
+                    ShoeMaterial = Shoes.Material.Leather,
+                    ShoeStyle = Shoes.Style.Boots
                 }
             };
             return shoes;
@@ -106,25 +123,25 @@ namespace TheStore.Services
                 {
                     Id = 0,
                     Name = "blazer",
-                    Description = "this is a jacket",
-                    Price = 12.55,
+                    Description = "Linen, wool and silk hopsack deconstructed jacket with patch pockets",
+                    Price = 2550.00,
                     IsInStock = true,
                     Color = Color.Pink,
                     ImgUrl = "blazer.jpg",
                     JacketStyle = Jacket.Style.Blouson,
                     JacketSize = Jacket.Size.Small,
-                    JacketMaterial = Jacket.Material.Leather,
+                    JacketMaterial = Jacket.Material.Wool,
                 },
                 new Jacket
                 {
                     Id = 0,
                     Name = "parka",
-                    Description = "this is a 2nd jacket",
-                    Price = 125.55,
+                    Description = "SNOWDON PEAK FISHTAIL PARKA VOOR HEREN IN GROEN",
+                    Price = 383.99,
                     IsInStock = true,
-                    Color = Color.Pink,
-                    ImgUrl = "blazer.jpg",
-                    JacketStyle = Jacket.Style.Denim,
+                    Color = Color.Green,
+                    ImgUrl = "parka.jpg",
+                    JacketStyle = Jacket.Style.Rain,
                     JacketSize = Jacket.Size.Large,
                     JacketMaterial = Jacket.Material.Nylon,
                 }
@@ -139,24 +156,24 @@ namespace TheStore.Services
                 new TShirt
                 {
                     Id = 0,
-                    Name = "simple",
-                    Description = "this is a tshirt",
-                    Price = 2.55,
+                    Name = "Mo-How-Zeg",
+                    Description = "Mo joeng toch, mo how zeg … t’is nie te gelovn! Zukke toffen shirt dat hier verkocht wordt ;-). Haal hem nu in huis!",
+                    Price = 22.55,
                     IsInStock = true,
                     Color = Color.Pink,
-                    ImgUrl = "tshirt1.jpg",
+                    ImgUrl = "mohowseg_tee.jpg",
                     TShirtSize = TShirt.Size.Large,
                     TShirtStyle = TShirt.Style.DressShirt
                 },
                 new TShirt
                 {
                     Id = 0,
-                    Name = "v tshirt",
-                    Description = "this is also a t-shirt",
+                    Name = "v-neck tshirt",
+                    Description = "De fijne T-shirts met V-hals zijn nu ook verkrijgbaar in de kleur army! De bamboe shirts zitten geweldig door de zijdezachte stof en zijn te dragen onder een overhemd, maar ook als casual T-shirt. Voel je gegarandeerd de hele dag fris door de fijne eigenschappen van bamboe!",
                     Price = 5.55,
                     IsInStock = true,
                     Color = Color.Blue,
-                    ImgUrl = "tshirt2.jpg",
+                    ImgUrl = "v_neck_tee.jpg",
                     TShirtSize = TShirt.Size.Small,
                     TShirtStyle = TShirt.Style.LongSleeve
                 }
@@ -172,22 +189,22 @@ namespace TheStore.Services
                 {
                     Id = 0,
                     Name = "Skinny",
-                    Description = "this is a jeans",
-                    Price = 32.55,
+                    Description = "Urban Classics heren skinny jeans Ripped - blauw",
+                    Price = 41.59,
                     IsInStock = true,
                     Color = Color.Pink,
-                    ImgUrl = "jeans.jpg",
+                    ImgUrl = "skinny_jeans.jpg",
                     JeansStyle = Jeans.Style.Skinny
                 },
                 new Jeans
                 {
                     Id = 0,
                     Name = "Straight",
-                    Description = "this is also a jeans",
-                    Price = 25.95,
+                    Description = "De jeans die niet mag ontbreken in u garderobe? Dat is ongetwijfeld de 501 van Levi''s® ! Deze straight leg jeans staat jong en oud dankzij deze universele fit met rechte broekpijpen over de hele lengte. Het grootste voordeel is dat je de broek overal mee kan matchen. Of je nu een T-shirt met print en een paar sneakers of en hemd met geklede schoenen wil dragen het kan allemaal.",
+                    Price = 89.95,
                     IsInStock = true,
                     Color = Color.Blue,
-                    ImgUrl = "jeans.jpg",
+                    ImgUrl = "straight_jeans.jpg",
                     JeansStyle = Jeans.Style.Straight
                 }
             };
