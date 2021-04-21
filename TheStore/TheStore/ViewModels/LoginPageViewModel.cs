@@ -1,6 +1,9 @@
-﻿using System.Windows.Input;
+﻿using System.Threading.Tasks;
+using System.Windows.Input;
 using TheStore.Models;
+using TheStore.Models.Products;
 using TheStore.Services;
+using TheStore.Views;
 using Xamarin.Forms;
 
 namespace TheStore.ViewModels
@@ -9,6 +12,8 @@ namespace TheStore.ViewModels
     {
         public CurrentUser CurrentUser { get; set; }
 
+        private IUserRepo userRepo;
+        
         private string eMail;
 
         public string EMail
@@ -34,23 +39,31 @@ namespace TheStore.ViewModels
         }
 
         public ICommand LoginCommand { get; }
+        public Task DisplayAlert { get; private set; }
 
         public LoginPageViewModel()
         {
+            userRepo = new UserRepo();
             LoginCommand = new Command(Login);
             CurrentUser = new CurrentUser();
         }
 
-        public void Login()
+        public async void Login()
         {
-            //check user is in db
-            //if he is add to current user as active user
+            User user = userRepo.FindUserByEMail(EMail).Result;
 
-            User user = new User();
-            user.Email = EMail;
-            user.Password = Password;
-
-            CurrentUser.ActiveUser = user;
+            if (user== null)
+            {
+                await App.Current.MainPage.DisplayAlert("Welcome to The Store", "Wrong email or password, please try again", "Ok");
+                EMail = string.Empty;
+                Password = string.Empty;
+                await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+            }
+            else
+            {
+                CurrentUser.ActiveUser = user;
+                await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+            }
         }
     }
 }
