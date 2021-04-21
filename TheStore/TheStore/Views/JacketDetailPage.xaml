@@ -13,38 +13,12 @@
             <StackLayout VerticalOptions="FillAndExpand">
                 <Grid>
 
-                    <Frame HeightRequest="400" Padding="0" BackgroundColor="Black">
+                    <Frame HeightRequest="300" Padding="10" BackgroundColor="Transparent">
                         <Image Source="{Binding SelectedJacket.ImgUrl}"
-                           HeightRequest="400"
-                           Aspect="AspectFill"
-                           Opacity="0.9"/>
+                           HeightRequest="300"
+                           Aspect="AspectFill"/>
                     </Frame>
-                    <!--<StackLayout VerticalOptions="EndAndExpand">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5*"/>
-                                <ColumnDefinition Width="auto"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Label Text="{Binding SelectedJacket.Name}"
-                               TextColor="White"
-                               FontSize="32"
-                               FontAttributes="Bold"
-                               Margin="15"
-                               />
-                            <StackLayout Grid.Column="1"
-                                         VerticalOptions="Center">
-                                <Label Text="{Binding SelectedJacket.Price}"
-                                   
-                                   TextColor="Red"
-                                   FontSize="24"
-                                   FontAttributes="Bold"
-                                   Margin="15"
-                                   />
-                            </StackLayout>
-                        </Grid>
-
-                    </StackLayout>-->
+                
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -56,25 +30,24 @@
                                TextColor="Black"
                                FontSize="32"
                                FontAttributes="Bold"
-                               Margin="15"
+                               Margin="15,0"
                                />
                     <StackLayout Grid.Column="1"
                                          VerticalOptions="Center">
                         <Label Text="{Binding SelectedJacket.Price}"
-                                   
-                                   TextColor="Red"
+                                   TextColor="Green"
                                    FontSize="24"
                                    FontAttributes="Bold"
-                                   Margin="15"
+                                   Margin="15,0"
                                    />
                     </StackLayout>
                 </Grid>
 
                 <Grid VerticalOptions="FillAndExpand"
-                      Margin="0,-20,0,0"
+                      Margin="0,-10,0,0"
                       Padding="0">
 
-                    <Frame CornerRadius="25">
+                    <Frame CornerRadius="0">
                         <StackLayout>
 
                             <xct:TabView
@@ -115,33 +88,11 @@
                                         Text="Here are the reviews fro users" />
                                     </Grid>
                                 </xct:TabViewItem>
+
+
                             </xct:TabView>
 
-
-                            <!--<Label Text="{Binding SelectedPlace.Description}"
-                                   FontSize="18"
-                                   Margin="10,20"/>-->
                         </StackLayout>
-
-
-
-                        <!--Xamarin Community Toolkit , using for tabs-->
-                        <!--<Grid>
-                            <xyt:TabView Style="{StaticResource TabStyle}">
-                                <xyt:TabViewItem >
-                                    <Grid BackgroundColor="Red">
-                                    </Grid>
-                                </xyt:TabViewItem>
-                                <xyt:TabViewItem>
-                                    <Grid BackgroundColor="Blue">
-                                    </Grid>
-                                </xyt:TabViewItem>
-                            </xyt:TabView>
-                        </Grid>-->
-
-
-
-
                     </Frame>
 
                    
@@ -153,7 +104,7 @@
                     <StackLayout>
                         <Button Text="Add to Cart"
                                 VerticalOptions="EndAndExpand"
-                                Margin="20, 0, 20, 10"
+                                Margin="0, -10, 0, 0"
                                 
                                 ></Button>
                     </StackLayout>
