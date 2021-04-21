@@ -26,10 +26,7 @@
                         </VisualStateGroup>
                     </VisualStateGroupList>
                 </Setter>
-            </Style>
-            <Style TargetType="ContentPage">
-                <Setter Property="BackgroundColor" Value="White"/>
-            </Style>
+            </Style> 
         </ResourceDictionary>
     </Application.Resources>
 </Application>
