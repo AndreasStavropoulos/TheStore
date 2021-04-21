@@ -1,6 +1,5 @@
 ﻿using System.Windows.Input;
 using TheStore.Models;
-using TheStore.Models.Products;
 using TheStore.Services;
 using TheStore.Views;
 using Xamarin.Forms;
@@ -9,9 +8,7 @@ namespace TheStore.ViewModels
 {
     public class LoginPageViewModel : BaseViewModel
     {
-        public CurrentUser CurrentUser { get; set; }
-
-        private IUserRepo userRepo;
+        private readonly IUserRepo userRepo;
 
         private string eMail;
 
@@ -43,7 +40,6 @@ namespace TheStore.ViewModels
         {
             userRepo = new UserRepo();
             LoginCommand = new Command(Login);
-            CurrentUser = new CurrentUser();
         }
 
         public void Login()
@@ -52,6 +48,7 @@ namespace TheStore.ViewModels
 
             if (user == null)
             {
+                EMail = "";
                 Password = "";
                 Shell.Current.GoToAsync("//" + nameof(LoginPage));
             }
@@ -59,11 +56,13 @@ namespace TheStore.ViewModels
             {
                 if (user.Password == Password)
                 {
-                    CurrentUser.ActiveUser = user;
+                    var cU = CurrentUser.GetInstance();
+                    cU.ActiveUser = user;
                     Shell.Current.GoToAsync("//" + nameof(HomePage));
                 }
                 else
                 {
+                    EMail = "";
                     Password = "";
                     Shell.Current.GoToAsync("//" + nameof(LoginPage));
                 }

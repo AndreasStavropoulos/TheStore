@@ -2,12 +2,23 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using TheStore.Models;
 
 namespace TheStore.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        //public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        private User activeUser;
+
+        public User ActiveUser
+        {
+            get { return activeUser; }
+            set
+            {
+                activeUser = value;
+                OnPropertyChanged(nameof(ActiveUser));
+            }
+        }
 
         private bool isBusy = false;
 
@@ -23,6 +34,12 @@ namespace TheStore.ViewModels
         {
             get { return title; }
             set { SetProperty(ref title, value); }
+        }
+
+        public BaseViewModel()
+        {
+            var cU = CurrentUser.GetInstance();
+            ActiveUser = cU.ActiveUser;
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,

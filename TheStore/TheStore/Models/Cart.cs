@@ -4,7 +4,7 @@ namespace TheStore.Models
 {
     public class Cart
     {
-        public List<CartItem> CartItems { get; set; }
+        private List<CartItem> CartItems { get; set; }
 
         public void AddCartItem(Product product, int Quantity)
         {
@@ -24,7 +24,7 @@ namespace TheStore.Models
             }
         }
 
-        public void AddOneCartItem(CartItem cartItem)
+        public void AddCartItem(CartItem cartItem)
         {
             cartItem.Quantity++;
         }
@@ -35,6 +35,11 @@ namespace TheStore.Models
             {
                 CartItems.Remove(cartItem);
             }
+        }
+
+        public List<CartItem> GetCartItems()
+        {
+            return CartItems;
         }
     }
 }
