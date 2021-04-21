@@ -23,6 +23,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"/>
                         <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
                     <Label Text="{Binding SelectedJacket.Name}"
@@ -31,12 +32,26 @@
                                FontAttributes="Bold"
                                Margin="15,0"/>
                     
-                    <Switch IsToggled="{Binding SelectedJacket.IsInStock}"
-                            ThumbColor="green"/>
-                    
+                    <Label VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Margin="10,-5,-220,-10">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding SelectedJacket.IsInStock}" Value="false">
+                                <Setter Property="Text" Value="Not in Stock" />
+                                <Setter Property="TextColor" Value="Red" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Label" Binding="{Binding SelectedJacket.IsInStock}" Value="true">
+                                <Setter Property="Text" Value="Available" />
+                                <Setter Property="TextColor" Value="Green" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+
                     <StackLayout Grid.Column="1"
                                  VerticalOptions="Center">
-                        <Label Text="{Binding SelectedJacket.Price}"
+
+                        <Label Grid.Column="2"
+                               Text="{Binding SelectedJacket.Price}"
                                TextColor="Green"
                                FontSize="24"
                                FontAttributes="None"
@@ -115,17 +130,5 @@
 
         </Grid>
 
-
-
-        <!--<StackLayout>
-            <Label Text="{Binding SelectedJacket.Description}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label Text="{Binding SelectedJacket.Id}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>-->
-        
-        
     </ContentPage.Content>
 </ContentPage>

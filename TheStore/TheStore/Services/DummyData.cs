@@ -151,6 +151,19 @@ namespace TheStore.Services
                     JacketStyle = Jacket.Style.Rain,
                     JacketSize = Jacket.Size.Large,
                     JacketMaterial = Jacket.Material.Nylon,
+                },
+                new Jacket
+                {
+
+                    Name = "Rare parka",
+                    Description = "A parka made from human skin",
+                    Price = 499,
+                    IsInStock = false,
+                    Color = Color.Green,
+                    ImgUrl = "parka.jpg",
+                    JacketStyle = Jacket.Style.Rain,
+                    JacketSize = Jacket.Size.Large,
+                    JacketMaterial = Jacket.Material.Nylon,
                 }
             };
             return jackets;
