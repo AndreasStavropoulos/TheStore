@@ -6,13 +6,9 @@ namespace TheStore.Models
 {
     public class CartItem
     {
-        public Product Product { get; set; }
+        public int Id { get; set; }
+        public int ProductId { get; set; }
         public int Quantity { get; set; }
-
-        public CartItem(Product product, int quantity)
-        {
-            Product = product;
-            Quantity = quantity;
-        }
+        public int UserId { get; set; }
     }
 }
