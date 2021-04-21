@@ -91,7 +91,7 @@ namespace TheStore.Services
                     Id = 0,
                     Name = "Sneaker",
                     Price = 16.84,
-                    ImgUrl = "sneaker.png",
+                    ImgUrl = "sneaker.jpg",
                     IsInStock = true,
                     Color = Color.Gray,
                     Description = "Mannen Casual Schoenen 2021 Mode Sneakers Mannen Schoenen Nieuwe Tennis Schoenen Mannen Sneakers Volwassen Schoenen Trainers Mannen Vulcaniseer Schoenen",

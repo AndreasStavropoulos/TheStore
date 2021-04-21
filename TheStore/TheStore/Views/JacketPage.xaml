@@ -24,6 +24,7 @@
             </Style>
             <Style TargetType="ImageButton">
                 <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="Padding" Value="5"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>

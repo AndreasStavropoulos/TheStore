@@ -68,14 +68,14 @@
                                                    VerticalOptions="EndAndExpand" />
 
                                             <StackLayout Orientation="Horizontal"
-                                                         Margin="15, -10,0,0">
+                                                         Margin="15, 0,0,0">
                                                 <Image Source="icon_map1.png"
                                                        HeightRequest="20"
                                                        Aspect="AspectFit" />
-                                                <Label Text="{Binding Price}"
+                                                <Label Text="{Binding Price, StringFormat=€{0}}"
                                                        TextColor="red"
-                                                       FontSize="14"
-                                                       VerticalOptions="EndAndExpand" />
+                                                       Margin="0"
+                                                       FontSize="14"/>
                                             </StackLayout>
                                         </StackLayout>
 
@@ -130,7 +130,7 @@
 
                                            FontSize="Large" />
                                     <Label Grid.Column="2"
-                                           Text="{Binding Price}"
+                                           Text="{Binding Price, StringFormat=€{0}}"
                                            FontAttributes="Bold"
                                            VerticalOptions="Center"
                                            TextColor="DeepSkyBlue"
