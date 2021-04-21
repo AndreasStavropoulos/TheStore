@@ -15,7 +15,15 @@
         </Style>
     </ContentPage.Resources>
 
+    
+    
     <StackLayout Margin="20">
+        <StackLayout>
+            <Label Grid.Column="1"
+                               VerticalOptions="Center"
+                               Text="{Binding ActiveUser.Name}"
+                               FontSize="Large" />
+        </StackLayout>
         <CollectionView x:Name="CoffeesListView"
                                 ItemsSource="{Binding CartItems}"
                                 SelectionMode="Single">
@@ -36,12 +44,13 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
+                        
                         <Label Grid.Column="1"
                                VerticalOptions="Center"
-                               Text="{Binding Id}"
+                               Text="{Binding Product.Name}"
                                FontSize="Large" />
                         <Label Grid.Column="2"
-                               Text="{Binding Quantity}"
+                               Text="{Binding Product.Description}"
                                FontAttributes="Bold"
                                VerticalOptions="Center"
                                TextColor="DeepSkyBlue"

@@ -63,8 +63,7 @@ namespace TheStore.ViewModels
                     return;
                 }
             }
-           
-            
+                       
             await App.Current.MainPage.DisplayAlert("Welcome to The Store", "Wrong email or password, please try again", "Ok");
             EMail = string.Empty;
             Password = string.Empty;

@@ -25,7 +25,7 @@ namespace TheStore
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "Shop5.sqlite");
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "Shop6.sqlite");
             optionsBuilder.UseSqlite($"FileName = {dbPath}");
         }
     }

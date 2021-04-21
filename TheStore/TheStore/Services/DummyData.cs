@@ -26,16 +26,16 @@ namespace TheStore.Services
 
         public async void FillDb()
         {
-            List<Shoes> shoes = GetShoes();
-            foreach (var shoe in shoes)
-            {
-                await genericRepoShoes.SaveProductAsync(shoe);
-            }
-
             List<Jacket> jackets = GetJackets();
             foreach (var jacket in jackets)
             {
                 await genericRepoJackets.SaveProductAsync(jacket);
+            }
+
+            List<Shoes> shoes = GetShoes();
+            foreach (var shoe in shoes)
+            {
+                await genericRepoShoes.SaveProductAsync(shoe);
             }
 
             List<TShirt> tshirts = GetTShirts();
@@ -69,7 +69,7 @@ namespace TheStore.Services
             {
                 new User
             {
-                
+
                 Email = "andreas@store.be",
                 Name = "Andreas",
                 Password = "1234",
@@ -194,7 +194,6 @@ namespace TheStore.Services
             {
                 new Jeans
                 {
-                    
                     Name = "Skinny",
                     Description = "Urban Classics heren skinny jeans Ripped - blauw",
                     Price = 41.59,
@@ -226,12 +225,19 @@ namespace TheStore.Services
                 {
                     
                     Quantity = 2,
-                    ProductId = 1,
+                    ProductId = 2,
                     UserId =1
                 },
                 new CartItem
                 {
                     
+                    Quantity = 3,
+                    ProductId = 2,
+                    UserId =1
+                },
+                new CartItem
+                {
+
                     Quantity = 3,
                     ProductId = 2,
                     UserId =2

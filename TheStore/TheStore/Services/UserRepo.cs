@@ -62,7 +62,11 @@ namespace TheStore.Services
         {
             using (var dbContext = new TheStoreContext())
             {
-                return dbContext.Users.Include(x => x.CartItems).FirstOrDefault(y =>y.Id == id);
+                var user =  dbContext.Users.Include(x => x.CartItems)
+                                           .ThenInclude(x=>x.Product)
+                                           .FirstOrDefault(y =>y.Id == id);
+
+                return user;
             }
         }
     }
