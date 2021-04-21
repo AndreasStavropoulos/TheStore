@@ -281,7 +281,7 @@
                     </CarouselView>
                 </StackLayout>
 
-                        <Label Text="TheStore - 2021" FontSize="Small" HorizontalOptions="Center" />
+                        <Label Text="TheStore - 2021" FontSize="12" FontAttributes="None" HorizontalOptions="Center" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

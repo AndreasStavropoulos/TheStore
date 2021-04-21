@@ -14,7 +14,7 @@ namespace TheStore.ViewModels
     {
         //public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
         public ICommand GoToUserCommand { get; }
-        //public ICommand GoToCartCommand { get; }
+        public ICommand GoToCartCommand { get; }
 
         private bool isBusy = false;
 
@@ -52,7 +52,7 @@ namespace TheStore.ViewModels
             GoToUserCommand = new Command(GoToUser);
             var currentUser = CurrentUser.GetInstance();
             ActiveUser = currentUser.ActiveUser;
-            //GoToCartCommand = new Command(GoToCart);
+            GoToCartCommand = new Command(GoToCart);
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
@@ -86,10 +86,10 @@ namespace TheStore.ViewModels
         {
             await Shell.Current.GoToAsync(nameof(LoginPage));
         }
-        //private async void GoToCart()
-        //{
-        //    await Shell.Current.GoToAsync(nameof(CartPage));
-        //}
+        private async void GoToCart()
+        {
+            await Shell.Current.GoToAsync(nameof(CartPage));
+        }
 
     }
 }

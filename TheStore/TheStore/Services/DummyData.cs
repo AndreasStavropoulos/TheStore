@@ -5,14 +5,13 @@ namespace TheStore.Services
 {
     internal class DummyData
     {
-        
-
 
         private IGenericRepo<Jacket> genericRepoJackets;
         private IGenericRepo<Shoes> genericRepoShoes;
         private IGenericRepo<TShirt> genericRepoTshirt;
         private IGenericRepo<Jeans> genericRepoJeans;
         private IUserRepo userRepo;
+        private CartItemRepo cartItemRepo;
 
         public DummyData()
         {
@@ -21,33 +20,9 @@ namespace TheStore.Services
             genericRepoTshirt = new GenericRepo<TShirt>();
             genericRepoJeans = new GenericRepo<Jeans>();
             userRepo = new UserRepo();
+            cartItemRepo = new CartItemRepo();
         }
 
-        private List<User> GetUsers()
-        {
-            List<User> users = new List<User>
-            {
-                new User
-            {
-                Id = 0,
-                Email = "andreas@store.be",
-                Name = "Andreas",
-                Password = "1234",
-                IsAdmin = false
-            },
-
-                 new User
-            {
-                Id = 0,
-                Email = "emma@store.be",
-                Name = "Emma",
-                Password = "12345",
-                IsAdmin = false
-            },
-
-            };
-            return users;
-        }
 
         public async void FillDb()
         {
@@ -80,6 +55,38 @@ namespace TheStore.Services
                 await userRepo.SaveUserAsync(user);
             }
 
+            List<CartItem> cartItems = GetCartItems();
+            foreach (var cartitem in cartItems)
+            {
+                await cartItemRepo.SaveCartItemAsync(cartitem);
+            }
+
+        }
+
+        private List<User> GetUsers()
+        {
+            List<User> users = new List<User>
+            {
+                new User
+            {
+                Id = 0,
+                Email = "andreas@store.be",
+                Name = "Andreas",
+                Password = "1234",
+                IsAdmin = false
+            },
+
+                 new User
+            {
+                Id = 0,
+                Email = "emma@store.be",
+                Name = "Emma",
+                Password = "12345",
+                IsAdmin = false
+            },
+
+            };
+            return users;
         }
 
         private List<Shoes> GetShoes()
@@ -209,6 +216,28 @@ namespace TheStore.Services
                 }
             };
             return jeans;
+        }
+
+        private List<CartItem> GetCartItems()
+        {
+            List<CartItem> cartItems = new List<CartItem>
+            {
+                new CartItem
+                {
+                    Id = 0,
+                    Quantity = 2,
+                    ProductId = 1,
+                    UserId =1
+                },
+                new CartItem
+                {
+                    Id = 0,
+                    Quantity = 3,
+                    ProductId = 2,
+                    UserId =2
+                }
+            };
+            return cartItems;
         }
     }
 }
