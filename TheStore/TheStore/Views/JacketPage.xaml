@@ -24,6 +24,7 @@
             </Style>
             <Style TargetType="ImageButton">
                 <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="Padding" Value="5"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -115,8 +116,8 @@
 
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="2*" />
-                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="1.8*" />
+                                        <ColumnDefinition Width="1.2*" />
                                         <ColumnDefinition Width="0.5*" />
                                     </Grid.ColumnDefinitions>
 
@@ -129,7 +130,7 @@
 
                                            FontSize="Large" />
                                     <Label Grid.Column="2"
-                                           Text="{Binding Price}"
+                                           Text="{Binding Price, StringFormat=€{0}}"
                                            FontAttributes="Bold"
                                            VerticalOptions="Center"
                                            TextColor="DeepSkyBlue"

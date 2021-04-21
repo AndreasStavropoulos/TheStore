@@ -4,7 +4,7 @@
     {
         public enum Style
         {
-            Bikers, Trucker, Denim, Blouson
+            Bikers, Trucker, Denim, Blouson, Rain
         }
 
         public enum Size

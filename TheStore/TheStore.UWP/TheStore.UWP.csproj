@@ -106,12 +106,15 @@
   <ItemGroup>
     <Content Include="addtocart.png" />
     <Content Include="blazer.jpg" />
+    <Content Include="boots.jpg" />
     <Content Include="cart.png" />
     <Content Include="category.png" />
     <Content Include="home.png" />
     <Content Include="jackets.jpg" />
     <Content Include="jeans.jpg" />
     <Content Include="jeans_icon.png" />
+    <Content Include="mohowseg_tee.jpg" />
+    <Content Include="parka.jpg" />
     <Content Include="shoes.jpg" />
     <Content Include="shoes_icon.png" />
     <Content Include="Properties\Default.rd.xml" />
@@ -142,6 +145,9 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="skinny_jeans.jpg" />
+    <Content Include="sneaker.jpg" />
+    <Content Include="straight_jeans.jpg" />
     <Content Include="TheStore.png" />
     <Content Include="tshirts.png" />
     <Content Include="tshirt_icon.png" />
@@ -151,6 +157,7 @@
     <Content Include="tshirt1.jpg" />
     <Content Include="tshirt2.jpg" />
     <Content Include="user.png" />
+    <Content Include="v_neck_tee.jpg" />
     <Content Include="wallpaper.jpg" />
     <Content Include="xamarin_logo.png" />
     <Content Include="icon_about.png" />

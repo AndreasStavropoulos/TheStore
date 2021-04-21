@@ -13,6 +13,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="user.png" Command="{Binding GoToUserCommand}" />
         <ToolbarItem IconImageSource="cart.png" Command="{Binding GoToCartCommand}" />
+        <ToolbarItem Text="{Binding ActiveUser.Name, Mode=TwoWay}"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
@@ -21,6 +22,12 @@
                 <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="WidthRequest" Value="200" />
                 <Setter Property="ContentLayout" Value="Top,0"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="15"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
