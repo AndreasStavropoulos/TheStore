@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using TheStore.Models;
 using System.Windows.Input;
 using TheStore.Views;
 using Xamarin.Forms;
+
 
 namespace TheStore.ViewModels
 {
@@ -29,11 +31,30 @@ namespace TheStore.ViewModels
             get { return title; }
             set { SetProperty(ref title, value); }
         }
+
+
+
+        private User activeUser;
+
+        public User ActiveUser
+        {
+            get { return activeUser; }
+            set
+            {
+                activeUser = value;
+                OnPropertyChanged(nameof(ActiveUser));
+            }
+        }
+
+     
         public BaseViewModel()
         {
             GoToUserCommand = new Command(GoToUser);
+            var currentUser = CurrentUser.GetInstance();
+            ActiveUser = currentUser.ActiveUser;
             //GoToCartCommand = new Command(GoToCart);
         }
+
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",
             Action onChanged = null)

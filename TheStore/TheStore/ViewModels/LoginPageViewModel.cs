@@ -10,7 +10,6 @@ namespace TheStore.ViewModels
 {
     public class LoginPageViewModel : BaseViewModel
     {
-        public CurrentUser CurrentUser { get; set; }
 
         private IUserRepo userRepo;
         
@@ -45,15 +44,16 @@ namespace TheStore.ViewModels
         {
             userRepo = new UserRepo();
             LoginCommand = new Command(Login);
-            CurrentUser = new CurrentUser();
         }
 
         public async void Login()
         {
             User user = userRepo.FindUserByEMail(EMail).Result;
 
+
             if (user== null)
             {
+
                 await App.Current.MainPage.DisplayAlert("Welcome to The Store", "Wrong email or password, please try again", "Ok");
                 EMail = string.Empty;
                 Password = string.Empty;
@@ -61,8 +61,11 @@ namespace TheStore.ViewModels
             }
             else
             {
-                CurrentUser.ActiveUser = user;
+                var currentUser = CurrentUser.GetInstance();
+                currentUser.ActiveUser = user;
+                ActiveUser = user;
                 await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+
             }
         }
     }

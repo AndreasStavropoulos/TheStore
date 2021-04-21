@@ -13,6 +13,10 @@
                 HorizontalOptions="CenterAndExpand"
                      WidthRequest="200"
                      >
+            <Label Text="{Binding ActiveUser.Name, StringFormat='Hi {0}'}"
+                   HorizontalOptions="Center"
+                   FontSize="28"
+                   Margin="25" />
             <Label Text="Login" 
                    HorizontalOptions="Center"
                    FontSize="28"
