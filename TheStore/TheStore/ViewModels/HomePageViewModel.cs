@@ -16,8 +16,8 @@ namespace TheStore.ViewModels
         public ICommand GoToTshirtsCommand { get; }
         public ICommand GoToJacketsCommand { get; }
         public ICommand GoToShoesCommand { get; }
-        //public ICommand GoToUserCommand { get; }
-        //public ICommand GoToCartCommand { get; }
+        public ICommand GoToUserCommand { get; }
+        public ICommand GoToCartCommand { get; }
 
         private ObservableCollection<Jeans> jeans;
         public ObservableCollection<Jeans> Jeans
@@ -74,8 +74,8 @@ namespace TheStore.ViewModels
             GoToTshirtsCommand = new Command(GoToTshirts);
             GoToJacketsCommand = new Command(GoToJackets);
             GoToShoesCommand = new Command(GoToShoes);
-            //GoToUserCommand = new Command(GoToUser);
-            // GoToCartCommand = new Command(GoToCart);
+            GoToUserCommand = new Command(GoToUser);
+            GoToCartCommand = new Command(GoToCart);
 
             genericRepoJeans = new GenericRepo<Jeans>();
             genericRepoTShirt = new GenericRepo<TShirt>();
@@ -109,14 +109,14 @@ namespace TheStore.ViewModels
             await Shell.Current.GoToAsync(nameof(ShoesPage));
         }
 
-        //private async void GoToUser()
-        //{
-        //    await Shell.Current.GoToAsync(nameof(LoginPage));
-        //}
-        //private async void GoToCart()
-        //{
-        //    await Shell.Current.GoToAsync(nameof(CartPage));
-        //}
+        private async void GoToUser()
+        {
+            await Shell.Current.GoToAsync(nameof(LoginPage));
+        }
+        private async void GoToCart()
+        {
+            await Shell.Current.GoToAsync(nameof(CartPage));
+        }
 
         private async void RefreshJeans()
         {

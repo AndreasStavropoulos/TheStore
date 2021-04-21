@@ -6,12 +6,7 @@ namespace TheStore.Models
     {
         public List<CartItem> CartItems { get; set; }
 
-        public void AddCartItem(Product product, int Quantity)
-        {
-            CartItem cartItem = new CartItem(product, Quantity);
-            CartItems.Add(cartItem);
-        }
-
+        
         public void RemoveOneCartItem(CartItem cartItem)
         {
             if (cartItem.Quantity == 1)
