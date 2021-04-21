@@ -12,14 +12,13 @@
         <Grid>
             <StackLayout VerticalOptions="FillAndExpand">
                 <Grid>
-
                     <Frame HeightRequest="300" Padding="10" BackgroundColor="Transparent">
                         <Image Source="{Binding SelectedJacket.ImgUrl}"
                            HeightRequest="300"
                            Aspect="AspectFill"/>
                     </Frame>
-                
                 </Grid>
+                
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"/>
@@ -28,27 +27,20 @@
 
                     <Label Text="{Binding SelectedJacket.Name}"
                                TextColor="Black"
-                               FontSize="32"
+                               FontSize="36"
                                FontAttributes="Bold"
-                               Margin="15,0"
-                               />
+                               Margin="15,0"/>
                     
                     <Switch IsToggled="{Binding SelectedJacket.IsInStock}"
                             ThumbColor="green"/>
-                    <!--<Label Text="{Binding SelectedJacket.IsInStock, ConverterParameter=}"
-                               TextColor="Black"
-                               FontSize="12"
-                               FontAttributes="Bold"
-                               Margin="15,0"
-                               />-->
+                    
                     <StackLayout Grid.Column="1"
-                                         VerticalOptions="Center">
+                                 VerticalOptions="Center">
                         <Label Text="{Binding SelectedJacket.Price}"
-                                   TextColor="Green"
-                                   FontSize="24"
-                                   FontAttributes="Bold"
-                                   Margin="15,0"
-                                   />
+                               TextColor="Green"
+                               FontSize="24"
+                               FontAttributes="None"
+                               Margin="15,0"/>
                     </StackLayout>
                 </Grid>
 
@@ -97,28 +89,28 @@
                                         Text="Here are the reviews fro users" />
                                     </Grid>
                                 </xct:TabViewItem>
-
-
                             </xct:TabView>
 
                         </StackLayout>
                     </Frame>
-
-                   
-
-
                 </Grid>
-
-                <Grid>
-                    <StackLayout>
-                        <Button Text="Add to Cart"
-                                VerticalOptions="EndAndExpand"
-                                Margin="0, -10, 0, 0"
-                                
+                <Grid 
+                      VerticalOptions="End"
+                      Padding="0">
+                    <Grid>
+                    </Grid>
+                    <Grid>
+                        <StackLayout>
+                            <Button Text="Add to Cart"
+                                    HeightRequest="60"
+                                    VerticalOptions="EndAndExpand"
+                                    Margin="0, -10, 0, 0"
+                                    BackgroundColor="ForestGreen"
+                                    TextColor="White"
                                 ></Button>
-                    </StackLayout>
+                        </StackLayout>
+                    </Grid>
                 </Grid>
-
             </StackLayout>
 
         </Grid>
