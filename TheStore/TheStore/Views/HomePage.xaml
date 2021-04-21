@@ -18,7 +18,6 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Button">
-                <Setter Property="BackgroundColor" Value="Transparent"/>
                 <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="WidthRequest" Value="200" />
                 <Setter Property="ContentLayout" Value="Top,0"/>
@@ -34,12 +33,12 @@
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <StackLayout Orientation="Vertical">
-                        <Button Text="Jeans" ImageSource="jeans.jpg" HorizontalOptions="Center" Command="{Binding GoToJeansCommand}"/>
-                        <Button Text="T-Shirts" ImageSource="tshirts.png" HorizontalOptions="Center" Command="{Binding GoToTshirtsCommand}"/>
+                        <Button Text="Jeans" ImageSource="jeans.jpg" HorizontalOptions="Center" BackgroundColor="Transparent" Command="{Binding GoToJeansCommand}"/>
+                        <Button Text="T-Shirts" ImageSource="tshirts.png" HorizontalOptions="Center" BackgroundColor="Transparent" Command="{Binding GoToTshirtsCommand}"/>
                     </StackLayout>
                     <StackLayout Orientation="Vertical">
-                        <Button Text="Jackets" ImageSource="jackets.jpg" Command="{Binding GoToJacketsCommand}"/>
-                        <Button Text="Shoes" ImageSource="shoes.jpg" Command="{Binding GoToShoesCommand}"/>
+                        <Button Text="Jackets" ImageSource="jackets.jpg" BackgroundColor="Transparent" Command="{Binding GoToJacketsCommand}"/>
+                        <Button Text="Shoes" ImageSource="shoes.jpg" BackgroundColor="Transparent" Command="{Binding GoToShoesCommand}"/>
                     </StackLayout>
                 </StackLayout>
                 <StackLayout>
