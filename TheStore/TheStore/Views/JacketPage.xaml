@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TheStore.ViewModels"
+
              x:Class="TheStore.Views.JacketPage"
              Title="The Store - Jackets"
              BackgroundImageSource="wallpaper.jpg">
@@ -135,7 +136,7 @@
                                            VerticalOptions="Center"
                                            TextColor="DeepSkyBlue"
                                            FontSize="Subtitle" />
-                                    <ImageButton Source="addtocart.png" Padding="{OnPlatform Android=5, UWP=40}" Grid.Column="3"/>
+                                    <ImageButton Source="addtocart.png" Padding="{OnPlatform iOS='*', Android=5, UWP=40}" Grid.Column="3"/>
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
