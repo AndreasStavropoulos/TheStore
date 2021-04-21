@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using TheStore.Models;
 
 namespace TheStore.ViewModels
 {
@@ -24,6 +25,26 @@ namespace TheStore.ViewModels
             get { return title; }
             set { SetProperty(ref title, value); }
         }
+
+
+        private User activeUser;
+
+        public User ActiveUser
+        {
+            get { return activeUser; }
+            set
+            {
+                activeUser = value;
+                OnPropertyChanged(nameof(ActiveUser));
+            }
+        }
+
+        public BaseViewModel()
+        {
+            var currentUser = CurrentUser.GetInstance();
+            ActiveUser = currentUser.ActiveUser;
+        }
+
 
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",

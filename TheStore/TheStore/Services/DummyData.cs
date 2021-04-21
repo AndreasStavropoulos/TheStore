@@ -21,19 +21,30 @@ namespace TheStore.Services
             userRepo = new UserRepo();
         }
 
-        private void AddUser()
+        private List<User> GetUsers()
         {
-            User user = new User
+            List<User> users = new List<User>
+            {
+                new User
             {
                 Id = 0,
                 Email = "andreas@store.be",
                 Name = "Andreas",
                 Password = "1234",
                 IsAdmin = false
-            };
+            },
 
-            userRepo.SaveUserAsync(user);
-            
+                 new User
+            {
+                Id = 0,
+                Email = "emma@store.be",
+                Name = "Emma",
+                Password = "12345",
+                IsAdmin = false
+            },
+
+            };
+            return users;
         }
 
         public async void FillDb()
@@ -56,7 +67,12 @@ namespace TheStore.Services
                 await genericRepoTshirt.SaveProductAsync(tshirt);
             }
 
-            AddUser();
+            List<User> users = GetUsers();
+            foreach (var user in users)
+            {
+                await userRepo.SaveUserAsync(user);
+            }
+
         }
 
         private List<Shoes> GetShoes()
