@@ -32,6 +32,15 @@
                                FontAttributes="Bold"
                                Margin="15,0"
                                />
+                    
+                    <Switch IsToggled="{Binding SelectedJacket.IsInStock}"
+                            ThumbColor="green"/>
+                    <!--<Label Text="{Binding SelectedJacket.IsInStock, ConverterParameter=}"
+                               TextColor="Black"
+                               FontSize="12"
+                               FontAttributes="Bold"
+                               Margin="15,0"
+                               />-->
                     <StackLayout Grid.Column="1"
                                          VerticalOptions="Center">
                         <Label Text="{Binding SelectedJacket.Price}"
