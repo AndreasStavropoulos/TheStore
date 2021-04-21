@@ -58,6 +58,8 @@ namespace TheStore.ViewModels
                     currentUser.ActiveUser = user;
                     ActiveUser = user;
                     await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+                    
+                    var a = userRepo.GetUserByIdAsync(ActiveUser.Id);
                     return;
                 }
             }
