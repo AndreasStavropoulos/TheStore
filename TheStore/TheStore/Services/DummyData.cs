@@ -11,6 +11,7 @@ namespace TheStore.Services
         private IGenericRepo<Jacket> genericRepoJackets;
         private IGenericRepo<Shoes> genericRepoShoes;
         private IGenericRepo<TShirt> genericRepoTshirt;
+        private IGenericRepo<Jeans> genericRepoJeans;
         private IUserRepo userRepo;
 
         public DummyData()
@@ -18,6 +19,7 @@ namespace TheStore.Services
             genericRepoShoes = new GenericRepo<Shoes>();
             genericRepoJackets = new GenericRepo<Jacket>();
             genericRepoTshirt = new GenericRepo<TShirt>();
+            genericRepoJeans = new GenericRepo<Jeans>();
             userRepo = new UserRepo();
         }
 
@@ -65,6 +67,11 @@ namespace TheStore.Services
             foreach (var tshirt in tshirts)
             {
                 await genericRepoTshirt.SaveProductAsync(tshirt);
+            }
+            List<Jeans> jeans = GetJeans();
+            foreach (var jean in jeans)
+            {
+                await genericRepoJeans.SaveProductAsync(jean);
             }
 
             List<User> users = GetUsers();
