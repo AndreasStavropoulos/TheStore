@@ -36,7 +36,7 @@
         <ScrollView>
             <StackLayout>
 
-                <Image x:Name="Header" Source="TheStore.png" />
+                <Image x:Name="Header" Source="TheStore.png" Aspect="AspectFit" HeightRequest="{OnPlatform Android=130, UWP=370}" />
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <StackLayout Orientation="Vertical">

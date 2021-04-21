@@ -111,11 +111,14 @@
     <Content Include="category.png" />
     <Content Include="home.png" />
     <Content Include="jackets.jpg" />
+    <Content Include="jackets_home.jpg" />
     <Content Include="jeans.jpg" />
+    <Content Include="jeans_home.jpeg" />
     <Content Include="jeans_icon.png" />
     <Content Include="mohowseg_tee.jpg" />
     <Content Include="parka.jpg" />
     <Content Include="shoes.jpg" />
+    <Content Include="shoes_home.jpg" />
     <Content Include="shoes_icon.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
@@ -150,6 +153,7 @@
     <Content Include="straight_jeans.jpg" />
     <Content Include="TheStore.png" />
     <Content Include="tshirts.png" />
+    <Content Include="tshirts_home.jpg" />
     <Content Include="tshirt_icon.png" />
     <Content Include="shoe2.png" />
     <Content Include="shoes1.png" />
