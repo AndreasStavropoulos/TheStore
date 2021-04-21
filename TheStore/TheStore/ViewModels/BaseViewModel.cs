@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using TheStore.Views;
+using Xamarin.Forms;
 
 namespace TheStore.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
         //public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public ICommand GoToUserCommand { get; }
+        //public ICommand GoToCartCommand { get; }
 
         private bool isBusy = false;
 
@@ -24,7 +29,11 @@ namespace TheStore.ViewModels
             get { return title; }
             set { SetProperty(ref title, value); }
         }
-
+        public BaseViewModel()
+        {
+            GoToUserCommand = new Command(GoToUser);
+            //GoToCartCommand = new Command(GoToCart);
+        }
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",
             Action onChanged = null)
@@ -52,5 +61,14 @@ namespace TheStore.ViewModels
         }
 
         #endregion INotifyPropertyChanged
+        private async void GoToUser()
+        {
+            await Shell.Current.GoToAsync(nameof(LoginPage));
+        }
+        //private async void GoToCart()
+        //{
+        //    await Shell.Current.GoToAsync(nameof(CartPage));
+        //}
+
     }
 }

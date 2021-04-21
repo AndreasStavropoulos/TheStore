@@ -2,17 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:TheStore.ViewModels"
-             x:Class="TheStore.Views.TShirtPage">
+             x:Class="TheStore.Views.TShirtPage"
+             Title="The Store - T-shirts">
 
     <ContentPage.BindingContext>
         <local:TShirtPageViewModel/>
     </ContentPage.BindingContext>
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="user.png" Command="{Binding GoToUserCommand}" />
+        <ToolbarItem IconImageSource="cart.png" Command="{Binding GoToCartCommand}" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <SearchBar Placeholder="Search shoes"  />
-                <Label Text="BasketBall shoes"
+                <SearchBar Placeholder="Search t-shirts"  />
+                <Label Text="HighLighted T-shirts"
                        TextColor="Black"
                        FontSize="24"
                        FontAttributes="Bold"
@@ -82,13 +88,13 @@
                     </CarouselView.ItemTemplate>
                 </CarouselView>
 
-                <Label Text="All Shoes"
+                <Label Text="All Tees"
                        TextColor="Black"
                        FontSize="24"
                        FontAttributes="Bold"
                        Margin="15" />
                 <StackLayout Margin="20">
-                    <CollectionView x:Name="CoffeesListView"
+                    <CollectionView x:Name="TshirtsListView"
                                     ItemsSource="{Binding TShirts}"
                                     SelectionMode="Single">
                         <CollectionView.ItemTemplate>
