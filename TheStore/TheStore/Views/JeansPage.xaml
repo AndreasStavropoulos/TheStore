@@ -1,12 +1,146 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TheStore.Views.JeansPage">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:TheStore.ViewModels"
+             x:Class="TheStore.Views.JeansPage"
+             Title="The Store - Jeans">
+
+    <ContentPage.BindingContext>
+        <local:JeansPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="user.png" Command="{Binding GoToUserCommand}" />
+        <ToolbarItem IconImageSource="cart.png" Command="{Binding GoToCartCommand}" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <SearchBar Placeholder="Search jeans"  />
+                <Label Text="Highlighted Jeans"
+                       TextColor="Black"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       Margin="15" />
+
+                <CarouselView ItemsSource="{Binding Jeans}"
+                              PeekAreaInsets="100"
+                              Loop="True"
+                              HeightRequest="300">
+
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+
+                            <StackLayout>
+                                <Frame HeightRequest="200"
+                                       WidthRequest="180"
+                                       BackgroundColor="white"
+                                       HasShadow="True"
+                                       CornerRadius="10"
+                                       Padding="0"
+                                       Margin="10"
+                                       HorizontalOptions="CenterAndExpand">
+                                    <Grid>
+                                        <StackLayout BackgroundColor="white">
+                                            <Image Source="{Binding ImgUrl}"
+                                                   Aspect="AspectFit"
+                                                   Opacity="0.8" />
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <Image Source="icon_bookmark.png"
+                                                   HeightRequest="60"
+                                                   Aspect="AspectFit"
+                                                   HorizontalOptions="EndAndExpand"
+                                                   Margin="0,-10,0,0" />
+                                            <Label Text="{Binding Name}"
+                                                   TextColor="black"
+                                                   FontSize="24"
+                                                   FontAttributes="Bold"
+                                                   Margin="15, 0"
+                                                   VerticalOptions="EndAndExpand" />
+
+                                            <StackLayout Orientation="Horizontal"
+                                                         Margin="15, -10,0,0">
+                                                <Image Source="icon_map1.png"
+                                                       HeightRequest="20"
+                                                       Aspect="AspectFit" />
+                                                <Label Text="{Binding Price}"
+                                                       TextColor="red"
+                                                       FontSize="14"
+                                                       VerticalOptions="EndAndExpand" />
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                        <!--<Grid.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                    NumberOfTapsRequired="1"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:AboutViewModel}},
+                                              Path=ItemTapped}"
+                                    CommandParameter="{Binding .}"/>
+                                        </Grid.GestureRecognizers>-->
+
+                                    </Grid>
+                                </Frame>
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <Label Text="All Jeans"
+                       TextColor="Black"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       Margin="15" />
+                <StackLayout Margin="20">
+                    <CollectionView x:Name="JeanssListView"
+                                    ItemsSource="{Binding Jeans}"
+                                    SelectionMode="Single">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid
+                                    HeightRequest="100"
+                                    Margin="25"
+                                    BackgroundColor="White">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image HeightRequest="125"
+                                           VerticalOptions="Start"
+                                           Source="{Binding ImgUrl}" />
+                                    <Label Grid.Column="1"
+                                           VerticalOptions="Center"
+                                           Text="{Binding Name}"
+
+                                           FontSize="Large" />
+                                    <Label Grid.Column="2"
+                                           Text="{Binding Price}"
+                                           FontAttributes="Bold"
+                                           VerticalOptions="Center"
+                                           TextColor="DeepSkyBlue"
+                                           FontSize="Subtitle" />
+                                    <Button Text="Add to cart" Grid.Column="3" Margin="20" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+
+
+            </StackLayout>
+        </ScrollView>
+
+
+
+
     </ContentPage.Content>
 </ContentPage>
