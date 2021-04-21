@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:TheStore.ViewModels" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="TheStore.Views.JacketDetailPage">
+    <ContentPage.BindingContext>
+        <local:JacketDetailPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <Grid>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Grid>
+
+                    <Frame HeightRequest="400" Padding="0" BackgroundColor="Black">
+                        <Image Source="{Binding SelectedJacket.ImgUrl}"
+                           HeightRequest="400"
+                           Aspect="AspectFill"
+                           Opacity="0.9"/>
+                    </Frame>
+                    <!--<StackLayout VerticalOptions="EndAndExpand">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding SelectedJacket.Name}"
+                               TextColor="White"
+                               FontSize="32"
+                               FontAttributes="Bold"
+                               Margin="15"
+                               />
+                            <StackLayout Grid.Column="1"
+                                         VerticalOptions="Center">
+                                <Label Text="{Binding SelectedJacket.Price}"
+                                   
+                                   TextColor="Red"
+                                   FontSize="24"
+                                   FontAttributes="Bold"
+                                   Margin="15"
+                                   />
+                            </StackLayout>
+                        </Grid>
+
+                    </StackLayout>-->
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="{Binding SelectedJacket.Name}"
+                               TextColor="Black"
+                               FontSize="32"
+                               FontAttributes="Bold"
+                               Margin="15"
+                               />
+                    <StackLayout Grid.Column="1"
+                                         VerticalOptions="Center">
+                        <Label Text="{Binding SelectedJacket.Price}"
+                                   
+                                   TextColor="Red"
+                                   FontSize="24"
+                                   FontAttributes="Bold"
+                                   Margin="15"
+                                   />
+                    </StackLayout>
+                </Grid>
+
+                <Grid VerticalOptions="FillAndExpand"
+                      Margin="0,-20,0,0"
+                      Padding="0">
+
+                    <Frame CornerRadius="25">
+                        <StackLayout>
+
+                            <xct:TabView
+                                        TabStripPlacement="Top"
+                                        TabStripBackgroundColor="Transparent"
+                                        TabStripHeight="60"
+                                        TabIndicatorColor="red"
+                                        TabContentBackgroundColor="Transparent"
+                                        Margin="-20">
+
+                                <xct:TabViewItem
+                                        Icon="triangle.png"
+                                        Text="Description"
+                                        TextColor="black"
+                                        TextColorSelected="Red"
+                                        FontSize="16">
+                                    <Grid 
+                                        BackgroundColor="Transparent">
+                                        <Label
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Start"
+                                        Text="{Binding SelectedJacket.Description}"
+                                        TextColor="black"
+                                        Margin=" 30"/>
+                                    </Grid>
+                                </xct:TabViewItem>
+
+                                <xct:TabViewItem
+                                        Icon="info.png"
+                                        Text="Reviews"
+                                        TextColor="Black"
+                                        TextColorSelected="red"
+                                        FontSize="16">
+                                    <Grid>
+                                        <Label    
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Text="Here are the reviews fro users" />
+                                    </Grid>
+                                </xct:TabViewItem>
+                            </xct:TabView>
+
+
+                            <!--<Label Text="{Binding SelectedPlace.Description}"
+                                   FontSize="18"
+                                   Margin="10,20"/>-->
+                        </StackLayout>
+
+
+
+                        <!--Xamarin Community Toolkit , using for tabs-->
+                        <!--<Grid>
+                            <xyt:TabView Style="{StaticResource TabStyle}">
+                                <xyt:TabViewItem >
+                                    <Grid BackgroundColor="Red">
+                                    </Grid>
+                                </xyt:TabViewItem>
+                                <xyt:TabViewItem>
+                                    <Grid BackgroundColor="Blue">
+                                    </Grid>
+                                </xyt:TabViewItem>
+                            </xyt:TabView>
+                        </Grid>-->
+
+
+
+
+                    </Frame>
+
+                   
+
+
+                </Grid>
+
+                <Grid>
+                    <StackLayout>
+                        <Button Text="Add to Cart"
+                                VerticalOptions="EndAndExpand"
+                                Margin="20, 0, 20, 10"
+                                
+                                ></Button>
+                    </StackLayout>
+                </Grid>
+
+            </StackLayout>
+
+        </Grid>
+
+
+
+        <!--<StackLayout>
+            <Label Text="{Binding SelectedJacket.Description}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding SelectedJacket.Id}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>-->
+        
+        
+    </ContentPage.Content>
+</ContentPage>

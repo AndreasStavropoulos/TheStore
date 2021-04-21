@@ -4,11 +4,22 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using TheStore.Models;
 using TheStore.Services;
+using TheStore.Views;
+using Xamarin.Forms;
 
 namespace TheStore.ViewModels
 {
     internal class JacketPageViewModel : BaseViewModel
     {
+
+        public Command<Jacket> ItemTapped { get; }
+
+        private async void OnJacketSelected(Jacket jacket)
+        {
+            await Shell.Current.GoToAsync(
+                $"{nameof(JacketDetailPage)}?{nameof(JacketDetailPageViewModel.JacketId)}={jacket.Id}");
+        }
+
         private ObservableCollection<Jacket> jacket;
         private IGenericRepo<Jacket> genericRepoJackets;
 
@@ -26,6 +37,9 @@ namespace TheStore.ViewModels
         {
             genericRepoJackets = new GenericRepo<Jacket>();
             RefreshJackets();
+
+
+            ItemTapped = new Command<Jacket>(OnJacketSelected);
         }
 
         private async void RefreshJackets()
