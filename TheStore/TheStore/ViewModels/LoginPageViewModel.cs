@@ -50,23 +50,23 @@ namespace TheStore.ViewModels
         {
             User user = userRepo.FindUserByEMail(EMail).Result;
 
-
-            if (user== null)
+            if (user!=null)
             {
-
-                await App.Current.MainPage.DisplayAlert("Welcome to The Store", "Wrong email or password, please try again", "Ok");
-                EMail = string.Empty;
-                Password = string.Empty;
-                await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+                if (user.Password == Password)
+                {
+                    var currentUser = CurrentUser.GetInstance();
+                    currentUser.ActiveUser = user;
+                    ActiveUser = user;
+                    await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+                    return;
+                }
             }
-            else
-            {
-                var currentUser = CurrentUser.GetInstance();
-                currentUser.ActiveUser = user;
-                ActiveUser = user;
-                await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
-
-            }
+           
+            
+            await App.Current.MainPage.DisplayAlert("Welcome to The Store", "Wrong email or password, please try again", "Ok");
+            EMail = string.Empty;
+            Password = string.Empty;
+            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
     }
 }
