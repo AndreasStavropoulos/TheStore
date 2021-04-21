@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:TheStore.ViewModels"
              x:Class="TheStore.Views.TShirtPage"
-             Title="The Store - T-shirts">
+             Title="The Store - T-shirts"
+             BackgroundImageSource="wallpaper.jpg">
 
     <ContentPage.BindingContext>
         <local:TShirtPageViewModel/>
@@ -14,15 +15,26 @@
         <ToolbarItem IconImageSource="cart.png" Command="{Binding GoToCartCommand}" />
     </ContentPage.ToolbarItems>
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="15"/>
+            </Style>
+            <Style TargetType="ImageButton">
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
                 <SearchBar Placeholder="Search t-shirts"  />
-                <Label Text="HighLighted T-shirts"
-                       TextColor="Black"
-                       FontSize="24"
-                       FontAttributes="Bold"
-                       Margin="15" />
+                <Label Text="HighLighted T-shirts"/>
 
                 <CarouselView ItemsSource="{Binding TShirts}"
                               PeekAreaInsets="100"
@@ -54,10 +66,6 @@
                                                    HorizontalOptions="EndAndExpand"
                                                    Margin="0,-10,0,0" />
                                             <Label Text="{Binding Name}"
-                                                   TextColor="black"
-                                                   FontSize="24"
-                                                   FontAttributes="Bold"
-                                                   Margin="15, 0"
                                                    VerticalOptions="EndAndExpand" />
 
                                             <StackLayout Orientation="Horizontal"
@@ -109,8 +117,9 @@
 
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="2*" />
                                         <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="0.5*" />
                                     </Grid.ColumnDefinitions>
 
                                     <Image HeightRequest="125"
@@ -127,7 +136,7 @@
                                            VerticalOptions="Center"
                                            TextColor="DeepSkyBlue"
                                            FontSize="Subtitle" />
-                                    <Button Text="Add to cart" Grid.Column="3" Margin="20" />
+                                    <ImageButton Source="addtocart.png" Grid.Column="3"/>
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TheStore.ViewModels"
              x:Class="TheStore.Views.HomePage"
-             Title="Home">
+             Title="Home"
+             BackgroundImageSource="wallpaper.jpg">
 
     <ContentPage.BindingContext>
         <local:HomePageViewModel />
@@ -14,23 +15,31 @@
         <ToolbarItem IconImageSource="cart.png" Command="{Binding GoToCartCommand}" />
     </ContentPage.ToolbarItems>
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="ContentLayout" Value="Top,0"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
 
                 <Image x:Name="Header" Source="TheStore.png" />
 
-                <Image Source="" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-                <Image Source="" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <StackLayout Orientation="Vertical">
-                        <Button Text="Jeans" ImageSource="jeans.jpg" ContentLayout="Top,0" HorizontalOptions="Center" Command="{Binding GoToJeansCommand}" WidthRequest="200" BackgroundColor="White" TextColor="Black"/>
-                        <Button Text="T-Shirts" ImageSource="tshirts.png" ContentLayout="Top,0" HorizontalOptions="Center" Command="{Binding GoToTshirtsCommand}" WidthRequest="200" BackgroundColor="White" TextColor="Black"/>
+                        <Button Text="Jeans" ImageSource="jeans.jpg" HorizontalOptions="Center" Command="{Binding GoToJeansCommand}"/>
+                        <Button Text="T-Shirts" ImageSource="tshirts.png" HorizontalOptions="Center" Command="{Binding GoToTshirtsCommand}"/>
                     </StackLayout>
                     <StackLayout Orientation="Vertical">
-                        <Button Text="Jackets" ImageSource="jackets.jpg" ContentLayout="Top,0" Command="{Binding GoToJacketsCommand}" WidthRequest="200" BackgroundColor="White" TextColor="Black"/>
-                        <Button Text="Shoes" ImageSource="shoes.jpg" ContentLayout="Top,0" Command="{Binding GoToShoesCommand}" WidthRequest="200" BackgroundColor="White" TextColor="Black"/>
+                        <Button Text="Jackets" ImageSource="jackets.jpg" Command="{Binding GoToJacketsCommand}"/>
+                        <Button Text="Shoes" ImageSource="shoes.jpg" Command="{Binding GoToShoesCommand}"/>
                     </StackLayout>
                 </StackLayout>
                 <StackLayout>
