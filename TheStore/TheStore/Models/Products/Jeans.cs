@@ -8,9 +8,15 @@ namespace TheStore.Models
         {
             Skinny, Baggy, BootCut, Straight
         }
-
-        //public List<int> Size { get; set; }
+        //public enum Size
+        //{
+        //    Small,
+        //    Medium,
+        //    Large,
+        //    XLarge
+        //}
 
         public Style JeansStyle { get; set; }
+        //public Size JeansSize { get; set; }
     }
 }
