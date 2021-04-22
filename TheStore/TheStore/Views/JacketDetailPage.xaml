@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TheStore.ViewModels" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="TheStore.Views.JacketDetailPage">
     <ContentPage.BindingContext>
-        <local:JacketDetailPageViewModel/>
+        <local:JacketDetailPageViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
@@ -15,15 +15,15 @@
                     <Frame HeightRequest="300" Padding="10" BackgroundColor="Transparent">
                         <Image Source="{Binding SelectedJacket.ImgUrl}"
                            HeightRequest="300"
-                           Aspect="AspectFill"/>
+                           Aspect="AspectFill" />
                     </Frame>
                 </Grid>
-                
+
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
 
                     <Label Text="{Binding SelectedJacket.Name}"
@@ -32,8 +32,8 @@
                                FontAttributes="Bold"
                                VerticalOptions="Center"
                                HorizontalOptions="StartAndExpand"
-                               Margin="15,0"/>
-                    
+                               Margin="15,0" />
+
                     <Label VerticalOptions="Center"
                            HorizontalOptions="Center"
                            Grid.Column="1">
@@ -57,7 +57,7 @@
                                TextColor="Green"
                                FontSize="24"
                                FontAttributes="None"
-                               Margin="15,0"/>
+                               Margin="15,0" />
                     </StackLayout>
                 </Grid>
 
@@ -82,14 +82,14 @@
                                         TextColor="black"
                                         TextColorSelected="Red"
                                         FontSize="16">
-                                    <Grid 
+                                    <Grid
                                         BackgroundColor="Transparent">
                                         <Label
                                         HorizontalOptions="Start"
                                         VerticalOptions="Start"
                                         Text="{Binding SelectedJacket.Description}"
                                         TextColor="black"
-                                        Margin=" 30"/>
+                                        Margin=" 30" />
                                     </Grid>
                                 </xct:TabViewItem>
 
@@ -100,18 +100,17 @@
                                         TextColorSelected="red"
                                         FontSize="16">
                                     <Grid>
-                                        <Label    
+                                        <Label
                                         HorizontalOptions="Center"
                                         VerticalOptions="Center"
                                         Text="There are currently no reviews available for this product" />
                                     </Grid>
                                 </xct:TabViewItem>
                             </xct:TabView>
-
                         </StackLayout>
                     </Frame>
                 </Grid>
-                <Grid 
+                <Grid
                       VerticalOptions="End"
                       Padding="0">
                     <Grid>
@@ -124,13 +123,13 @@
                                     Margin="0, -10, 0, 0"
                                     BackgroundColor="ForestGreen"
                                     TextColor="White"
+                                    Command="{Binding AddToCartCommand}"
+
                                 ></Button>
                         </StackLayout>
                     </Grid>
                 </Grid>
             </StackLayout>
-
         </Grid>
-
     </ContentPage.Content>
 </ContentPage>

@@ -18,14 +18,14 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Label">
-                <Setter Property="TextColor" Value="Black"/>
-                <Setter Property="FontSize" Value="24"/>
-                <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="Margin" Value="15"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Margin" Value="15" />
             </Style>
             <Style TargetType="ImageButton">
-                <Setter Property="BackgroundColor" Value="Transparent"/>
-                <Setter Property="Padding" Value="5"/>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="Padding" Value="5" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -33,7 +33,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <SearchBar Placeholder="Search jackets"  />
+                <SearchBar Placeholder="Search jackets" />
                 <Label Text="Highlighted Jackets" />
 
                 <CarouselView ItemsSource="{Binding Jackets}"
@@ -85,12 +85,10 @@
                                     NumberOfTapsRequired="1"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type local:JacketPageViewModel}},
                                               Path=ItemTapped}"
-                                    CommandParameter="{Binding .}"/>
+                                    CommandParameter="{Binding .}" />
                                         </Grid.GestureRecognizers>
-
                                     </Grid>
                                 </Frame>
-
                             </StackLayout>
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
@@ -136,14 +134,14 @@
                                            VerticalOptions="Center"
                                            TextColor="DeepSkyBlue"
                                            FontSize="Subtitle" />
-                                    <ImageButton Source="addtocart.png" Padding="5" Grid.Column="3"/>
+                                    <ImageButton Command="{Binding AddToCartCommand}" Source="addtocart.png" Padding="5" Grid.Column="3" />
 
                                     <Grid.GestureRecognizers>
                                         <TapGestureRecognizer
                                     NumberOfTapsRequired="1"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type local:JacketPageViewModel}},
                                               Path=ItemTapped}"
-                                    CommandParameter="{Binding .}"/>
+                                    CommandParameter="{Binding .}" />
                                     </Grid.GestureRecognizers>
                                 </Grid>
                             </DataTemplate>

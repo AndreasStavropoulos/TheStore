@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Windows.Input;
 using TheStore.Models;
 using TheStore.Services;
 using TheStore.Views;
@@ -9,16 +10,10 @@ using Xamarin.Forms;
 
 namespace TheStore.ViewModels
 {
-    internal class JacketPageViewModel : BaseViewModel
+    internal class JacketPageViewModel : ProductViewModel
     {
-
         public Command<Jacket> ItemTapped { get; }
-
-        private async void OnJacketSelected(Jacket jacket)
-        {
-            await Shell.Current.GoToAsync(
-                $"{nameof(JacketDetailPage)}?{nameof(JacketDetailPageViewModel.JacketId)}={jacket.Id}");
-        }
+        public Command<Jacket> AddToCartCommand { get; }
 
         private ObservableCollection<Jacket> jacket;
         private IGenericRepo<Jacket> genericRepoJackets;
@@ -37,9 +32,19 @@ namespace TheStore.ViewModels
         {
             genericRepoJackets = new GenericRepo<Jacket>();
             RefreshJackets();
-
-
             ItemTapped = new Command<Jacket>(OnJacketSelected);
+            AddToCartCommand = new Command<Jacket>(AddSelectedJacketToCart);
+        }
+
+        private void AddSelectedJacketToCart(Jacket jacket)
+        {
+            cart.AddJacket(jacket);
+        }
+
+        private async void OnJacketSelected(Jacket jacket)
+        {
+            await Shell.Current.GoToAsync(
+                $"{nameof(JacketDetailPage)}?{nameof(JacketDetailPageViewModel.JacketId)}={jacket.Id}");
         }
 
         private async void RefreshJackets()

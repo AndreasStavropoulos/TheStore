@@ -8,7 +8,7 @@ using TheStore.Services;
 
 namespace TheStore.ViewModels
 {
-    public class CartPageViewModel : BaseViewModel
+    public class CartPageViewModel : ProductViewModel
     {
         private ObservableCollection<CartItem> cartItems;
 
@@ -31,11 +31,12 @@ namespace TheStore.ViewModels
             RefreshCartItems();
         }
 
-        private async void RefreshCartItems()
+        private void RefreshCartItems()
         {
             try
             {
-                List<CartItem> cartItems = await cartItemRepo.GetCartItemsOfActiveUserAsync(currentUser.ActiveUser);
+                //List<CartItem> cartItems = await cartItemRepo.GetCartItemsOfActiveUserAsync(currentUser.ActiveUser);
+                List<CartItem> cartItems = cart.GetCartList();
                 CartItems = new ObservableCollection<CartItem>(cartItems);
             }
             catch (Exception e)
