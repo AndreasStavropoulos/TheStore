@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:TheStore.ViewModels"
-             x:Class="TheStore.Views.CartPage"
-             BackgroundImageSource="wallpaper.jpg">
+             x:Class="TheStore.Views.CartPage">
 
     <ContentPage.BindingContext>
         <local:CartPageViewModel />
     </ContentPage.BindingContext>
+
 
     <ContentPage.Resources>
         <Style TargetType="Label">
@@ -15,14 +15,16 @@
         </Style>
     </ContentPage.Resources>
 
+
+
     <StackLayout Margin="20">
-        <StackLayout>
+        <StackLayout HorizontalOptions="Center">
             <Label Grid.Column="1"
-                               VerticalOptions="Center"
-                               Text="{Binding ActiveUser.Name}"
-                               FontSize="Large" />
+                   Text="{Binding currentUser.ActiveUser.Name , StringFormat='{0} Cart'}"
+                   FontSize="Large"/>
+
         </StackLayout>
-        <CollectionView x:Name="CoffeesListView"
+        <CollectionView x:Name="ShoppingListView"
                                 ItemsSource="{Binding CartItems}"
                                 SelectionMode="Single">
             <CollectionView.ItemTemplate>
@@ -38,27 +40,42 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
 
-                        <Label Grid.Column="1"
-                               VerticalOptions="Center"
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0">
+                            <Label 
                                Text="{Binding Product.Name}"
                                FontSize="Large" />
-                        <Label Grid.Column="3"
-                               VerticalOptions="Center"
-                               Text="{Binding Quantity}"
-                               FontSize="Large" />
-                        <Label Grid.Column="2"
+                            <Label 
                                Text="{Binding Product.Description}"
                                FontAttributes="Bold"
-                               VerticalOptions="Center"
                                TextColor="DeepSkyBlue"
-                               FontSize="Subtitle" />
+                               FontSize="10" />
+
+                        </StackLayout>
+                        <StackLayout Grid.Column="1">
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="Center">
+                                <Label Text="{Binding Product.Price}"/>
+                                <Label Text="{Binding Quantity}"/>
+                            </StackLayout>
+
+                            <Stepper 
+                                 VerticalOptions="StartAndExpand"
+                                 HorizontalOptions="Center"
+                                 Margin="5"
+                                 HeightRequest="40"
+                                 Minimum="0" 
+                                 Maximum="10" 
+                                 Increment="1"/>
+                        </StackLayout>
+
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <StackLayout HorizontalOptions="Center">
+            <Label Text="Total amount"/>
+        </StackLayout>
     </StackLayout>
 </ContentPage>
