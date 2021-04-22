@@ -56,7 +56,7 @@
                         <StackLayout Grid.Column="1">
                             <StackLayout Orientation="Horizontal"
                                          HorizontalOptions="Center">
-                                <Label Text="{Binding Product.Price}"/>
+                                <Label Text="{Binding TotalPrice}"/>
                                 <Label Text="{Binding Quantity}"/>
                             </StackLayout>
 
@@ -67,7 +67,8 @@
                                  HeightRequest="40"
                                  Minimum="0" 
                                  Maximum="10" 
-                                 Increment="1"/>
+                                 Increment="1"
+                                 />
                         </StackLayout>
 
                     </Grid>
@@ -75,7 +76,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <StackLayout HorizontalOptions="Center">
-            <Label Text="Total amount"/>
+            <Label Text="{Binding cart.TotalAmount}"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

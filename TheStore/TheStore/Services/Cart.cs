@@ -5,6 +5,7 @@ namespace TheStore.Models
 {
     public class Cart
     {
+        public double TotalAmount { get; set; }
         private static Cart Instance { get; set; }
         public CartItemRepo cartItemRepo;
         public List<CartItem> CartItems { get; set; }
@@ -42,16 +43,29 @@ namespace TheStore.Models
 
             if (cartItem == null)
             {
-                CartItem newCartitem = new CartItem();
-                newCartitem.Quantity = 1;
-                newCartitem.Product = jacket;
-                CartItems.Add(newCartitem);
+                CartItem newCartItem = new CartItem();
+                newCartItem.Quantity = 1;
+                newCartItem.Product = jacket;
+                newCartItem.TotalPrice += newCartItem.Product.Price;
+                CartItems.Add(newCartItem);
             }
             else
             {
+                cartItem.TotalPrice += cartItem.Product.Price;
                 cartItem.Quantity++;
             }
+            RefreshTotalAmount();
         }
+
+        public void RefreshTotalAmount()
+        {
+            TotalAmount = 0;
+            foreach (var cartItem in CartItems)
+            {
+                TotalAmount += cartItem.TotalPrice;
+            }
+        }
+
 
         public List<CartItem> GetCartList()
         {
