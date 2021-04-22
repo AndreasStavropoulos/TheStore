@@ -30,11 +30,13 @@
                                TextColor="Black"
                                FontSize="36"
                                FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               HorizontalOptions="StartAndExpand"
                                Margin="15,0"/>
                     
                     <Label VerticalOptions="Center"
                            HorizontalOptions="Center"
-                           Margin="10,-5,-220,-10">
+                           Grid.Column="1">
                         <Label.Triggers>
                             <DataTrigger TargetType="Label" Binding="{Binding SelectedJacket.IsInStock}" Value="false">
                                 <Setter Property="Text" Value="Not in Stock" />
@@ -47,7 +49,7 @@
                         </Label.Triggers>
                     </Label>
 
-                    <StackLayout Grid.Column="1"
+                    <StackLayout Grid.Column="2"
                                  VerticalOptions="Center">
 
                         <Label Grid.Column="2"
@@ -101,7 +103,7 @@
                                         <Label    
                                         HorizontalOptions="Center"
                                         VerticalOptions="Center"
-                                        Text="Here are the reviews fro users" />
+                                        Text="There are currently no reviews available for this product" />
                                     </Grid>
                                 </xct:TabViewItem>
                             </xct:TabView>
