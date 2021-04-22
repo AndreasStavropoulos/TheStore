@@ -5,7 +5,6 @@ namespace TheStore.Services
 {
     internal class DummyData
     {
-
         private IGenericRepo<Jacket> genericRepoJackets;
         private IGenericRepo<Shoes> genericRepoShoes;
         private IGenericRepo<TShirt> genericRepoTshirt;
@@ -22,7 +21,6 @@ namespace TheStore.Services
             userRepo = new UserRepo();
             cartItemRepo = new CartItemRepo();
         }
-
 
         public async void FillDb()
         {
@@ -60,7 +58,6 @@ namespace TheStore.Services
             {
                 await cartItemRepo.SaveCartItemAsync(cartitem);
             }
-
         }
 
         private List<User> GetUsers()
@@ -69,7 +66,6 @@ namespace TheStore.Services
             {
                 new User
             {
-
                 Email = "andreas@store.be",
                 Name = "Andreas",
                 Password = "1234",
@@ -78,13 +74,18 @@ namespace TheStore.Services
 
                  new User
             {
-                
                 Email = "emma@store.be",
                 Name = "Emma",
                 Password = "12345",
                 IsAdmin = false
             },
-
+                      new User
+            {
+                Email = "p",
+                Name = "Pieter",
+                Password = "p",
+                IsAdmin = false
+            },
             };
             return users;
         }
@@ -95,7 +96,6 @@ namespace TheStore.Services
             {
                 new Shoes
                 {
-                    
                     Name = "Sneaker",
                     Price = 16.84,
                     ImgUrl = "sneaker.jpg",
@@ -108,7 +108,6 @@ namespace TheStore.Services
 
                 new Shoes
                 {
-                    
                     Name = "Boots",
                     Price = 79.99,
                     ImgUrl = "boots.jpg",
@@ -128,7 +127,6 @@ namespace TheStore.Services
             {
                 new Jacket
                 {
-                    
                     Name = "blazer",
                     Description = "Linen, wool and silk hopsack deconstructed jacket with patch pockets",
                     Price = 2550.00,
@@ -141,7 +139,6 @@ namespace TheStore.Services
                 },
                 new Jacket
                 {
-                    
                     Name = "parka",
                     Description = "SNOWDON PEAK FISHTAIL PARKA VOOR HEREN IN GROEN",
                     Price = 383.99,
@@ -154,7 +151,6 @@ namespace TheStore.Services
                 },
                 new Jacket
                 {
-
                     Name = "Rare parka",
                     Description = "A parka made from human skin",
                     Price = 499,
@@ -175,7 +171,6 @@ namespace TheStore.Services
             {
                 new TShirt
                 {
-                    
                     Name = "Mo-How-Zeg",
                     Description = "Mo joeng toch, mo how zeg … t’is nie te gelovn! Zukke toffen shirt dat hier verkocht wordt ;-). Haal hem nu in huis!",
                     Price = 22.55,
@@ -187,7 +182,6 @@ namespace TheStore.Services
                 },
                 new TShirt
                 {
-                    
                     Name = "v-neck tshirt",
                     Description = "De fijne T-shirts met V-hals zijn nu ook verkrijgbaar in de kleur army! De bamboe shirts zitten geweldig door de zijdezachte stof en zijn te dragen onder een overhemd, maar ook als casual T-shirt. Voel je gegarandeerd de hele dag fris door de fijne eigenschappen van bamboe!",
                     Price = 5.55,
@@ -217,7 +211,6 @@ namespace TheStore.Services
                 },
                 new Jeans
                 {
-                    
                     Name = "Straight",
                     Description = "De jeans die niet mag ontbreken in u garderobe? Dat is ongetwijfeld de 501 van Levi''s® ! Deze straight leg jeans staat jong en oud dankzij deze universele fit met rechte broekpijpen over de hele lengte. Het grootste voordeel is dat je de broek overal mee kan matchen. Of je nu een T-shirt met print en een paar sneakers of en hemd met geklede schoenen wil dragen het kan allemaal.",
                     Price = 89.95,
@@ -236,21 +229,18 @@ namespace TheStore.Services
             {
                 new CartItem
                 {
-                    
                     Quantity = 2,
                     ProductId = 2,
                     UserId =1
                 },
                 new CartItem
                 {
-                    
                     Quantity = 3,
                     ProductId = 2,
                     UserId =1
                 },
                 new CartItem
                 {
-
                     Quantity = 3,
                     ProductId = 2,
                     UserId =2
