@@ -11,9 +11,10 @@
     </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding ActiveUser.Name}"/>
         <ToolbarItem IconImageSource="user.png" Command="{Binding GoToUserCommand}" />
         <ToolbarItem IconImageSource="cart.png" Command="{Binding GoToCartCommand}" />
-        <ToolbarItem Text="{Binding ActiveUser.Name, Mode=TwoWay}"/>
+        
     </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
