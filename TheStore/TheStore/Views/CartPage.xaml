@@ -60,23 +60,28 @@
                                 <Label Text="{Binding Quantity}"/>
                             </StackLayout>
 
-                            <Stepper 
-                                 VerticalOptions="StartAndExpand"
-                                 HorizontalOptions="Center"
-                                 Margin="5"
-                                 HeightRequest="40"
-                                 Minimum="0" 
-                                 Maximum="10" 
-                                 Increment="1"
-                                 />
+                            <StackLayout Orientation="Horizontal">
+
+                                <Button Text="-" Command="{Binding Source={RelativeSource 
+                                                           AncestorType={x:Type local:CartPageViewModel}}, 
+                                                           Path=SubstractProductCommand}" 
+                                        CommandParameter="{Binding .}"/>
+                                <Button Text="+" Command="{Binding Source={RelativeSource 
+                                                           AncestorType={x:Type local:CartPageViewModel}}, 
+                                                           Path=AddProductCommand}" 
+                                        CommandParameter="{Binding .}"/>
+                                
+                            </StackLayout>
                         </StackLayout>
 
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <StackLayout HorizontalOptions="Center">
-            <Label Text="{Binding cart.TotalAmount}"/>
+        <StackLayout HorizontalOptions="EndAndExpand">
+            <Label Text="{Binding cart.TotalAmount, StringFormat='Total Amount: {0}'}"
+                   FontSize="18"
+                   VerticalOptions="End"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

@@ -57,6 +57,38 @@ namespace TheStore.Models
             RefreshTotalAmount();
         }
 
+
+        public void AddProduct(Product product)
+        {
+            var cartItem = CartItems.Find(x => x.Product == product);
+
+            if (cartItem == null)
+            {
+                CartItem newCartItem = new CartItem();
+                newCartItem.Quantity = 1;
+                newCartItem.Product = product;
+                newCartItem.TotalPrice += newCartItem.Product.Price;
+                CartItems.Add(newCartItem);
+            }
+            else
+            {
+                cartItem.TotalPrice += cartItem.Product.Price;
+                cartItem.Quantity++;
+            }
+            RefreshTotalAmount();
+        }
+
+        public void AddProduct(CartItem cartItem)
+        {
+            cartItem.TotalPrice += cartItem.Product.Price;
+            cartItem.Quantity++;
+            CartItems.Add(cartItem);
+            RefreshTotalAmount();
+        }
+
+
+
+
         public void RefreshTotalAmount()
         {
             TotalAmount = 0;
