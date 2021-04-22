@@ -7,12 +7,11 @@ using System.Windows.Input;
 using TheStore.Views;
 using Xamarin.Forms;
 
-
 namespace TheStore.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        //public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public CurrentUser currentUser { get; set; }
         public ICommand GoToUserCommand { get; }
         public ICommand GoToCartCommand { get; }
 
@@ -32,26 +31,10 @@ namespace TheStore.ViewModels
             set { SetProperty(ref title, value); }
         }
 
-
-
-        private User activeUser;
-
-        public User ActiveUser
-        {
-            get { return activeUser; }
-            set
-            {
-                activeUser = value;
-                OnPropertyChanged(nameof(ActiveUser));
-            }
-        }
-
-     
         public BaseViewModel()
         {
+            currentUser = CurrentUser.GetInstance();
             GoToUserCommand = new Command(GoToUser);
-            var currentUser = CurrentUser.GetInstance();
-            ActiveUser = currentUser.ActiveUser;
             GoToCartCommand = new Command(GoToCart);
         }
 
@@ -82,14 +65,15 @@ namespace TheStore.ViewModels
         }
 
         #endregion INotifyPropertyChanged
+
         private async void GoToUser()
         {
             await Shell.Current.GoToAsync(nameof(LoginPage));
         }
+
         private async void GoToCart()
         {
             await Shell.Current.GoToAsync(nameof(CartPage));
         }
-
     }
 }

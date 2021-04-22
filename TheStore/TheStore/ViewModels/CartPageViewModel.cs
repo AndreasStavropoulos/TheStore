@@ -35,7 +35,7 @@ namespace TheStore.ViewModels
         {
             try
             {
-                List<CartItem> cartItems = await cartItemRepo.GetCartItemsOfActiveUserAsync(ActiveUser);
+                List<CartItem> cartItems = await cartItemRepo.GetCartItemsOfActiveUserAsync(currentUser.ActiveUser);
                 CartItems = new ObservableCollection<CartItem>(cartItems);
             }
             catch (Exception e)
@@ -45,4 +45,3 @@ namespace TheStore.ViewModels
         }
     }
 }
-

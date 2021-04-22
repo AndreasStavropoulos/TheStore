@@ -11,24 +11,23 @@
     </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="{Binding ActiveUser.Name}"/>
+        <ToolbarItem Text="{Binding currentUser.ActiveUser.Name}" />
         <ToolbarItem IconImageSource="user.png" Command="{Binding GoToUserCommand}" />
         <ToolbarItem IconImageSource="cart.png" Command="{Binding GoToCartCommand}" />
-        
     </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Button">
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="TextColor" Value="Black" />
                 <Setter Property="WidthRequest" Value="200" />
-                <Setter Property="ContentLayout" Value="Top,0"/>
+                <Setter Property="ContentLayout" Value="Top,0" />
             </Style>
             <Style TargetType="Label">
-                <Setter Property="TextColor" Value="Black"/>
-                <Setter Property="FontSize" Value="24"/>
-                <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="Margin" Value="15"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Margin" Value="15" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -41,16 +40,16 @@
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <StackLayout Orientation="Vertical">
-                        <Button Text="Jeans" ImageSource="jeans.jpg" HorizontalOptions="Center" BackgroundColor="Transparent" Command="{Binding GoToJeansCommand}"/>
-                        <Button Text="T-Shirts" ImageSource="tshirts.png" HorizontalOptions="Center" BackgroundColor="Transparent" Command="{Binding GoToTshirtsCommand}"/>
+                        <Button Text="Jeans" ImageSource="jeans.jpg" HorizontalOptions="Center" BackgroundColor="Transparent" Command="{Binding GoToJeansCommand}" />
+                        <Button Text="T-Shirts" ImageSource="tshirts.png" HorizontalOptions="Center" BackgroundColor="Transparent" Command="{Binding GoToTshirtsCommand}" />
                     </StackLayout>
                     <StackLayout Orientation="Vertical">
-                        <Button Text="Jackets" ImageSource="jackets.jpg" BackgroundColor="Transparent" Command="{Binding GoToJacketsCommand}"/>
-                        <Button Text="Shoes" ImageSource="shoes.jpg" BackgroundColor="Transparent" Command="{Binding GoToShoesCommand}"/>
+                        <Button Text="Jackets" ImageSource="jackets.jpg" BackgroundColor="Transparent" Command="{Binding GoToJacketsCommand}" />
+                        <Button Text="Shoes" ImageSource="shoes.jpg" BackgroundColor="Transparent" Command="{Binding GoToShoesCommand}" />
                     </StackLayout>
                 </StackLayout>
                 <StackLayout>
-                    <Label Text="Jeans" HorizontalOptions="Center" FontSize="Large"/>
+                    <Label Text="Jeans" HorizontalOptions="Center" FontSize="Large" />
                     <CarouselView ItemsSource="{Binding Jeans}"
                               PeekAreaInsets="100"
                               Loop="True"
@@ -108,7 +107,7 @@
                     </CarouselView>
                 </StackLayout>
                 <StackLayout>
-                    <Label Text="T-Shirts" HorizontalOptions="Center" FontSize="Large"/>
+                    <Label Text="T-Shirts" HorizontalOptions="Center" FontSize="Large" />
                     <CarouselView ItemsSource="{Binding TShirts}"
                               PeekAreaInsets="100"
                               Loop="True"
@@ -156,17 +155,15 @@
                                                        VerticalOptions="EndAndExpand" />
                                                 </StackLayout>
                                             </StackLayout>
-
                                         </Grid>
                                     </Frame>
-
                                 </StackLayout>
                             </DataTemplate>
                         </CarouselView.ItemTemplate>
                     </CarouselView>
                 </StackLayout>
                 <StackLayout>
-                    <Label Text="Jackets" HorizontalOptions="Center" FontSize="Large"/>
+                    <Label Text="Jackets" HorizontalOptions="Center" FontSize="Large" />
                     <CarouselView ItemsSource="{Binding Jackets}"
                               PeekAreaInsets="100"
                               Loop="True"
@@ -224,7 +221,7 @@
                     </CarouselView>
                 </StackLayout>
                 <StackLayout>
-                    <Label Text="Shoes" HorizontalOptions="Center" FontSize="Large"/>
+                    <Label Text="Shoes" HorizontalOptions="Center" FontSize="Large" />
                     <CarouselView ItemsSource="{Binding Shoes}"
                               PeekAreaInsets="100"
                               Loop="True"
@@ -272,17 +269,15 @@
                                                        VerticalOptions="EndAndExpand" />
                                                 </StackLayout>
                                             </StackLayout>
-
                                         </Grid>
                                     </Frame>
-
                                 </StackLayout>
                             </DataTemplate>
                         </CarouselView.ItemTemplate>
                     </CarouselView>
                 </StackLayout>
 
-                        <Label Text="TheStore - 2021" FontSize="12" FontAttributes="None" HorizontalOptions="Center" />
+                <Label Text="TheStore - 2021" FontSize="12" FontAttributes="None" HorizontalOptions="Center" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
