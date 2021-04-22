@@ -33,7 +33,7 @@ namespace TheStore.Services
             {
                 using (var dbContext = new TheStoreContext())
                 {
-                    return await dbContext.CartItems.Include(x=>x.Product).ToListAsync();
+                    return await dbContext.CartItems.Include(x => x.Product).ToListAsync();
                 }
             }
             else
@@ -43,17 +43,23 @@ namespace TheStore.Services
                     return await dbContext.CartItems.ToListAsync();
                 }
             }
-            
         }
-
 
         public async Task<List<CartItem>> GetCartItemsOfActiveUserAsync(User user)
         {
             using (var dbContext = new TheStoreContext())
             {
                 return await dbContext.CartItems.Include(y => y.Product).Where(x => x.User == user).ToListAsync();
-
             }
+        }
+
+        public void AddOneCartItem(CartItem cartItem)
+        {
+            if (true)
+            {
+            }
+
+            cartItem.Quantity++;
         }
     }
 }
