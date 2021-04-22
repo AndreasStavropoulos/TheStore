@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TheStore.Models;
 
@@ -48,7 +46,7 @@ namespace TheStore.Services
         {
             using (var dbContext = new TheStoreContext())
             {
-                return await dbContext.Users .ToListAsync();
+                return await dbContext.Users.ToListAsync();
             }
         }
 
@@ -62,11 +60,9 @@ namespace TheStore.Services
         {
             using (var dbContext = new TheStoreContext())
             {
-                var user =  dbContext.Users.Include(x => x.CartItems)
-                                           .ThenInclude(x=>x.Product)
-                                           .FirstOrDefault(y =>y.Id == id);
-
-                return user;
+                return dbContext.Users.Include(x => x.CartItems)
+                                      .ThenInclude(x => x.Product)
+                                      .FirstOrDefault(y => y.Id == id);
             }
         }
     }
