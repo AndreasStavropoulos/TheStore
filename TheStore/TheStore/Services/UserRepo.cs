@@ -58,5 +58,16 @@ namespace TheStore.Services
             return ListOfUsers.FirstOrDefault(x => x.Email == email);
         }
 
+        public User GetUserByIdAsync(int id)
+        {
+            using (var dbContext = new TheStoreContext())
+            {
+                var user =  dbContext.Users.Include(x => x.CartItems)
+                                           .ThenInclude(x=>x.Product)
+                                           .FirstOrDefault(y =>y.Id == id);
+
+                return user;
+            }
+        }
     }
 }

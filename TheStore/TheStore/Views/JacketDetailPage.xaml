@@ -12,43 +12,52 @@
         <Grid>
             <StackLayout VerticalOptions="FillAndExpand">
                 <Grid>
-
                     <Frame HeightRequest="300" Padding="10" BackgroundColor="Transparent">
                         <Image Source="{Binding SelectedJacket.ImgUrl}"
                            HeightRequest="300"
                            Aspect="AspectFill"/>
                     </Frame>
-                
                 </Grid>
+                
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
                     <Label Text="{Binding SelectedJacket.Name}"
                                TextColor="Black"
-                               FontSize="32"
+                               FontSize="36"
                                FontAttributes="Bold"
-                               Margin="15,0"
-                               />
+                               VerticalOptions="Center"
+                               HorizontalOptions="StartAndExpand"
+                               Margin="15,0"/>
                     
-                    <Switch IsToggled="{Binding SelectedJacket.IsInStock}"
-                            ThumbColor="green"/>
-                    <!--<Label Text="{Binding SelectedJacket.IsInStock, ConverterParameter=}"
-                               TextColor="Black"
-                               FontSize="12"
-                               FontAttributes="Bold"
-                               Margin="15,0"
-                               />-->
-                    <StackLayout Grid.Column="1"
-                                         VerticalOptions="Center">
-                        <Label Text="{Binding SelectedJacket.Price}"
-                                   TextColor="Green"
-                                   FontSize="24"
-                                   FontAttributes="Bold"
-                                   Margin="15,0"
-                                   />
+                    <Label VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Grid.Column="1">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding SelectedJacket.IsInStock}" Value="false">
+                                <Setter Property="Text" Value="Not in Stock" />
+                                <Setter Property="TextColor" Value="Red" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Label" Binding="{Binding SelectedJacket.IsInStock}" Value="true">
+                                <Setter Property="Text" Value="Available" />
+                                <Setter Property="TextColor" Value="Green" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+
+                    <StackLayout Grid.Column="2"
+                                 VerticalOptions="Center">
+
+                        <Label Grid.Column="2"
+                               Text="{Binding SelectedJacket.Price}"
+                               TextColor="Green"
+                               FontSize="24"
+                               FontAttributes="None"
+                               Margin="15,0"/>
                     </StackLayout>
                 </Grid>
 
@@ -94,46 +103,34 @@
                                         <Label    
                                         HorizontalOptions="Center"
                                         VerticalOptions="Center"
-                                        Text="Here are the reviews fro users" />
+                                        Text="There are currently no reviews available for this product" />
                                     </Grid>
                                 </xct:TabViewItem>
-
-
                             </xct:TabView>
 
                         </StackLayout>
                     </Frame>
-
-                   
-
-
                 </Grid>
-
-                <Grid>
-                    <StackLayout>
-                        <Button Text="Add to Cart"
-                                VerticalOptions="EndAndExpand"
-                                Margin="0, -10, 0, 0"
-                                
+                <Grid 
+                      VerticalOptions="End"
+                      Padding="0">
+                    <Grid>
+                    </Grid>
+                    <Grid>
+                        <StackLayout>
+                            <Button Text="Add to Cart"
+                                    HeightRequest="60"
+                                    VerticalOptions="EndAndExpand"
+                                    Margin="0, -10, 0, 0"
+                                    BackgroundColor="ForestGreen"
+                                    TextColor="White"
                                 ></Button>
-                    </StackLayout>
+                        </StackLayout>
+                    </Grid>
                 </Grid>
-
             </StackLayout>
 
         </Grid>
 
-
-
-        <!--<StackLayout>
-            <Label Text="{Binding SelectedJacket.Description}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label Text="{Binding SelectedJacket.Id}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>-->
-        
-        
     </ContentPage.Content>
 </ContentPage>

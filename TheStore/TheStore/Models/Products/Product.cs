@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TheStore.Models
 {
@@ -18,5 +19,6 @@ namespace TheStore.Models
         public string ImgUrl { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
+        public List<CartItem> CartItems { get; set; } = new List<CartItem>();
     }
 }

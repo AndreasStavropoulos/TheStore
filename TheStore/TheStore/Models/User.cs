@@ -1,4 +1,6 @@
-﻿namespace TheStore.Models
+﻿using System.Collections.Generic;
+
+namespace TheStore.Models
 {
     public class User
     {
@@ -7,5 +9,7 @@
         public string Email { get; set; }
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
+
+        public List<CartItem> CartItems { get; set; } = new List<CartItem>();
     }
 }

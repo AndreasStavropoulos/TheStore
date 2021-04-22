@@ -10,5 +10,6 @@ namespace TheStore.Services
         Task<User> FindUserByIdAsync(int id);
         Task SaveUserAsync(User user);
         Task<User> FindUserByEMail(string email);
+        User GetUserByIdAsync(int id);
     }
 }
