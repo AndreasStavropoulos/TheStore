@@ -135,9 +135,6 @@
                                            VerticalOptions="Center"
                                            TextColor="DeepSkyBlue"
                                            FontSize="Subtitle" />
-                                    <ImageButton Command="{Binding Source={RelativeSource AncestorType={x:Type local:JacketPageViewModel}},
-                                              Path=AddToCartCommand}" Source="addtocart.png" Padding="5" Grid.Column="3" 
-                                              CommandParameter="{Binding .}"/>
 
                                     <Grid.GestureRecognizers>
                                         <TapGestureRecognizer

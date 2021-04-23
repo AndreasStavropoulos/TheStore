@@ -4,7 +4,11 @@
     {
         public enum Style
         {
-            Skinny, Baggy, BootCut, Straight
+            Unknown = 0,
+            Skinny, 
+            Baggy, 
+            BootCut, 
+            Straight
         }
 
         //public enum Size
