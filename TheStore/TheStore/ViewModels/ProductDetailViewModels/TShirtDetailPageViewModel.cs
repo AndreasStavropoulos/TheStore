@@ -9,6 +9,7 @@ using Xamarin.Forms;
 
 namespace TheStore.ViewModels
 {
+    [QueryProperty(nameof(TShirtId), nameof(TShirtId))]
     class TShirtDetailPageViewModel : BaseViewModel
     {
         private readonly IGenericRepo<TShirt> tshirtRepo;
@@ -25,14 +26,14 @@ namespace TheStore.ViewModels
             }
         }
 
-        private int jacketId;
+        private int tshirtId;
 
-        public int JacketId
+        public int TShirtId
         {
-            get { return jacketId; }
+            get { return tshirtId; }
             set 
             { 
-                jacketId = value;
+                tshirtId = value;
                 LoadTShirt(value);
             }
         }

@@ -9,6 +9,7 @@ using Xamarin.Forms;
 
 namespace TheStore.ViewModels
 {
+    [QueryProperty(nameof(ShoesId), nameof(ShoesId))]
     class ShoesDetailPageViewModel : BaseViewModel
     {
         private readonly IGenericRepo<Shoes> shoesRepo;

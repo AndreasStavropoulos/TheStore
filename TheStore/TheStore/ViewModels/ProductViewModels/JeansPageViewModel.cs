@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Text;
 using TheStore.Models;
 using TheStore.Services;
+using TheStore.Views;
+using Xamarin.Forms;
 
 namespace TheStore.ViewModels
 {
     class JeansPageViewModel :BaseViewModel
     {
+        public Command<Jeans> ItemTappedCommand { get; }
+        public Command<Jeans> AddToCartCommand { get; }
+
         private ObservableCollection<Jeans> jeans;
         private readonly IGenericRepo<Jeans> genericRepoJeans;
 
@@ -26,7 +30,24 @@ namespace TheStore.ViewModels
         public JeansPageViewModel()
         {
             genericRepoJeans = new GenericRepo<Jeans>();
+            ItemTappedCommand = new Command<Jeans>(OnJeansSelected);
+            AddToCartCommand = new Command<Jeans>(AddSelectedJeansToCart);
             RefreshJeans();
+        }
+
+        private void AddSelectedJeansToCart(Jeans jeans)
+        {
+            Cart.AddProduct(jeans);
+        }
+        private void SubtractSelectedJeansFromCart(Jeans jeans)
+        {
+            Cart.SubtractProduct(jeans);
+        }
+
+        private async void OnJeansSelected(Jeans jeans)
+        {
+            await Shell.Current.GoToAsync(
+                $"{nameof(JeansDetailPage)}?{nameof(JeansDetailPageViewModel.JeansId)}={jeans.Id}");
         }
 
         private async void RefreshJeans()

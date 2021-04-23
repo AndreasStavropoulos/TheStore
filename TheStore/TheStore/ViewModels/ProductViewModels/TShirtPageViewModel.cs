@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using TheStore.Models;
 using TheStore.Services;
+using TheStore.Views;
 
 namespace TheStore.ViewModels
 {
@@ -26,6 +27,21 @@ namespace TheStore.ViewModels
         {
             genericRepoTShirt = new GenericRepo<TShirt>();
             RefreshTShirts();
+        }
+
+        private void AddSelectedTShirtToCart(TShirt tshirt)
+        {
+            Cart.AddProduct(tshirt);
+        }
+        private void SubtractSelectedTShirtFromCart(TShirt tshirt)
+        {
+            Cart.SubtractProduct(tshirt);
+        }
+
+        private async void OnTShirtSelected(TShirt tshirt)
+        {
+            await Shell.Current.GoToAsync(
+                $"{nameof(TShirtDetailPage)}?{nameof(TShirtDetailPageViewModel.TShirtId)}={tshirt.Id}");
         }
 
         private async void RefreshTShirts()
