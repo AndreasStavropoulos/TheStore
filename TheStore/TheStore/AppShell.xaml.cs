@@ -20,6 +20,8 @@ namespace TheStore
             Routing.RegisterRoute(nameof(HomePage), typeof(HomePage));
             Routing.RegisterRoute(nameof(JacketDetailPageViewModel), typeof(JacketDetailPageViewModel));
             Routing.RegisterRoute(nameof(JacketDetailPage), typeof(JacketDetailPage));
+            Routing.RegisterRoute(nameof(JeansDetailPage), typeof(JeansDetailPage));
+            Routing.RegisterRoute(nameof(JeansDetailPageViewModel), typeof(JeansDetailPageViewModel));
         }
     }
 }
