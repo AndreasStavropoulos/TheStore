@@ -131,7 +131,6 @@
                                            VerticalOptions="Center"
                                            TextColor="DeepSkyBlue"
                                            FontSize="Subtitle" />
-                                    <ImageButton Source="addtocart.png" Padding="{OnPlatform iOS='*', Android=5, UWP=40}" Grid.Column="3"/>
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>

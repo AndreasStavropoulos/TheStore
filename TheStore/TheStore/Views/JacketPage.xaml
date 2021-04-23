@@ -134,7 +134,6 @@
                                            VerticalOptions="Center"
                                            TextColor="DeepSkyBlue"
                                            FontSize="Subtitle" />
-                                    <ImageButton Command="{Binding AddToCartCommand}" Source="addtocart.png" Padding="5" Grid.Column="3" />
 
                                     <Grid.GestureRecognizers>
                                         <TapGestureRecognizer
