@@ -5,12 +5,20 @@
         public enum Size
 
         {
-            Small, Medium, Large, XLarge
+            TU = 0,
+            Small, 
+            Medium, 
+            Large, 
+            XLarge
         }
 
         public enum Style
         {
-            LongSleeve, ShortSleeve, DressShirt, Chambray
+            Unkown = 0,
+            LongSleeve, 
+            ShortSleeve, 
+            DressShirt, 
+            Chambray
         }
 
         public Size TShirtSize { get; set; }

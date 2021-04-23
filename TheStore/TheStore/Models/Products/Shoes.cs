@@ -4,12 +4,21 @@
     {
         public enum Style
         {
-            Sneakers, Boots, Classic, FlipFlops
+            Unknown = 0,
+            Sneakers, 
+            Boots, 
+            Classic, 
+            FlipFlops
         }
 
         public enum Material
         {
-            FauxFur, Wool, Nylon, Cashmere, Leather
+            Unknown = 0,
+            FauxFur, 
+            Wool, 
+            Nylon, 
+            Cashmere, 
+            Leather
         }
 
         //public List<int> Size { get; set; }

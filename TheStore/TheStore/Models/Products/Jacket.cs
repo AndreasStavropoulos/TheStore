@@ -4,7 +4,12 @@
     {
         public enum Style
         {
-            Bikers, Trucker, Denim, Blouson, Rain
+            Unknown = 0,
+            Bikers, 
+            Trucker, 
+            Denim, 
+            Blouson, 
+            Rain
         }
 
         public enum Size
