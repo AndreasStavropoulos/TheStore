@@ -51,7 +51,7 @@ namespace TheStore.Models
 
         public void AddProduct(Product product)
         {
-            var cartItem = CartItems.FirstOrDefault(x => x.Product == product);
+            var cartItem = CartItems.FirstOrDefault(x => x.Product.Id == product.Id);
 
             if (cartItem == null)
             {
