@@ -22,7 +22,8 @@
                    FontSize="28"
                    Margin="25" />
             <Entry Text="{Binding EMail}"
-                   Placeholder="Email" />
+                   Placeholder="Email" 
+                   Keyboard="Email"/>
             <Entry Text="{Binding Password}"
                    Placeholder="Password"
                    IsPassword="true" />
