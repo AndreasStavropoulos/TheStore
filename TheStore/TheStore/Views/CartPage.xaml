@@ -78,7 +78,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <StackLayout HorizontalOptions="Center">
-            <Label Text="{Binding cart.TotalAmount}"/>
+            <Label Text="{Binding cart.TotalAmount, StringFormat=Total: €{0}}"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
