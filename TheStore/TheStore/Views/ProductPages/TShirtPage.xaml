@@ -145,7 +145,6 @@
                                     CommandParameter="{Binding .}" />
                                     </Grid.GestureRecognizers>
 
-
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
