@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 
+using System.Collections.ObjectModel;
+
 namespace TheStore.Models
 {
     public class User
@@ -10,6 +12,6 @@ namespace TheStore.Models
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
 
-        public List<CartItem> CartItems { get; set; } = new List<CartItem>();
+        public ObservableCollection<CartItem> CartItems { get; set; } = new ObservableCollection<CartItem>();
     }
 }

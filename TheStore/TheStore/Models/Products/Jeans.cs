@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace TheStore.Models
+﻿namespace TheStore.Models
 {
     public class Jeans : Product
     {
@@ -8,6 +6,7 @@ namespace TheStore.Models
         {
             Skinny, Baggy, BootCut, Straight
         }
+
         //public enum Size
         //{
         //    Small,

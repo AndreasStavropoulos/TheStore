@@ -1,16 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TheStore.Models
+﻿namespace TheStore.Models
 {
-    public class CartItem
+    public class CartItem : ObservableObject
     {
         public int Id { get; set; }
-        public int ProductId { get; set; }
-        public int Quantity { get; set; }
+        public int ProductId { get; set; }        
+
         public int UserId { get; set; }
-        public double TotalPrice { get; set; }
+
+        private int quantity;
+        public int Quantity
+        {
+            get { return quantity; }
+            set
+            {
+                quantity = value;
+                OnPropertyChanged(nameof(Quantity));
+            }
+        }
+
+        private double totalPrice;
+
+        public double TotalPrice
+        {
+            get { return totalPrice; }
+            set
+            {
+                totalPrice = value;
+                OnPropertyChanged(nameof(TotalPrice));
+            }
+        }
+
         public User User { get; set; }
         public Product Product { get; set; }
     }

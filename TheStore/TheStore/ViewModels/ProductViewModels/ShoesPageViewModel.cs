@@ -10,7 +10,7 @@ namespace TheStore.ViewModels
     internal class ShoesPageViewModel : BaseViewModel
     {
         private ObservableCollection<Shoes> shoes;
-        private IGenericRepo<Shoes> genericRepoShoes;
+        private readonly IGenericRepo<Shoes> genericRepoShoes;
 
         public ObservableCollection<Shoes> Shoes
         {

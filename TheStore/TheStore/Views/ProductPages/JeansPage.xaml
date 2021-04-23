@@ -2,15 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:TheStore.ViewModels"
-             x:Class="TheStore.Views.TShirtPage"
-             Title="The Store - T-shirts"
+             x:Class="TheStore.Views.JeansPage"
+             Title="The Store - Jeans"
              BackgroundImageSource="wallpaper.jpg">
 
     <ContentPage.BindingContext>
-        <local:TShirtPageViewModel/>
+        <local:JeansPageViewModel/>
     </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding CurrentUser.ActiveUser.Name, Mode=TwoWay}" />
         <ToolbarItem IconImageSource="user.png" Command="{Binding GoToUserCommand}" />
         <ToolbarItem IconImageSource="cart.png" Command="{Binding GoToCartCommand}" />
     </ContentPage.ToolbarItems>
@@ -32,10 +33,10 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <SearchBar Placeholder="Search t-shirts"  />
-                <Label Text="HighLighted T-shirts"/>
+                <SearchBar Placeholder="Search jeans"  />
+                <Label Text="Highlighted Jeans" />
 
-                <CarouselView ItemsSource="{Binding TShirts}"
+                <CarouselView ItemsSource="{Binding Jeans}"
                               PeekAreaInsets="100"
                               Loop="True"
                               HeightRequest="300">
@@ -46,14 +47,14 @@
                             <StackLayout>
                                 <Frame HeightRequest="200"
                                        WidthRequest="180"
-                                       BackgroundColor="white"
+                                       BackgroundColor="Transparent"
                                        HasShadow="True"
                                        CornerRadius="10"
                                        Padding="0"
                                        Margin="10"
                                        HorizontalOptions="CenterAndExpand">
                                     <Grid>
-                                        <StackLayout BackgroundColor="white">
+                                        <StackLayout BackgroundColor="Transparent">
                                             <Image Source="{Binding ImgUrl}"
                                                    Aspect="AspectFit"
                                                    Opacity="0.8" />
@@ -68,7 +69,7 @@
                                                    VerticalOptions="EndAndExpand" />
 
                                             <StackLayout Orientation="Horizontal"
-                                                         Margin="15, -10,0,0">
+                                                         Margin="15, -15,0,0">
                                                 <Image Source="icon_map1.png"
                                                        HeightRequest="20"
                                                        Aspect="AspectFit" />
@@ -95,28 +96,24 @@
                     </CarouselView.ItemTemplate>
                 </CarouselView>
 
-                <Label Text="All Tees"
-                       TextColor="Black"
-                       FontSize="24"
-                       FontAttributes="Bold"
-                       Margin="15" />
+                <Label Text="All Jeans" />
                 <StackLayout Margin="20">
-                    <CollectionView x:Name="TshirtsListView"
-                                    ItemsSource="{Binding TShirts}"
+                    <CollectionView x:Name="JeanssListView"
+                                    ItemsSource="{Binding Jeans}"
                                     SelectionMode="Single">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid
                                     HeightRequest="100"
                                     Margin="25"
-                                    BackgroundColor="White">
+                                    BackgroundColor="Transparent">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
 
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="1.8*" />
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="0.5*" />
                                     </Grid.ColumnDefinitions>
@@ -147,8 +144,8 @@
             </StackLayout>
         </ScrollView>
 
-        
-        
-        
+
+
+
     </ContentPage.Content>
 </ContentPage>

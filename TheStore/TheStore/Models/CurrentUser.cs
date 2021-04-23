@@ -6,17 +6,11 @@
 
         private static CurrentUser Instance { get; set; }
 
-        private CurrentUser()
-        {
-        }
+        private CurrentUser(){}        
 
         public static CurrentUser GetInstance()
         {
-            if (Instance == null)
-            {
-                Instance = new CurrentUser();
-            }
-            return Instance;
+            return Instance ?? (Instance = new CurrentUser());
         }
     }
 }

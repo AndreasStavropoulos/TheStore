@@ -2,15 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TheStore.ViewModels"
-
-             x:Class="TheStore.Views.JacketPage"
-             Title="The Store - Jackets"
+             x:Class="TheStore.Views.ShoesPage"
+             Title="The Store - Shoes"
              BackgroundImageSource="wallpaper.jpg">
+
     <ContentPage.BindingContext>
-        <local:JacketPageViewModel />
+        <local:ShoesPageViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding CurrentUser.ActiveUser.Name, Mode=TwoWay}" />
         <ToolbarItem IconImageSource="user.png" Command="{Binding GoToUserCommand}" />
         <ToolbarItem IconImageSource="cart.png" Command="{Binding GoToCartCommand}" />
     </ContentPage.ToolbarItems>
@@ -18,14 +19,13 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Label">
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="FontSize" Value="24" />
-                <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="Margin" Value="15" />
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="15"/>
             </Style>
             <Style TargetType="ImageButton">
-                <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="Padding" Value="5" />
+                <Setter Property="BackgroundColor" Value="Transparent"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -33,10 +33,10 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <SearchBar Placeholder="Search jackets" />
-                <Label Text="Highlighted Jackets" />
+                <SearchBar Placeholder="Search shoes"  />
+                <Label Text="HighLighted Shoes" />
 
-                <CarouselView ItemsSource="{Binding Jackets}"
+                <CarouselView ItemsSource="{Binding Shoes}"
                               PeekAreaInsets="100"
                               Loop="True"
                               HeightRequest="300">
@@ -69,39 +69,41 @@
                                                    VerticalOptions="EndAndExpand" />
 
                                             <StackLayout Orientation="Horizontal"
-                                                         Margin="15, -10,0,0">
+                                                         Margin="15, 0,0,0">
                                                 <Image Source="icon_map1.png"
                                                        HeightRequest="20"
                                                        Aspect="AspectFit" />
-                                                <Label Text="{Binding Price}"
+                                                <Label Text="{Binding Price, StringFormat=€{0}}"
                                                        TextColor="red"
-                                                       FontSize="14"
-                                                       VerticalOptions="EndAndExpand" />
+                                                       Margin="0"
+                                                       FontSize="14"/>
                                             </StackLayout>
                                         </StackLayout>
 
-                                        <Grid.GestureRecognizers>
+                                        <!--<Grid.GestureRecognizers>
                                             <TapGestureRecognizer
                                     NumberOfTapsRequired="1"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:JacketPageViewModel}},
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:AboutViewModel}},
                                               Path=ItemTapped}"
-                                    CommandParameter="{Binding .}" />
-                                        </Grid.GestureRecognizers>
+                                    CommandParameter="{Binding .}"/>
+                                        </Grid.GestureRecognizers>-->
+
                                     </Grid>
                                 </Frame>
+
                             </StackLayout>
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                 </CarouselView>
 
-                <Label Text="All Jackets"
+                <Label Text="All Shoes"
                        TextColor="Black"
                        FontSize="24"
                        FontAttributes="Bold"
                        Margin="15" />
                 <StackLayout Margin="20">
-                    <CollectionView x:Name="JacketsListView"
-                                    ItemsSource="{Binding Jackets}"
+                    <CollectionView x:Name="ShoesListView"
+                                    ItemsSource="{Binding Shoes}"
                                     SelectionMode="Single">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
@@ -115,8 +117,8 @@
 
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="1.8*" />
-                                        <ColumnDefinition Width="1.2*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="0.5*" />
                                     </Grid.ColumnDefinitions>
 
@@ -134,21 +136,20 @@
                                            VerticalOptions="Center"
                                            TextColor="DeepSkyBlue"
                                            FontSize="Subtitle" />
-                                    <ImageButton Command="{Binding AddToCartCommand}" Source="addtocart.png" Padding="5" Grid.Column="3" />
-
-                                    <Grid.GestureRecognizers>
-                                        <TapGestureRecognizer
-                                    NumberOfTapsRequired="1"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:JacketPageViewModel}},
-                                              Path=ItemTapped}"
-                                    CommandParameter="{Binding .}" />
-                                    </Grid.GestureRecognizers>
+                                    <ImageButton Source="addtocart.png" Padding="{OnPlatform iOS='*', Android=5, UWP=40}" Grid.Column="3"/>
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </StackLayout>
+
+
+
             </StackLayout>
         </ScrollView>
+
+
+
+
     </ContentPage.Content>
 </ContentPage>

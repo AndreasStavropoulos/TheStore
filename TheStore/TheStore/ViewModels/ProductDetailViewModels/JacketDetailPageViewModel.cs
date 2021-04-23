@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using System.Windows.Input;
 using TheStore.Models;
 using TheStore.Services;
@@ -10,9 +8,9 @@ using Xamarin.Forms;
 namespace TheStore.ViewModels
 {
     [QueryProperty(nameof(JacketId), nameof(JacketId))]
-    public class JacketDetailPageViewModel : ProductViewModel
+    public class JacketDetailPageViewModel : BaseViewModel
     {
-        private IGenericRepo<Jacket> jacketRepo;
+        private readonly IGenericRepo<Jacket> jacketRepo;
         public ICommand AddToCartCommand { get; }
 
         private Jacket selectedJacket;
@@ -48,7 +46,12 @@ namespace TheStore.ViewModels
 
         public void AddJacketToCart()
         {
-            cart.AddJacket(SelectedJacket);
+            Cart.AddProduct(SelectedJacket);
+        }
+
+        public void SubtractJacketFromCart()
+        {
+            Cart.SubtractProduct(SelectedJacket);
         }
 
         private void LoadJacket(int id)
