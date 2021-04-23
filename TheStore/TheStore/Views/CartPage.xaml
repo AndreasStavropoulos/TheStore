@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:TheStore.ViewModels"
-             x:Class="TheStore.Views.CartPage">
+             x:Class="TheStore.Views.CartPage"
+             BackgroundImageSource="wallpaper.jpg">
 
     <ContentPage.BindingContext>
         <local:CartPageViewModel />
@@ -12,6 +13,7 @@
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="Margin" Value="3" />
+            <Setter Property="TextColor" Value="Black"/>
         </Style>
     </ContentPage.Resources>
 
@@ -56,8 +58,8 @@
                         <StackLayout Grid.Column="1">
                             <StackLayout Orientation="Horizontal"
                                          HorizontalOptions="Center">
-                                <Label Text="{Binding TotalPrice}"/>
-                                <Label Text="{Binding Quantity}"/>
+                                <Label Text="{Binding TotalPrice,StringFormat=€{0}}"/>
+                                <Label Text="{Binding Quantity, StringFormat=Qty. {0}}"/>
                             </StackLayout>
 
                             <Stepper 
