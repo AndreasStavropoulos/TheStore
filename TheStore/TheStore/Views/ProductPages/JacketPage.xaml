@@ -32,7 +32,10 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <SearchBar Placeholder="Search jackets" />
+                <SearchBar Placeholder="Search jackets" 
+                           x:Name="searchBar" 
+                           SearchCommand="{Binding PerformSearch}"
+                           SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
                 <Label Text="Highlighted Jackets" />
 
                 <CarouselView ItemsSource="{Binding Jackets}"

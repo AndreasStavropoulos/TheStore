@@ -1,15 +1,16 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using TheStore.Services;
+using System;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace TheStore.Models
 {
     public class Cart : ObservableObject
     {
-        private static Cart Instance;
-
-        public CartItemRepo cartItemRepo;
-
+        private readonly IGenericRepo<Product> productsRepo;
+        
         private ObservableCollection<CartItem> cartItems;
 
         public ObservableCollection<CartItem> CartItems
@@ -35,10 +36,11 @@ namespace TheStore.Models
         }
 
         private Cart()
-        {
-            cartItemRepo = new CartItemRepo();
+        {            
+            productsRepo = new GenericRepo<Product>();
             CartItems = new ObservableCollection<CartItem>();
         }
+        private static Cart Instance;
 
         public static Cart GetInstance()
         {

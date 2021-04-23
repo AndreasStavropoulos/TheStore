@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using TheStore.Models;
 using TheStore.Services;
 using TheStore.Views;
@@ -15,6 +18,7 @@ namespace TheStore.ViewModels
         public Command<Jacket> AddToCartCommand { get; }
 
         private readonly IGenericRepo<Jacket> genericRepoJackets;
+        
         private ObservableCollection<Jacket> jacket;
 
         public ObservableCollection<Jacket> Jackets
@@ -63,6 +67,20 @@ namespace TheStore.ViewModels
             }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public ICommand PerformSearch => new Command<string>(OnSearch);
+
+        private async void OnSearch(string query)
+        {          
+           
+                List<Jacket> jackets = await genericRepoJackets.FindProductsByNameAsync(query);                
+                Jackets = new ObservableCollection<Jacket>(jackets);           
+        }
     }
 }

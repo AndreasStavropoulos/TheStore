@@ -54,9 +54,16 @@ namespace TheStore.Services
         }
 
         public async Task<List<T>> FindProductsByNameAsync(string name)
-        {
+        {            
             var ListProducts = await GetAllProductsAsync();
-            return (List<T>)ListProducts.Where(x => x.Name == name);
+
+            var filteredList = ListProducts.Where(x => x.Name.ToLower().Contains(name.ToLower())).ToList();
+
+            if (filteredList.Count == 0 || name == "")
+            {
+                filteredList =  await GetAllProductsAsync();
+            }
+            return filteredList;
         }
     }
 }
