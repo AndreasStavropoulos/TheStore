@@ -1,4 +1,7 @@
-﻿using TheStore.Models;
+﻿using System;
+using System.Diagnostics;
+using System.Windows.Input;
+using TheStore.Models;
 using TheStore.Services;
 using Xamarin.Forms;
 

@@ -5,6 +5,7 @@ using System.Diagnostics;
 using TheStore.Models;
 using TheStore.Services;
 using TheStore.Views;
+using Xamarin.Forms;
 
 namespace TheStore.ViewModels
 {
