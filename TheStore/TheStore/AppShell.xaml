@@ -90,6 +90,9 @@
         <ShellContent Title="Jeans" Icon="jeans_icon.png" Route="JeansPage" ContentTemplate="{DataTemplate local:JeansPage}" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Cart" Icon="cart.png">
+        <ShellContent Route="CartPage" ContentTemplate="{DataTemplate local:CartPage}" />
+    </FlyoutItem>
     <FlyoutItem Title="Login" Icon="user.png">
         <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
     </FlyoutItem>

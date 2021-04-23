@@ -26,6 +26,7 @@ namespace TheStore.ViewModels
         public CurrentUser CurrentUser { get; set; }
         public ICommand GoToUserCommand { get; }
         public ICommand GoToCartCommand { get; }
+        public ICommand GoToHomeCommand { get; }
 
         private bool isBusy = false;
 
@@ -49,6 +50,7 @@ namespace TheStore.ViewModels
             CurrentUser = CurrentUser.GetInstance();
             GoToUserCommand = new Command(GoToUser);
             GoToCartCommand = new Command(GoToCart);
+            GoToHomeCommand = new Command(GoToHome);
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
@@ -87,6 +89,11 @@ namespace TheStore.ViewModels
         private async void GoToCart()
         {
             await Shell.Current.GoToAsync(nameof(CartPage));
+        }
+
+        private async void GoToHome()
+        {
+            await Shell.Current.GoToAsync(nameof(HomePage));
         }
     }
 }
