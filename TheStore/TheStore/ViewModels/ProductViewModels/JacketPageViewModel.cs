@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using TheStore.Models;
 using TheStore.Services;
 using TheStore.Views;
@@ -63,6 +66,31 @@ namespace TheStore.ViewModels
             }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public ICommand PerformSearch => new Command<string>((string query) =>
+        {
+            //Jackets = DataService.GetSearchResults(query);
+        });
+
+        //private List<string> searchResults = Jackets;
+        //public List<string> SearchResults
+        //{
+        //    get
+        //    {
+        //        return searchResults;
+        //    }
+        //    set
+        //    {
+        //        searchResults = value;
+        //        NotifyPropertyChanged();
+        //    }
+        //}
 
     }
 }
