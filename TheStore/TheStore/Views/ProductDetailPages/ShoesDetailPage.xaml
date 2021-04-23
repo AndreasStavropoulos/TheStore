@@ -1,7 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TheStore.Views.JeansDetailPage">
+             x:Class="TheStore.Views.ShoesDetailPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding CurrentUser.ActiveUser.Name, Mode=TwoWay}" />
+        <ToolbarItem IconImageSource="user.png" Command="{Binding GoToUserCommand}" />
+        <ToolbarItem IconImageSource="cart.png" Command="{Binding GoToCartCommand}" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"
