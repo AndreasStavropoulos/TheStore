@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using TheStore.Models;
 
 namespace TheStore.Services
 {
     internal class DummyData
     {
-        private IGenericRepo<Jacket> genericRepoJackets;
-        private IGenericRepo<Shoes> genericRepoShoes;
-        private IGenericRepo<TShirt> genericRepoTshirt;
-        private IGenericRepo<Jeans> genericRepoJeans;
-        private IUserRepo userRepo;
-        private CartItemRepo cartItemRepo;
+        private readonly IGenericRepo<Jacket> genericRepoJackets;
+        private readonly IGenericRepo<Shoes> genericRepoShoes;
+        private readonly IGenericRepo<TShirt> genericRepoTshirt;
+        private readonly IGenericRepo<Jeans> genericRepoJeans;
+        private readonly IUserRepo userRepo;
+        private readonly CartItemRepo cartItemRepo;
 
         public DummyData()
         {
@@ -53,7 +54,7 @@ namespace TheStore.Services
                 await userRepo.SaveUserAsync(user);
             }
 
-            List<CartItem> cartItems = GetCartItems();
+            ObservableCollection<CartItem> cartItems = GetCartItems();
             foreach (var cartitem in cartItems)
             {
                 await cartItemRepo.SaveCartItemAsync(cartitem);
@@ -223,9 +224,9 @@ namespace TheStore.Services
             return jeans;
         }
 
-        private List<CartItem> GetCartItems()
+        private ObservableCollection<CartItem> GetCartItems()
         {
-            List<CartItem> cartItems = new List<CartItem>
+            ObservableCollection<CartItem> cartItems = new ObservableCollection<CartItem>
             {
                 new CartItem
                 {

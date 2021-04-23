@@ -61,10 +61,10 @@ namespace TheStore.ViewModels
             }
         }
 
-        private IGenericRepo<Jeans> genericRepoJeans;
-        private IGenericRepo<TShirt> genericRepoTShirt;
-        private IGenericRepo<Jacket> genericRepoJacket;
-        private IGenericRepo<Shoes> genericRepoShoes;
+        private readonly IGenericRepo<Jeans> genericRepoJeans;
+        private readonly IGenericRepo<TShirt> genericRepoTShirt;
+        private readonly IGenericRepo<Jacket> genericRepoJacket;
+        private readonly IGenericRepo<Shoes> genericRepoShoes;
 
         public HomePageViewModel()
         {

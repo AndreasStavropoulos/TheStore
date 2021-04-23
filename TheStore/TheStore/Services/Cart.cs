@@ -1,19 +1,43 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
+using System.Linq;
 using TheStore.Services;
 
 namespace TheStore.Models
 {
-    public class Cart
+    public class Cart : ObservableObject
     {
-        public double TotalAmount { get; set; }
-        private static Cart Instance { get; set; }
+        private static Cart Instance;
+
         public CartItemRepo cartItemRepo;
-        public List<CartItem> CartItems { get; set; }
+
+        private ObservableCollection<CartItem> cartItems;
+
+        public ObservableCollection<CartItem> CartItems
+        {
+            get { return cartItems; }
+            set
+            {
+                cartItems = value;
+                OnPropertyChanged(nameof(CartItems));
+            }
+        }
+
+        private double totalAmount;
+
+        public double TotalAmount
+        {
+            get { return totalAmount; }
+            set
+            {
+                totalAmount = value;
+                OnPropertyChanged(nameof(TotalAmount));
+            }
+        }
 
         private Cart()
         {
             cartItemRepo = new CartItemRepo();
-            CartItems = new List<CartItem>();
+            CartItems = new ObservableCollection<CartItem>();
         }
 
         public static Cart GetInstance()
@@ -25,27 +49,17 @@ namespace TheStore.Models
             return Instance;
         }
 
-        public void RemoveOneCartItem(CartItem cartItem)
+        public void AddProduct(Product product)
         {
-            if (cartItem.Quantity == 1)
-            {
-                CartItems.Remove(cartItem);
-            }
-            else if (cartItem.Quantity > 1)
-            {
-                cartItem.Quantity -= 1;
-            }
-        }
-
-        public void AddJacket(Jacket jacket)
-        {
-            var cartItem = CartItems.Find(x => x.Product.Id == jacket.Id);
+            var cartItem = CartItems.FirstOrDefault(x => x.Product == product);
 
             if (cartItem == null)
             {
-                CartItem newCartItem = new CartItem();
-                newCartItem.Quantity = 1;
-                newCartItem.Product = jacket;
+                CartItem newCartItem = new CartItem
+                {
+                    Quantity = 1,
+                    Product = product
+                };
                 newCartItem.TotalPrice += newCartItem.Product.Price;
                 CartItems.Add(newCartItem);
             }
@@ -57,31 +71,48 @@ namespace TheStore.Models
             RefreshTotalAmount();
         }
 
+        public void AddProduct(CartItem cartItem)
+        {
+            cartItem.TotalPrice += cartItem.Product.Price;
+            cartItem.Quantity++;
+            RefreshTotalAmount();
+        }
+
+        public void SubtractProduct(CartItem cartItem)
+        {
+            if (cartItem.Quantity <= 1)
+            {
+                CartItems.Remove(cartItem);                
+            }
+            else
+            {
+                cartItem.TotalPrice -= cartItem.Product.Price;
+                cartItem.Quantity--;
+            }
+            RefreshTotalAmount();
+        }
+        public void SubtractProduct(Product product)
+        {
+            var cartItem = CartItems.FirstOrDefault(x => x.Product == product);
+
+            if (cartItem.Quantity <= 1)
+            {
+                CartItems.Remove(cartItem);                
+            }
+            else
+            {
+                cartItem.TotalPrice -= cartItem.Product.Price;
+                cartItem.Quantity--;
+            }
+            RefreshTotalAmount();
+        }
+
         public void RefreshTotalAmount()
         {
             TotalAmount = 0;
             foreach (var cartItem in CartItems)
             {
                 TotalAmount += cartItem.TotalPrice;
-            }
-        }
-
-
-        public List<CartItem> GetCartList()
-        {
-            return CartItems;
-        }
-
-        public void AddOneCartItem(CartItem cartItem)
-        {
-            cartItem.Quantity++;
-        }
-
-        public void RemoveCartItem(CartItem cartItem)
-        {
-            if (cartItem.Quantity >= 1)
-            {
-                CartItems.Remove(cartItem);
             }
         }
     }

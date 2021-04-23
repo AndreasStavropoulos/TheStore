@@ -13,7 +13,7 @@
         <StackLayout VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand"
                      WidthRequest="200">
-            <Label Text="{Binding currentUser.ActiveUser.Name, StringFormat='Hi {0}'}"
+            <Label Text="{Binding CurrentUser.ActiveUser.Name, StringFormat='Hi {0}'}"
                    HorizontalOptions="Center"
                    FontSize="28"
                    Margin="25" />

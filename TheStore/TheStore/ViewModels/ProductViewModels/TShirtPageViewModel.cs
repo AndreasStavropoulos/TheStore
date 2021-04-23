@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Text;
 using TheStore.Models;
 using TheStore.Services;
 
 namespace TheStore.ViewModels
 {
-    public class TShirtPageViewModel:BaseViewModel
+    public class TShirtPageViewModel : BaseViewModel
     {
         private ObservableCollection<TShirt> tShirts;
-        private IGenericRepo<TShirt> genericRepoTShirt;
+        private readonly IGenericRepo<TShirt> genericRepoTShirt;
 
         public ObservableCollection<TShirt> TShirts
         {
@@ -43,4 +42,3 @@ namespace TheStore.ViewModels
         }
     }
 }
-

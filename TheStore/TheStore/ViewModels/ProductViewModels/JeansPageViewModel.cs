@@ -11,7 +11,7 @@ namespace TheStore.ViewModels
     class JeansPageViewModel :BaseViewModel
     {
         private ObservableCollection<Jeans> jeans;
-        private IGenericRepo<Jeans> genericRepoJeans;
+        private readonly IGenericRepo<Jeans> genericRepoJeans;
 
         public ObservableCollection<Jeans> Jeans
         {

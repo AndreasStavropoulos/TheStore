@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TheStore.ViewModels"
              x:Class="TheStore.Views.CartPage"
              BackgroundImageSource="wallpaper.jpg">
@@ -9,7 +9,6 @@
         <local:CartPageViewModel />
     </ContentPage.BindingContext>
 
-
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="Margin" Value="3" />
@@ -17,17 +16,14 @@
         </Style>
     </ContentPage.Resources>
 
-
-
     <StackLayout Margin="20">
         <StackLayout HorizontalOptions="Center">
             <Label Grid.Column="1"
                    Text="{Binding currentUser.ActiveUser.Name , StringFormat='{0} Cart'}"
-                   FontSize="Large"/>
-
+                   FontSize="Large" />
         </StackLayout>
         <CollectionView x:Name="ShoppingListView"
-                                ItemsSource="{Binding CartItems}"
+                                ItemsSource="{Binding Cart.CartItems}"
                                 SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -42,18 +38,16 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
-
                         </Grid.ColumnDefinitions>
                         <StackLayout Grid.Column="0">
-                            <Label 
+                            <Label
                                Text="{Binding Product.Name}"
                                FontSize="Large" />
-                            <Label 
+                            <Label
                                Text="{Binding Product.Description}"
                                FontAttributes="Bold"
                                TextColor="DeepSkyBlue"
                                FontSize="10" />
-
                         </StackLayout>
                         <StackLayout Grid.Column="1">
                             <StackLayout Orientation="Horizontal"
@@ -62,17 +56,18 @@
                                 <Label Text="{Binding Quantity, StringFormat=Qty. {0}}"/>
                             </StackLayout>
 
-                            <Stepper 
-                                 VerticalOptions="StartAndExpand"
-                                 HorizontalOptions="Center"
-                                 Margin="5"
-                                 HeightRequest="40"
-                                 Minimum="0" 
-                                 Maximum="10" 
-                                 Increment="1"
-                                 />
-                        </StackLayout>
+                            <StackLayout Orientation="Horizontal">
 
+                                <Button Text="-" Command="{Binding Source={RelativeSource
+                                                           AncestorType={x:Type local:CartPageViewModel}},
+                                                           Path=SubstractProductCommand}"
+                                        CommandParameter="{Binding .}" />
+                                <Button Text="+" Command="{Binding Source={RelativeSource
+                                                           AncestorType={x:Type local:CartPageViewModel}},
+                                                           Path=AddProductCommand}"
+                                        CommandParameter="{Binding .}" />
+                            </StackLayout>
+                        </StackLayout>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

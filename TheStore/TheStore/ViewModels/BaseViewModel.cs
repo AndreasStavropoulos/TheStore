@@ -10,9 +10,20 @@ using Xamarin.Forms;
 namespace TheStore.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
-    {
-        public Cart cart { get; set; }
-        public CurrentUser currentUser { get; set; }
+    {      
+        private Cart cart;
+
+        public Cart Cart
+        {
+            get { return cart; }
+            set
+            {
+                cart = value;
+                OnPropertyChanged(nameof(Cart));
+            }
+        }
+
+        public CurrentUser CurrentUser { get; set; }
         public ICommand GoToUserCommand { get; }
         public ICommand GoToCartCommand { get; }
 
@@ -34,8 +45,8 @@ namespace TheStore.ViewModels
 
         public BaseViewModel()
         {
-            cart = Cart.GetInstance();
-            currentUser = CurrentUser.GetInstance();
+            Cart = Cart.GetInstance();
+            CurrentUser = CurrentUser.GetInstance();
             GoToUserCommand = new Command(GoToUser);
             GoToCartCommand = new Command(GoToCart);
         }
@@ -77,7 +88,5 @@ namespace TheStore.ViewModels
         {
             await Shell.Current.GoToAsync(nameof(CartPage));
         }
-
-
     }
 }
