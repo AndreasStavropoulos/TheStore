@@ -18,6 +18,7 @@ namespace TheStore.ViewModels
         public Command<Jacket> AddToCartCommand { get; }
 
         private readonly IGenericRepo<Jacket> genericRepoJackets;
+        
         private ObservableCollection<Jacket> jacket;
 
         public ObservableCollection<Jacket> Jackets
@@ -73,24 +74,13 @@ namespace TheStore.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public ICommand PerformSearch => new Command<string>((string query) =>
-        {
-            //Jackets = DataService.GetSearchResults(query);
-        });
+        public ICommand PerformSearch => new Command<string>(OnSearch);
 
-        //private List<string> searchResults = Jackets;
-        //public List<string> SearchResults
-        //{
-        //    get
-        //    {
-        //        return searchResults;
-        //    }
-        //    set
-        //    {
-        //        searchResults = value;
-        //        NotifyPropertyChanged();
-        //    }
-        //}
-
+        private async void OnSearch(string query)
+        {          
+           
+                List<Jacket> jackets = await genericRepoJackets.FindProductsByNameAsync(query);                
+                Jackets = new ObservableCollection<Jacket>(jackets);           
+        }
     }
 }

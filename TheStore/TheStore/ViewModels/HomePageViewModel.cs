@@ -82,7 +82,16 @@ namespace TheStore.ViewModels
             RefreshTShirts();
             RefreshJackets();
             RefreshShoes();
-            
+
+            UserRepo userRepo = new UserRepo();
+
+            var user = new User
+            {
+                Id = 1,
+                Name = "bhdsbfé"
+            };
+            userRepo.GetUserByIdAsync(user.Id);
+
         }
 
         private async void GoToJeans()
