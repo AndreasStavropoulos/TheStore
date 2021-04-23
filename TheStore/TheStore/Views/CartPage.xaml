@@ -19,7 +19,7 @@
     <StackLayout Margin="20">
         <StackLayout HorizontalOptions="Center">
             <Label Grid.Column="1"
-                   Text="{Binding currentUser.ActiveUser.Name , StringFormat='{0} Cart'}"
+                   Text="{Binding CurrentUser.ActiveUser.Name, StringFormat='{0} Cart'}"
                    FontSize="Large" />
         </StackLayout>
         <CollectionView x:Name="ShoppingListView"
@@ -73,6 +73,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <StackLayout HorizontalOptions="Center">
+
             <Label Text="{Binding Cart.TotalAmount, StringFormat='Total: €{0}'}"/>
         </StackLayout>
     </StackLayout>
