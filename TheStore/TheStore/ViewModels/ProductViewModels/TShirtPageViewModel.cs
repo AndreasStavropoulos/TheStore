@@ -11,6 +11,9 @@ namespace TheStore.ViewModels
 {
     public class TShirtPageViewModel : BaseViewModel
     {
+        public Command<TShirt> ItemTappedCommand { get; }
+        public Command<TShirt> AddToCartCommand { get; }
+
         private ObservableCollection<TShirt> tShirts;
         private readonly IGenericRepo<TShirt> genericRepoTShirt;
 
