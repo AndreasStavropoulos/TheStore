@@ -5,9 +5,16 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="TheStore.Views.JacketDetailPage"
              BackgroundImageSource="wallpaper.jpg">
+    
     <ContentPage.BindingContext>
         <local:JacketDetailPageViewModel />
     </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding CurrentUser.ActiveUser.Name}" />
+        <ToolbarItem IconImageSource="user.png" Command="{Binding GoToUserCommand}" />
+        <ToolbarItem IconImageSource="cart.png" Command="{Binding GoToCartCommand}" />
+    </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
 

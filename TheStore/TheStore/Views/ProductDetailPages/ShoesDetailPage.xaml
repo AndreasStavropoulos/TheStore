@@ -1,19 +1,142 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:TheStore.ViewModels"
              x:Class="TheStore.Views.ShoesDetailPage">
 
+    <ContentPage.BindingContext>
+        <local:ShoesDetailPageViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="{Binding CurrentUser.ActiveUser.Name, Mode=TwoWay}" />
+        <ToolbarItem Text="{Binding CurrentUser.ActiveUser.Name}" />
         <ToolbarItem IconImageSource="user.png" Command="{Binding GoToUserCommand}" />
         <ToolbarItem IconImageSource="cart.png" Command="{Binding GoToCartCommand}" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <Grid>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Grid>
+                    <Frame HeightRequest="300" Padding="10" BackgroundColor="Transparent">
+                        <Image Source="{Binding SelectedShoes.ImgUrl}"
+                           HeightRequest="300"
+                           Aspect="AspectFill" />
+                    </Frame>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="{Binding SelectedShoes.Name}"
+                               TextColor="Black"
+                               FontSize="36"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               HorizontalOptions="StartAndExpand"
+                               Margin="15,0" />
+
+                    <Label VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Grid.Column="1">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding SelectedShoes.IsInStock}" Value="false">
+                                <Setter Property="Text" Value="Not in Stock" />
+                                <Setter Property="TextColor" Value="Red" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Label" Binding="{Binding SelectedShoes.IsInStock}" Value="true">
+                                <Setter Property="Text" Value="Available" />
+                                <Setter Property="TextColor" Value="Green" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+
+                    <StackLayout Grid.Column="2"
+                                 VerticalOptions="Center">
+
+                        <Label Grid.Column="2"
+                               Text="{Binding SelectedShoes.Price}"
+                               TextColor="Green"
+                               FontSize="24"
+                               FontAttributes="None"
+                               Margin="15,0" />
+                    </StackLayout>
+                </Grid>
+
+                <Grid VerticalOptions="FillAndExpand"
+                      Margin="0,-10,0,0"
+                      Padding="0">
+
+                    <Frame CornerRadius="0">
+                        <StackLayout>
+
+                            <xct:TabView
+                                        TabStripPlacement="Top"
+                                        TabStripBackgroundColor="Transparent"
+                                        TabStripHeight="60"
+                                        TabIndicatorColor="red"
+                                        TabContentBackgroundColor="Transparent"
+                                        Margin="-20">
+
+                                <xct:TabViewItem
+                                        Icon="triangle.png"
+                                        Text="Description"
+                                        TextColor="black"
+                                        TextColorSelected="Red"
+                                        FontSize="16">
+                                    <Grid
+                                        BackgroundColor="Transparent">
+                                        <Label
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Start"
+                                        Text="{Binding SelectedShoes.Description}"
+                                        TextColor="black"
+                                        Margin=" 30" />
+                                    </Grid>
+                                </xct:TabViewItem>
+
+                                <xct:TabViewItem
+                                        Icon="info.png"
+                                        Text="Reviews"
+                                        TextColor="Black"
+                                        TextColorSelected="red"
+                                        FontSize="16">
+                                    <Grid>
+                                        <Label
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Text="There are currently no reviews available for this product" />
+                                    </Grid>
+                                </xct:TabViewItem>
+                            </xct:TabView>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+                <Grid
+                      VerticalOptions="End"
+                      Padding="0">
+                    <Grid>
+                    </Grid>
+                    <Grid>
+                        <StackLayout>
+                            <Button Text="Add to Cart"
+                                    HeightRequest="60"
+                                    VerticalOptions="EndAndExpand"
+                                    Margin="0, -10, 0, 0"
+                                    BackgroundColor="ForestGreen"
+                                    TextColor="White"
+                                    Command="{Binding AddToCartCommand}"
+
+                                ></Button>
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
