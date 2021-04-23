@@ -73,7 +73,7 @@
                                                 <Image Source="icon_map1.png"
                                                        HeightRequest="20"
                                                        Aspect="AspectFit" />
-                                                <Label Text="{Binding Price, StringFormat=€{0}}"
+                                                <Label Text="{Binding Price, StringFormat='€{0}'}"
                                                        TextColor="red"
                                                        FontSize="14"
                                                        VerticalOptions="EndAndExpand" />
@@ -127,7 +127,7 @@
 
                                            FontSize="Large" />
                                     <Label Grid.Column="2"
-                                           Text="{Binding Price, StringFormat=€{0}}"
+                                           Text="{Binding Price, StringFormat='€{0}'}"
                                            FontAttributes="Bold"
                                            VerticalOptions="Center"
                                            TextColor="DeepSkyBlue"

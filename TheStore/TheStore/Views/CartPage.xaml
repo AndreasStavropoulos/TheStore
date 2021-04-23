@@ -52,8 +52,8 @@
                         <StackLayout Grid.Column="1">
                             <StackLayout Orientation="Horizontal"
                                          HorizontalOptions="Center">
-                                <Label Text="{Binding TotalPrice,StringFormat=€{0}}"/>
-                                <Label Text="{Binding Quantity, StringFormat=Qty. {0}}"/>
+                                <Label Text="{Binding TotalPrice,StringFormat='€{0}'}"/>
+                                <Label Text="{Binding Quantity, StringFormat='Qty. {0}'}"/>
                             </StackLayout>
 
                             <StackLayout Orientation="Horizontal">
@@ -73,7 +73,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <StackLayout HorizontalOptions="Center">
-            <Label Text="{Binding cart.TotalAmount, StringFormat=Total: €{0}}"/>
+            <Label Text="{Binding Cart.TotalAmount, StringFormat='Total: €{0}'}"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
