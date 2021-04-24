@@ -11,8 +11,8 @@ namespace TheStore
         public App()
         {
             InitializeComponent();
-            DummyData dummyData = new DummyData();
-            dummyData.FillDb();
+            //DummyData dummyData = new DummyData();
+            //dummyData.FillDb();
 
             //MainPage = new AppShell();
             MainPage = new LoginPage();

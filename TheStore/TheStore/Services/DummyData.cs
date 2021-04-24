@@ -11,7 +11,7 @@ namespace TheStore.Services
         private readonly IGenericRepo<TShirt> genericRepoTshirt;
         private readonly IGenericRepo<Jeans> genericRepoJeans;
         private readonly IUserRepo userRepo;
-        private readonly CartItemRepo cartItemRepo;
+        //private readonly CartItemRepo cartItemRepo;
 
         public DummyData()
         {
@@ -20,7 +20,7 @@ namespace TheStore.Services
             genericRepoTshirt = new GenericRepo<TShirt>();
             genericRepoJeans = new GenericRepo<Jeans>();
             userRepo = new UserRepo();
-            cartItemRepo = new CartItemRepo();
+            //cartItemRepo = new CartItemRepo();
         }
 
         public async void FillDb()
@@ -54,11 +54,11 @@ namespace TheStore.Services
                 await userRepo.SaveUserAsync(user);
             }
 
-            ObservableCollection<CartItem> cartItems = GetCartItems();
-            foreach (var cartitem in cartItems)
-            {
-                await cartItemRepo.SaveCartItemAsync(cartitem);
-            }
+            //ObservableCollection<CartItem> cartItems = GetCartItems();
+            //foreach (var cartitem in cartItems)
+            //{
+            //    await cartItemRepo.SaveCartItemAsync(cartitem);
+            //}
         }
 
         private List<User> GetUsers()
@@ -224,30 +224,30 @@ namespace TheStore.Services
             return jeans;
         }
 
-        private ObservableCollection<CartItem> GetCartItems()
-        {
-            ObservableCollection<CartItem> cartItems = new ObservableCollection<CartItem>
-            {
-                new CartItem
-                {
-                    Quantity = 2,
-                    ProductId = 2,
-                    UserId =1
-                },
-                new CartItem
-                {
-                    Quantity = 3,
-                    ProductId = 2,
-                    UserId =1
-                },
-                new CartItem
-                {
-                    Quantity = 3,
-                    ProductId = 2,
-                    UserId =2
-                }
-            };
-            return cartItems;
-        }
+        //private ObservableCollection<CartItem> GetCartItems()
+        //{
+        //    ObservableCollection<CartItem> cartItems = new ObservableCollection<CartItem>
+        //    {
+        //        new CartItem
+        //        {
+        //            Quantity = 2,
+        //            ProductId = 2,
+        //            UserId =1
+        //        },
+        //        new CartItem
+        //        {
+        //            Quantity = 3,
+        //            ProductId = 2,
+        //            UserId =1
+        //        },
+        //        new CartItem
+        //        {
+        //            Quantity = 3,
+        //            ProductId = 2,
+        //            UserId =2
+        //        }
+        //    };
+        //    return cartItems;
+        //}
     }
 }
