@@ -63,11 +63,11 @@
 
                             <StackLayout Orientation="Horizontal">
 
-                                <Button Text="-" Command="{Binding Source={RelativeSource
+                                <Button Text="-" BackgroundColor="#3897f0" Command="{Binding Source={RelativeSource
                                                            AncestorType={x:Type local:CartPageViewModel}},
                                                            Path=SubstractProductCommand}"
                                         CommandParameter="{Binding .}" />
-                                <Button Text="+" Command="{Binding Source={RelativeSource
+                                <Button Text="+" BackgroundColor="#3897f0" Command="{Binding Source={RelativeSource
                                                            AncestorType={x:Type local:CartPageViewModel}},
                                                            Path=AddProductCommand}"
                                         CommandParameter="{Binding .}" />
@@ -78,8 +78,9 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <StackLayout HorizontalOptions="Center">
-
-            <Label Text="{Binding Cart.TotalAmount, StringFormat='Total: €{0}'}"/>
+            
+            <Label Text="{Binding Cart.TotalAmount, StringFormat='Total: €{0}'}" HorizontalOptions="Center"/>
+            <Button Text="Place order" BackgroundColor="#3897f0"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

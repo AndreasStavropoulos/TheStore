@@ -15,7 +15,7 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-
+        <ScrollView>
         <Grid>
             <StackLayout VerticalOptions="FillAndExpand">
                 <Grid>
@@ -60,7 +60,7 @@
                                  VerticalOptions="Center">
 
                         <Label Grid.Column="2"
-                               Text="{Binding SelectedJeans.Price}"
+                               Text="{Binding SelectedJeans.Price, StringFormat='€{0}'}"
                                TextColor="Green"
                                FontSize="24"
                                FontAttributes="None"
@@ -128,7 +128,7 @@
                                     HeightRequest="60"
                                     VerticalOptions="EndAndExpand"
                                     Margin="0, -10, 0, 0"
-                                    BackgroundColor="ForestGreen"
+                                    BackgroundColor="#3897f0"
                                     TextColor="White"
                                     Command="{Binding AddToCartCommand}"
 
@@ -137,6 +137,7 @@
                     </Grid>
                 </Grid>
             </StackLayout>
-        </Grid>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
