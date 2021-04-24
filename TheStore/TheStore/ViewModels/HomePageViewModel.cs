@@ -16,6 +16,7 @@ namespace TheStore.ViewModels
         public ICommand GoToTshirtsCommand { get; }
         public ICommand GoToJacketsCommand { get; }
         public ICommand GoToShoesCommand { get; }
+        public Command<Product> ItemTappedCommand { get; }
 
         private ObservableCollection<Product> products;
 
@@ -37,6 +38,7 @@ namespace TheStore.ViewModels
             GoToTshirtsCommand = new Command(GoToTshirts);
             GoToJacketsCommand = new Command(GoToJackets);
             GoToShoesCommand = new Command(GoToShoes);
+            ItemTappedCommand = new Command<Product>(OnProductSelected);
 
             genericRepoProduct = new GenericRepo<Product>();
 
@@ -74,6 +76,10 @@ namespace TheStore.ViewModels
             await Shell.Current.GoToAsync(nameof(ShoesPage));
         }
 
+        private async void OnProductSelected(Product product)
+        {
+            await Shell.Current.GoToAsync($"{ nameof(ProductDetailPage)}?{ nameof(ProductDetailPageViewModel.ProductId)}={ product.Id}");
+        }
 
         private async void RefreshProducts()
         {

@@ -40,11 +40,12 @@
                     <CarouselView ItemsSource="{Binding Products}">
                         <CarouselView.ItemTemplate >
                             <DataTemplate>
-                                <StackLayout Orientation="Vertical">
+                                <Grid>
+                                    
                                     <Image Source="{Binding ImgUrl}" WidthRequest="200" HeightRequest="200"/>
                                     <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="Center"/>
                                     <Label Text="{Binding Price, StringFormat='€ {0}'}" TextColor="Black" HorizontalOptions="Center"/>
-                                </StackLayout>
+                                </Grid>
                             </DataTemplate>
                         </CarouselView.ItemTemplate>
                     </CarouselView>
