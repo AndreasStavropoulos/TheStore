@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using TheStore.Models;
 using TheStore.Services;
 using TheStore.Views;
@@ -16,6 +19,7 @@ namespace TheStore.ViewModels
 
         private ObservableCollection<Shoes> shoes;
         private readonly IGenericRepo<Shoes> genericRepoShoes;
+        public ICommand PerformSearch => new Command<string>(OnSearch);
 
         public ObservableCollection<Shoes> Shoes
         {
@@ -61,6 +65,18 @@ namespace TheStore.ViewModels
             {
                 Debug.Write(e);
             }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        private async void OnSearch(string query)
+        {
+
+            List<Shoes> shoes = await genericRepoShoes.FindProductsByNameAsync(query);
+            Shoes = new ObservableCollection<Shoes>(shoes);
         }
     }
 }
