@@ -17,54 +17,19 @@ namespace TheStore.ViewModels
         public ICommand GoToJacketsCommand { get; }
         public ICommand GoToShoesCommand { get; }
 
-        private ObservableCollection<Jeans> jeans;
-        public ObservableCollection<Jeans> Jeans
+        private ObservableCollection<Product> products;
+
+        public ObservableCollection<Product> Products
         {
-            get { return jeans; }
-            set
-            {
-                jeans = value;
-                OnPropertyChanged(nameof(Jeans));
+            get { return products; }
+            set 
+            { 
+                products = value;
+                OnPropertyChanged(nameof(Products));
             }
         }
 
-        private ObservableCollection<TShirt> tShirts;
-        public ObservableCollection<TShirt> TShirts
-        {
-            get { return tShirts; }
-            set
-            {
-                tShirts = value;
-                OnPropertyChanged(nameof(TShirts));
-            }
-        }
-
-        private ObservableCollection<Jacket> jackets;
-        public ObservableCollection<Jacket> Jackets
-        {
-            get { return jackets; }
-            set
-            {
-                jackets = value;
-                OnPropertyChanged(nameof(Jackets));
-            }
-        }
-
-        private ObservableCollection<Shoes> shoes;
-        public ObservableCollection<Shoes> Shoes
-        {
-            get { return shoes; }
-            set
-            {
-                shoes = value;
-                OnPropertyChanged(nameof(Shoes));
-            }
-        }
-
-        private readonly IGenericRepo<Jeans> genericRepoJeans;
-        private readonly IGenericRepo<TShirt> genericRepoTShirt;
-        private readonly IGenericRepo<Jacket> genericRepoJacket;
-        private readonly IGenericRepo<Shoes> genericRepoShoes;
+        private readonly IGenericRepo<Product> genericRepoProduct;
 
         public HomePageViewModel()
         {
@@ -73,15 +38,10 @@ namespace TheStore.ViewModels
             GoToJacketsCommand = new Command(GoToJackets);
             GoToShoesCommand = new Command(GoToShoes);
 
-            genericRepoJeans = new GenericRepo<Jeans>();
-            genericRepoTShirt = new GenericRepo<TShirt>();
-            genericRepoJacket = new GenericRepo<Jacket>();
-            genericRepoShoes = new GenericRepo<Shoes>();
+            genericRepoProduct = new GenericRepo<Product>();
 
-            RefreshJeans();
-            RefreshTShirts();
-            RefreshJackets();
-            RefreshShoes();
+            RefreshProducts();
+
 
             UserRepo userRepo = new UserRepo();
 
@@ -115,51 +75,12 @@ namespace TheStore.ViewModels
         }
 
 
-        private async void RefreshJeans()
+        private async void RefreshProducts()
         {
             try
             {
-                List<Jeans> jeans = await genericRepoJeans.GetAllProductsAsync();
-                Jeans = new ObservableCollection<Jeans>(jeans);
-            }
-            catch (Exception e)
-            {
-                Debug.Write(e);
-            }
-        }
-
-        private async void RefreshTShirts()
-        {
-            try
-            {
-                List<TShirt> tShirts = await genericRepoTShirt.GetAllProductsAsync();
-                TShirts = new ObservableCollection<TShirt>(tShirts);
-            }
-            catch (Exception e)
-            {
-                Debug.Write(e);
-            }
-        }
-
-        private async void RefreshJackets()
-        {
-            try
-            {
-                List<Jacket> jackets = await genericRepoJacket.GetAllProductsAsync();
-                Jackets = new ObservableCollection<Jacket>(jackets);
-            }
-            catch (Exception e)
-            {
-                Debug.Write(e);
-            }
-        }
-
-        private async void RefreshShoes()
-        {
-            try
-            {
-                List<Shoes> shoes = await genericRepoShoes.GetAllProductsAsync();
-                Shoes = new ObservableCollection<Shoes>(shoes);
+                List<Product> products = await genericRepoProduct.GetAllProductsAsync();
+                Products = new ObservableCollection<Product>(products);
             }
             catch (Exception e)
             {

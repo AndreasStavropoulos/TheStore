@@ -33,19 +33,56 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-
                 <Image x:Name="Header" Source="TheStore.png" Aspect="AspectFit" HeightRequest="{OnPlatform iOS='*', Android=130, UWP=370}" />
 
+                <Label Text="Our Collection"/>
+                <Frame HeightRequest="350" WidthRequest="350">
+                    <CarouselView ItemsSource="{Binding Products}">
+                        <CarouselView.ItemTemplate >
+                            <DataTemplate>
+                                <StackLayout Orientation="Vertical">
+                                    <Image Source="{Binding ImgUrl}" WidthRequest="200" HeightRequest="200"/>
+                                    <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding Price, StringFormat='€ {0}'}" TextColor="Black" HorizontalOptions="Center"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                </Frame>
+
+                <Label Text="Categories"/>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <StackLayout Orientation="Vertical">
-                        <Button Text="Jeans" ImageSource="jeans.jpg" HorizontalOptions="Center" BackgroundColor="Transparent" Command="{Binding GoToJeansCommand}" />
-                        <Button Text="T-Shirts" ImageSource="tshirts.png" HorizontalOptions="Center" BackgroundColor="Transparent" Command="{Binding GoToTshirtsCommand}" />
+                        <Frame HeightRequest="180" WidthRequest="150" Margin="20,10,10,0">
+                            <StackLayout Margin="0">
+                                <ImageButton Source="jeans.jpg" Margin="0" HorizontalOptions="Center" Command="{Binding GoToJeansCommand}" WidthRequest="150"/>
+                                <Label Text="Jeans" HorizontalOptions="Center" Margin="0" />
+                            </StackLayout>
+                        </Frame>
+                        <Frame HeightRequest="180" WidthRequest="150" Margin="20,10,10,0">
+                            <StackLayout Margin="0">
+                                <ImageButton Source="tshirts.png" Margin="0" HorizontalOptions="Center" Command="{Binding GoToTshirtsCommand}" WidthRequest="150"/>
+                                <Label Text="T-Shirts" HorizontalOptions="Center" Margin="0" />
+                            </StackLayout>
+                        </Frame>
                     </StackLayout>
                     <StackLayout Orientation="Vertical">
-                        <Button Text="Jackets" ImageSource="jackets.jpg" BackgroundColor="Transparent" Command="{Binding GoToJacketsCommand}" />
-                        <Button Text="Shoes" ImageSource="shoes.jpg" BackgroundColor="Transparent" Command="{Binding GoToShoesCommand}" />
+                        <Frame HeightRequest="180" WidthRequest="150" Margin="0,10,20,0">
+                            <StackLayout Margin="0">
+                                <ImageButton Source="jackets.jpg" Margin="0" HorizontalOptions="Center" Command="{Binding GoToJacketsCommand}" WidthRequest="150"/>
+                                <Label Text="Jackets" HorizontalOptions="Center" Margin="0" />
+                            </StackLayout>
+                        </Frame>
+                        <Frame HeightRequest="180" WidthRequest="150" Margin="0,10,20,0">
+                            <StackLayout Margin="0">
+                                <ImageButton Source="shoes.png" Margin="0" HorizontalOptions="Center" Command="{Binding GoToShoesCommand}" WidthRequest="150"/>
+                                <Label Text="Shoes" HorizontalOptions="Center" Margin="0" />
+                            </StackLayout>
+                        </Frame>
                     </StackLayout>
                 </StackLayout>
+                
+                
 
                 <Label Text="TheStore - 2021" FontSize="12" FontAttributes="None" HorizontalOptions="Center" />
             </StackLayout>

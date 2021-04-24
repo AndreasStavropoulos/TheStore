@@ -23,7 +23,6 @@
             <Grid RowSpacing="20" Grid.Row="1" Margin="20,0,20,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="Auto"/>
