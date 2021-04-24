@@ -32,7 +32,10 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <SearchBar Placeholder="Search shoes"  />
+                <SearchBar Placeholder="Search shoes" 
+                           x:Name="searchBar" 
+                           SearchCommand="{Binding PerformSearch}"
+                           SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
                 
                 <StackLayout Margin="20">
                     <CollectionView x:Name="ShoesListView"
