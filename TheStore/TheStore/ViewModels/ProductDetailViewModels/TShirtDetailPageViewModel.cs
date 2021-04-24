@@ -45,9 +45,10 @@ namespace TheStore.ViewModels
             AddToCartCommand = new Command(AddTShirtToCart);
         }
 
-        public void AddTShirtToCart()
+        public async void AddTShirtToCart()
         {
             Cart.AddProduct(SelectedTShirt);
+            await Shell.Current.GoToAsync("..");
         }
 
         public void SubtractTShirtFromCart()
