@@ -26,6 +26,7 @@ namespace TheStore
             Routing.RegisterRoute(nameof(ShoesDetailPage), typeof(ShoesDetailPage));
             Routing.RegisterRoute(nameof(TShirtDetailPage), typeof(TShirtDetailPage));
             //Routing.RegisterRoute(nameof(ShoesDetailPageViewModel), typeof(ShoesDetailPageViewModel));
+            Routing.RegisterRoute(nameof(ProductDetailPage), typeof(ProductDetailPage));
         }
     }
 }

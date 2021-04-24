@@ -40,11 +40,23 @@
                     <CarouselView ItemsSource="{Binding Products}">
                         <CarouselView.ItemTemplate >
                             <DataTemplate>
-                                <StackLayout Orientation="Vertical">
-                                    <Image Source="{Binding ImgUrl}" WidthRequest="200" HeightRequest="200"/>
-                                    <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="Center"/>
-                                    <Label Text="{Binding Price, StringFormat='€ {0}'}" TextColor="Black" HorizontalOptions="Center"/>
-                                </StackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*" />
+                                        <RowDefinition Height="0.8*" />
+                                        <RowDefinition Height="0.8*" />
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding ImgUrl}" Grid.Row="0" WidthRequest="200" HeightRequest="200"/>
+                                    <Label Text="{Binding Name}" Grid.Row="1" TextColor="Black" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding Price, StringFormat='€ {0}'}" Grid.Row="2" TextColor="Black" HorizontalOptions="Center"/>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                    NumberOfTapsRequired="1"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:HomePageViewModel}},
+                                              Path=ItemTappedCommand}"
+                                    CommandParameter="{Binding .}" />
+                                    </Grid.GestureRecognizers>
+                                </Grid>
                             </DataTemplate>
                         </CarouselView.ItemTemplate>
                     </CarouselView>
