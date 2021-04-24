@@ -11,13 +11,11 @@ namespace TheStore
         public App()
         {
             InitializeComponent();
-           
             DummyData dummyData = new DummyData();
             dummyData.FillDb();
 
-           
-
-            MainPage = new AppShell();
+            //MainPage = new AppShell();
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()

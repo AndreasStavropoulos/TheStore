@@ -53,7 +53,8 @@ namespace TheStore.ViewModels
                 if (user.Password == Password)
                 {                   
                     CurrentUser.ActiveUser = user;
-                    await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+                    Application.Current.MainPage = new AppShell();
+                    //await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
 
                     var a = userRepo.GetUserByIdAsync(CurrentUser.ActiveUser.Id);
                     return;
@@ -63,7 +64,8 @@ namespace TheStore.ViewModels
             await App.Current.MainPage.DisplayAlert("Welcome to The Store", "Wrong email or password, please try again", "Ok");
             EMail = string.Empty;
             Password = string.Empty;
-            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+            Application.Current.MainPage = new LoginPage();
+            //await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
     }
 }

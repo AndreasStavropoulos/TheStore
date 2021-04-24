@@ -91,9 +91,11 @@ namespace TheStore.ViewModels
             await Shell.Current.GoToAsync(nameof(CartPage));
         }
 
-        private async void GoToHome()
+        private void GoToHome()
         {
-            await Shell.Current.GoToAsync(nameof(HomePage));
+            Application.Current.MainPage = new AppShell();
+
+            //await Shell.Current.GoToAsync(nameof(HomePage));
         }
     }
 }
