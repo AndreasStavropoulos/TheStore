@@ -8,6 +8,7 @@ namespace TheStore.Services
 {
     public class CartItemRepo
     {
+
         public async Task SaveCartItemAsync(CartItem cartItem)
         {
             using (var dbContext = new TheStoreContext())
@@ -43,7 +44,7 @@ namespace TheStore.Services
             }
         }
 
-        public async Task<List<CartItem>> GetCartItemsOfActiveUserAsync(User user)
+        public async Task<List<CartItem>> GetCartItemsForUserAsync(User user)
         {
             using (var dbContext = new TheStoreContext())
             {
@@ -59,5 +60,31 @@ namespace TheStore.Services
 
             cartItem.Quantity++;
         }
+
+        public async Task SaveCartItemsToDb(List<CartItem> cartItems)
+        {
+            using (var dbContext = new TheStoreContext())
+            {
+               
+                await dbContext.CartItems.AddRangeAsync(cartItems);           
+               
+                await dbContext.SaveChangesAsync();
+            }
+        }
+
+        public async Task DeleteCartItemAsync()
+        {
+            using (var dbContext = new TheStoreContext())
+            {
+                List<CartItem> cartItems =  await GetAllCartItemsAsync();
+
+                foreach (var item in cartItems)
+                {
+                    dbContext.CartItems.Remove(item);
+                }
+                await dbContext.SaveChangesAsync();
+            }
+        }            
+
     }
 }

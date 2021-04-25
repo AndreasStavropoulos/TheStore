@@ -44,11 +44,11 @@ namespace TheStore.ViewModels
         {
             userRepo = new UserRepo();
             LoginCommand = new Command(Login);
-            _ = GetUsersAsync();
+            _ = FillDbIfEmpty();
             
         }
 
-        private async Task GetUsersAsync()
+        private async Task FillDbIfEmpty()
         {
             List<User> users = await userRepo.GetAllUsersAsync();
             if (users.Count == 0)
@@ -67,9 +67,11 @@ namespace TheStore.ViewModels
                 if (user.Password == Password)
                 {                   
                     CurrentUser.ActiveUser = user;
-                    Application.Current.MainPage = new AppShell();                    
+                    Application.Current.MainPage = new AppShell();
 
-                    var a = userRepo.GetUserByIdAsync(CurrentUser.ActiveUser.Id);
+                    _ = Cart.LoadCartAsync(user);
+                    Cart.ActiveUser = user;
+                    //var a = userRepo.GetUserByIdAsync(CurrentUser.ActiveUser.Id);
                     return;
                 }
             }

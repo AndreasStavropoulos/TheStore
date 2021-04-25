@@ -10,7 +10,9 @@ namespace TheStore.Models
     public class Cart : ObservableObject
     {
         private readonly IGenericRepo<Product> productsRepo;
-        
+        private readonly CartItemRepo cartItemRepo;
+        public User ActiveUser = null;
+
         private ObservableCollection<CartItem> cartItems;
 
         public ObservableCollection<CartItem> CartItems
@@ -39,6 +41,7 @@ namespace TheStore.Models
         {            
             productsRepo = new GenericRepo<Product>();
             CartItems = new ObservableCollection<CartItem>();
+            cartItemRepo = new CartItemRepo();
         }
         private static Cart Instance;
 
@@ -58,20 +61,25 @@ namespace TheStore.Models
             if (cartItem == null)
             {
                 CartItem newCartItem = new CartItem
-                {
-                    Quantity = 1,
-                    Product = product
+                {                    
+                    Quantity = 1,                    
+                    Product = product,
+                    User = ActiveUser,
+                    //ProductId = product.Id,
+                    //UserId = ActiveUser.Id
                 };
-                newCartItem.TotalPrice += newCartItem.Product.Price;
-                CartItems.Add(newCartItem);
+                cartItem = newCartItem;
+                //cartItem.TotalPrice += cartItem.Product.Price;
+                CartItems.Add(cartItem);
+                cartItemRepo.SaveCartItemAsync(cartItem);
             }
             else
             {
                 cartItem.TotalPrice += cartItem.Product.Price;
                 cartItem.Quantity++;
             }
-            RefreshTotalAmount();
-        }
+            RefreshTotalAmount();            
+        }        
 
         public void AddProduct(CartItem cartItem)
         {
@@ -116,6 +124,18 @@ namespace TheStore.Models
             {
                 TotalAmount += cartItem.TotalPrice;
             }
+        }
+        public async Task LoadCartAsync(User user)
+        {
+            List<CartItem> listCartItems = await cartItemRepo.GetCartItemsForUserAsync(user);
+            CartItems = new ObservableCollection<CartItem>(listCartItems);
+        }
+
+        public async Task SaveCartAsync()
+        {
+            //await cartItemRepo.DeleteCartItemAsync();
+            //List<CartItem> cart = CartItems.ToList();
+            await cartItemRepo.SaveCartItemsToDb(CartItems.ToList());
         }
     }
 }

@@ -80,6 +80,7 @@
         <StackLayout HorizontalOptions="Center">
             
             <Label Text="{Binding Cart.TotalAmount, StringFormat='Total: €{0}'}" HorizontalOptions="Center"/>
+            <Button Text="Save Cart" BackgroundColor="#3897f0" Command="{Binding SaveCartToDbCommand}"/>
             <Button Text="Place order" BackgroundColor="#3897f0"/>
         </StackLayout>
     </StackLayout>
