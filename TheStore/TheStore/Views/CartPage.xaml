@@ -44,19 +44,20 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <StackLayout Grid.Column="0">
+                        <StackLayout Grid.Column="0" Orientation="Vertical">
+                            <Image Source="{Binding Product.ImgUrl}" HeightRequest="80" WidthRequest="80"/>
                             <Label
+                               HorizontalOptions="Center" 
                                Text="{Binding Product.Name}"
-                               FontSize="Large" />
-                            <Label
-                               Text="{Binding Product.Description}"
                                FontAttributes="Bold"
                                TextColor="DeepSkyBlue"
-                               FontSize="10" />
+                               FontSize="Large" 
+                               Margin="-10"/>
                         </StackLayout>
-                        <StackLayout Grid.Column="1">
+                        <StackLayout Grid.Column="1" Margin="-20,10">
                             <StackLayout Orientation="Horizontal"
-                                         HorizontalOptions="Center">
+                                         HorizontalOptions="Center"
+                                         >
                                 <Label Text="{Binding Product.Price,StringFormat='€{0}'}"/>
                                 <Label Text="{Binding Quantity, StringFormat='Qty. {0}'}"/>
                             </StackLayout>
@@ -73,6 +74,9 @@
                                         CommandParameter="{Binding .}" />
                             </StackLayout>
                         </StackLayout>
+                        
+                        
+
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
