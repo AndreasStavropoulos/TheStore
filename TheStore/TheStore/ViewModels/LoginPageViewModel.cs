@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using TheStore.Models;
 using TheStore.Services;
@@ -42,6 +44,18 @@ namespace TheStore.ViewModels
         {
             userRepo = new UserRepo();
             LoginCommand = new Command(Login);
+            _ = GetUsersAsync();
+            
+        }
+
+        private async Task GetUsersAsync()
+        {
+            List<User> users = await userRepo.GetAllUsersAsync();
+            if (users.Count == 0)
+            {
+                DummyData dummyData = new DummyData();
+                dummyData.FillDb();
+            }
         }
 
         public async void Login()
@@ -53,8 +67,7 @@ namespace TheStore.ViewModels
                 if (user.Password == Password)
                 {                   
                     CurrentUser.ActiveUser = user;
-                    Application.Current.MainPage = new AppShell();
-                    //await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+                    Application.Current.MainPage = new AppShell();                    
 
                     var a = userRepo.GetUserByIdAsync(CurrentUser.ActiveUser.Id);
                     return;
@@ -65,7 +78,7 @@ namespace TheStore.ViewModels
             EMail = string.Empty;
             Password = string.Empty;
             Application.Current.MainPage = new LoginPage();
-            //await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+            
         }
     }
 }

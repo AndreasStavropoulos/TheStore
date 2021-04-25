@@ -11,5 +11,6 @@ namespace TheStore.Services
         Task SaveUserAsync(User user);
         Task<User> FindUserByEMail(string email);
         User GetUserByIdAsync(int id);
+        Task<List<User>> GetAllUsersAsync();
     }
 }
