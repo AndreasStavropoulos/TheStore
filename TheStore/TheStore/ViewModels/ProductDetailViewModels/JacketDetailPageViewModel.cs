@@ -47,6 +47,7 @@ namespace TheStore.ViewModels
         public async void  AddJacketToCart()
         {
             Cart.AddProduct(SelectedJacket);
+            await App.Current.MainPage.DisplayAlert("Shopping Cart", "You added a Jacket to your shopping cart. Continue Shopping", "Ok");
             await Shell.Current.GoToAsync("..");
         }
 
