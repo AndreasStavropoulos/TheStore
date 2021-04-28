@@ -47,7 +47,7 @@ namespace TheStore.ViewModels
 
         public async void AddJeansToCart()
         {
-            Cart.AddProduct(SelectedJeans);
+            Cart.AddProductAsync(SelectedJeans);
             await Shell.Current.GoToAsync("..");
         }
 

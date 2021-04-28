@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using TheStore.Models;
 using Xamarin.Essentials;
+using TheStore.Services;
 
 namespace TheStore
 {
@@ -14,6 +15,7 @@ namespace TheStore
         public DbSet<Jeans> Jeans { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         public TheStoreContext()
         {
@@ -22,14 +24,16 @@ namespace TheStore
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "ShopDbShit3.sqlite");
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "ShopDbShit9.sqlite");
             optionsBuilder.UseSqlite($"FileName = {dbPath}");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            
             //todo replace by seed (.hasdata)
             //modelBuilder.Entity<User>().HasData(GetUsers());
+
         }
         
     }

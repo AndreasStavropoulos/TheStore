@@ -11,7 +11,6 @@ namespace TheStore.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
-
-        public ObservableCollection<CartItem> CartItems { get; set; } = new ObservableCollection<CartItem>();
+        public List<CartItem> CartItems { get; set; }
     }
 }

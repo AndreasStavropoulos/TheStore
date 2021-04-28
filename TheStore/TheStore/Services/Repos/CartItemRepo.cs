@@ -65,7 +65,11 @@ namespace TheStore.Services
         {
             using (var dbContext = new TheStoreContext())
             {
-               
+                //foreach (var cartItem in cartItems)
+                //{
+                //    await dbContext.CartItems.AddAsync(cartItem);
+                //    await dbContext.SaveChangesAsync();
+                //}
                 await dbContext.CartItems.AddRangeAsync(cartItems);           
                
                 await dbContext.SaveChangesAsync();

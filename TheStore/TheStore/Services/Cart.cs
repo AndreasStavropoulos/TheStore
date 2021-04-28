@@ -7,6 +7,8 @@ using System.Collections.Generic;
 
 namespace TheStore.Models
 {
+    //todo methods in cartViewModel
+
     public class Cart : ObservableObject
     {
         private readonly IGenericRepo<Product> productsRepo;
@@ -54,24 +56,25 @@ namespace TheStore.Models
             return Instance;
         }
 
-        public void AddProduct(Product product)
+        //todo methods in cartViewModel
+        public async Task AddProductAsync(Product product)
         {
             var cartItem = CartItems.FirstOrDefault(x => x.Product.Id == product.Id);
 
             if (cartItem == null)
             {
                 CartItem newCartItem = new CartItem
-                {                    
+                {                   
                     Quantity = 1,                    
                     Product = product,
                     User = ActiveUser,
-                    //ProductId = product.Id,
-                    //UserId = ActiveUser.Id
+                    ProductId = product.Id,
+                    UserId = ActiveUser.Id
                 };
                 cartItem = newCartItem;
-                //cartItem.TotalPrice += cartItem.Product.Price;
+                cartItem.TotalPrice += cartItem.Product.Price;
                 CartItems.Add(cartItem);
-                cartItemRepo.SaveCartItemAsync(cartItem);
+                //await cartItemRepo.SaveCartItemAsync(cartItem);
             }
             else
             {

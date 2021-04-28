@@ -54,11 +54,11 @@ namespace TheStore.Services
                 await userRepo.SaveUserAsync(user);
             }
 
-            ObservableCollection<CartItem> cartItems = GetCartItems();
-            foreach (var cartitem in cartItems)
-            {
-                await cartItemRepo.SaveCartItemAsync(cartitem);
-            }
+            //ObservableCollection<CartItem> cartItems = GetCartItems();
+            //foreach (var cartitem in cartItems)
+            //{
+            //    await cartItemRepo.SaveCartItemAsync(cartitem);
+            //}
         }
 
         private List<User> GetUsers()

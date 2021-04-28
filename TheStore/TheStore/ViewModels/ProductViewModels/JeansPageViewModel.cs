@@ -41,7 +41,7 @@ namespace TheStore.ViewModels
 
         private void AddSelectedJeansToCart(Jeans jeans)
         {
-            Cart.AddProduct(jeans);
+            Cart.AddProductAsync(jeans);
         }
         private void SubtractSelectedJeansFromCart(Jeans jeans)
         {
